@@ -1,0 +1,52 @@
+
+#header{
+    position: fixed;
+    top: 0;
+    width:60%;
+    height: 80px;
+    padding: 10px 100px 0px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    .logo{
+      color:rgb(0, 0, 0);
+      font-weight: 700;
+      text-decoration: none;
+      font-size:2em;
+      text-transform: uppercase;
+      background: none;
+    }
+    ul{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      li{
+        list-style: none;
+        margin-left: 20px;
+        background: none;
+        a{
+            color:rgb(27, 138, 179);
+            background: none;
+            height:50px;
+            line-height: 50px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 0 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            &:hover{
+                color:aliceblue;
+                border-radius: 20px;
+                opacity: 20;
+                background-color: #F5A02A;
+            }
+          }
+          a.router-link-exact-active{
+              color: #e73727;
+          }
+        }
+      }
+  }
