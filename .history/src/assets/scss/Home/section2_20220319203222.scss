@@ -1,0 +1,23 @@
+.home{
+    .sec2{
+        height:30vh;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        .decoration1{
+            height:7vh;
+            width: 25vh;
+            background-color: #AF3314;
+            // overflow: visible;
+            p{  
+                font-size: 4.5vmin;
+                font-weight: bolder;
+                color:aliceblue;
+                position: relative;
+                bo
+                z-index: 2;
+            }
+        }
+        
+    }
+}
