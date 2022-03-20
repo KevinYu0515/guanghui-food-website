@@ -6,10 +6,9 @@ header{
     height:80px;
     padding:10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background: rgba(238,119,72,0);
-    box-shadow: none;
     z-index: 10;
     transition: .7s;
 
@@ -29,11 +28,10 @@ header{
         background: none;
         li{
           list-style: none;
-          margin-left: 20px;
+          margin-right: 20px;
           background: none;
           a{
-              color:#a45130;
-              background: rgba(238,119,72,0.2);
+              color:#F7E3B1;
               border-radius: 20px;
               height:50px;
               line-height: 50px;
@@ -58,11 +56,11 @@ header{
   }
 
 .scrolled-nav{
-  background: rgba(238,119,72,1);
+  background: #9E261B;
   box-shadow: 0 4px 10px -1px rgba(0,0,0,0.05), 0 2px 10px -1px rgba(0,0,0,0.06);
-  height: 60px;
+  height: 50px;
   .logo{
-    color:rgb(251, 227, 41);
+    color:#F7E3B1;
   }
   ul li a:hover{
     background-color: #f70a0a;

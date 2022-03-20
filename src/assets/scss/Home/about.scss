@@ -22,15 +22,21 @@
                 bottom: 25px;
             }
         }
-        .content{
-            height:25vh;
-            width: 70%;
-            margin:80px 10px 50px 120px;
-            border-width:3px;
-            border-style:dashed;
-            border-color:#ffffff;
-            border-width: 3px;
-        }
-        
+    }
+
+    .about-enter-active{
+        transition: .8s ease all;
+    }
+    // .about-leave-active{
+    //     transition: .2s ease all;
+    // }
+
+    .about-enter-from,
+    .about-leave-to{
+        transform: translateX(-500px);
+    }
+
+    .about-enter-to{
+        transform: translateX(0px);
     }
 }

@@ -3,9 +3,9 @@
   <header :class="{'scrolled-nav': scrollNav}">
       <router-link to="/" class="logo">光慧水煎包(梧棲店)</router-link>
         <ul>
-            <li><router-link to="/home">主頁</router-link> </li>
-            <li><router-link to="/about">關於</router-link> </li>
+            <li><router-link to="/home">首頁</router-link> </li>
             <li><router-link to="/picture">相簿</router-link> </li>
+            <li><router-link to="/picture">評價</router-link> </li>
             <li><router-link to="/contact">聯絡我們</router-link> </li>
         </ul>
   </header>
