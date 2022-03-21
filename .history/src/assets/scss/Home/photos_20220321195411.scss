@@ -1,0 +1,14 @@
+@import "@/assets/scss/Home/home.scss";
+
+#photos{
+    height:60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    // .swipper-wrapper{
+    //     display: flex;
+    //     justify-content: space-around;
+    //     align-items: center;
+    // }
+}
