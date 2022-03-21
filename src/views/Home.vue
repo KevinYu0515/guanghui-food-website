@@ -2,30 +2,38 @@
   <div class='home'>
     <!-- <Navbar></Navbar> -->
     <section id="time">
+      <p class="store-name">光慧水煎包</p>
+      <p class="store-subname">(梧棲店)</p>
       <div class="timetable">
-          <p>營業時間</p>
+          <p class="timetable-subtitle">營業時間</p>
           <ul>
-            <li>週一 &nbsp;0600~0900 &nbsp;1500~1700</li>
-            <li>週二 &nbsp;0600~0900 &nbsp;1500~1700</li>
-            <li>週三 &nbsp;0600~0900 &nbsp;1500~1700</li>
-            <li>週四 &nbsp;0600~0900 &nbsp;1500~1700</li>
-            <li>週五 &nbsp;0600~0900 &nbsp;1500~1700</li>
-            <li>週六 &nbsp;0600~0900 </li>
-            <li>週日 公休</li>
+            <li>週一 &nbsp;&nbsp;<p>0600~0900 &nbsp;1500~1700</p></li>
+            <li>週二 &nbsp;&nbsp;<p>0600~0900 &nbsp;1500~1700</p></li>
+            <li>週三 &nbsp;&nbsp;<p>0600~0900 &nbsp;1500~1700</p></li>
+            <li>週四 &nbsp;&nbsp;<p>0600~0900 &nbsp;1500~1700</p></li>
+            <li>週五 &nbsp;&nbsp;<p>0600~0900 &nbsp;1500~1700</p></li>
+            <li>週六 &nbsp;&nbsp;<p>0600~0900</p></li>
+            <li>週日 &nbsp; 公休</li>
           </ul>
       </div>
-      <img :src="require('@/assets/logo.jpg')">
     </section>
     <transition name="about">
       <section v-show="mobileNews" id="about">
         <i class="decoration1">
-          <h>最新公告</h>
+          <h1>最新公告</h1>
         </i>
       </section>
     </transition>
     <section id="merchandise">
-      <div class="content-title">
+      <div class="content-titlewrapper">
+        <i class="decoration"></i>
+        <p class="content-title">水煎包</p>
+        <i class="decoration"></i>
       </div>
+      <p class="content-description">
+        主要賣三種水煎包，內餡分別為高麗菜、筍子、冬粉，每個售價15元<br>
+        飲料有 紅茶、奶茶 另售10元
+      </p>
         <!-- <div class="card" v-for="(item,index) in goods" :key="index">
           <img :src="item.imgpath">
           <div class="info">
@@ -58,24 +66,11 @@
         </div>
       </section>
       <section id="photos">
-        <i class="decoration2"></i>
-        <div class="swipper-wrapper">
-          <div class="swiper-side">
-            <img :src="require('@/assets/picture/004.jpg')">
-          </div>
-          <div class="swiper-side">
-            <img :src="require('@/assets/picture/005.jpg')">
-          </div>
-          <div class="swiper-side">
-            <img :src="require('@/assets/picture/001.jpg')">
-          </div>
-          <div class="swiper-side">
-            <img :src="require('@/assets/picture/002.jpg')">
-          </div>
-          <div class="swiper-side">
-            <img :src="require('@/assets/picture/003.jpg')">
-          </div>
-        </div>
+        <div class="content-titlewrapper">
+        <i class="decoration"></i>
+        <p class="content-title">相關照片</p>
+        <i class="decoration"></i>
+      </div>
     </section>
   </div>
 </template>

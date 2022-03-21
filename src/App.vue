@@ -19,9 +19,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@800&family=Quicksand&family=Ubuntu&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@800&family=Quicksand&family=Ubuntu&display=swap');
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 * {
-  font-family: 'Assistant', Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans TC", 'Secular One', Arial, sans-serif;
   justify-content: center;
   align-items: center;
   margin:0;
