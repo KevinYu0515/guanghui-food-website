@@ -7,25 +7,20 @@ const routes = [
     component: Home
   },
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: Home
-  // },
-  // {
-  //   path: '/picture',
-  //   name: 'Picture',
-  //   component: Home
-  // },
-  // {
-  //   path: '/contact',
-  //   name: 'Contact',
-  //   component: Home
-  // }
+  {
+    path: '/',
+    name: 'Photos',
+    component: Home
+  },
+  {
+    path: '/',
+    name: 'Comment',
+    component: Home
+  },
 ]
 
 const router = createRouter({
@@ -35,12 +30,19 @@ const router = createRouter({
     if(savedPosition){
       return savedPosition;
     }else if(to.hash){
-        return {
-            el: to.hash,
+      if(to.hash=="/#contact"){
+          return {
+            bottom:0,
             behavior: 'smooth',
-        }
+          } 
+      }else{
+        return {
+          el: to.hash,
+          behavior: 'smooth',
+          }
+      }
     }
-}
+  }
 })
 
 export default router

@@ -2,10 +2,10 @@
 
   <header :class="{'scrolled-nav': scrollNav}">
         <ul>
-            <li><router-link to="/#time">首頁</router-link> </li>
-            <li><router-link to="/#photos">相簿</router-link> </li>
-            <li><router-link to="/#comment">評價</router-link> </li>
-            <li><router-link to="/#time">聯絡我們</router-link> </li>
+            <li><router-link :to="{name:'Home', hash:'#time'}">首頁</router-link> </li>
+            <li><router-link :to="{name:'Photos', hash:'#photos'}">相簿</router-link> </li>
+            <li><router-link :to="{name:'Comment', hash:'#comment'}">評價</router-link> </li>
+            <li><router-link to="/#contact">聯絡我們</router-link> </li>
         </ul>
   </header>
 
