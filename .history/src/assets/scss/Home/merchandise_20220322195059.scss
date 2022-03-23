@@ -1,0 +1,80 @@
+@import "@/assets/scss/Home/home.scss";
+
+.home{
+    #merchandise{
+        height: 55vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 50px;
+
+        .cardwrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .card{
+                min-width: 30%;
+                min-height: auto;
+                padding: 2rem 1rem;
+                background: #F5A02A;
+                position: relative;
+                display: flex;
+                align-items: center;
+                box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+                transform: 0.5s ease-in-out;
+                margin: auto 50px;
+                &:hover{
+                    transform: translateY(20px);
+                }
+                &::before{
+                    content:"";
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    display: block;
+                    width:100%;
+                    height:100%;
+                    background: linear-gradient(to bottom, rgba(0,176,155,.5), rgba(150,201,61,1));
+                    z-index: 2;
+                    transition: .5s all;
+                    opacity: 0;
+                }
+                &:hover::before{
+                    opacity:1;
+                }
+    
+                img{
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                    position: absolute;
+                    top:0;
+                    left:0;
+                }
+                .info{
+                    position: relative;
+                    z-index:3;
+                    color:aliceblue;
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: .5s all;
+                    h1{
+                        margin: 0;
+                    }
+                    p{
+                        letter-spacing: 1px;
+                        font-size: 15px;
+                        margin-top: 8px;
+                        margin-bottom: 20px;
+                    }
+                }
+                &:hover .info{
+                    opacity: 1;
+                    transform: translateY(0px);
+                }
+            }
+        }
+    }
+}

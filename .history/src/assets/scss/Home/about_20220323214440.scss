@@ -1,0 +1,39 @@
+@import "@/assets/scss/Home/home.scss";
+
+    #about{
+        position: relative;
+        height:44vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        margin-bottom: 100px;
+        background-color: #AF3314;
+            h1{
+                font-size: 5vmin;
+                color: antiquewhite;
+            }
+            p{
+                font-size: 4vmin;
+                margin-top: 20px;
+                color: antiquewhite;
+            }
+        }
+
+    .about-enter-active{
+        transition: 1.5s ease all;
+    }
+    // .about-leave-active{
+    //     transition: .2s ease all;
+    // }
+
+    .about-enter-from,
+    .about-leave-to{
+        transform: translateX(-2000px);
+    }
+
+    .about-enter-to{
+        transform: translateX(0px);
+    }
+}
