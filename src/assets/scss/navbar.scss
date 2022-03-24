@@ -42,9 +42,7 @@ header{
               padding: 0 15px;
               letter-spacing: 1px;
               cursor: pointer;
-              @media screen and (max-width:800px) {
-                font-size: 1.1rem;
-            }
+
               &:hover{
                   color:aliceblue;
                   background-color: #ee7748;
@@ -56,6 +54,57 @@ header{
           }
         }
       } 
+      .navbar_icon{
+        display: flex;
+        position: absolute;
+        top:7px;
+        right:24px;
+        height:75%;
+        
+        i{
+            cursor:pointer;
+            font-size: 31.35px;
+            transition: 0.8s ease all;
+        }
+      }
+
+      .icon-active{
+          transform: rotate(180deg);
+      }
+
+   
+
+    .dropdown-nav{
+        display:flex;
+        flex-direction:column;
+        position: fixed;
+        height: 100%;
+        width:100%;
+        max-width: 150px;
+        background: #fff;
+        top:0;
+        left:0;
+
+        li{
+            margin-left: 0;
+            .link{
+                color:black;
+            }   
+        }
+      }
+      .mobile-nav-enter-active,
+      .mobile-nav-leave-active{
+          transition: 1s ease all;
+      }
+
+      .mobile-nav-enter-from,
+      .mobile-nav-leave-to{
+          transform: translateX(-400px);
+      }
+
+      .mobile-nav-enter-to{
+          transform: translateX(0px);
+      }
   }
 
 .scrolled-nav{
