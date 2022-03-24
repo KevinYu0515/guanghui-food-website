@@ -16,16 +16,11 @@ export default {
   name: 'Navbar',
   data(){
     return{
-      // mobile: null,
       mobileNav: null,
-      // windowWidth: null,
-      scrollNav : null,
+      scrollNav: null,
       };
   },
-  // created(){
-  //       window.addEventListener('resize', this.checkScreen);
-  //       this.checkScreen();
-  //   },
+
   mounted(){
     window.addEventListener('scroll',this.updateScroll);
   },
@@ -38,16 +33,6 @@ export default {
       }
       this.scrollNav = false;
     },
-    // checkScreen(){
-    //         this.windowWidth = window.innerWidth;
-    //         if(this.windowWidth <= 850){
-    //             this.mobile = true;
-    //             return
-    //         }
-    //         this.mobile = false;
-    //         this.mobileNav = false;
-    //         return;
-    //     },
   }
 };
 </script>

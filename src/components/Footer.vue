@@ -9,9 +9,9 @@
       </div>
       <div class="contact-box">
         <div class="decoration4"></div>
-        <h1>聯絡我們</h1>
-        <p>電話：0952404078</p>
-        <p style="margin-bottom: 20px;">地址：臺中市梧棲區民和路一段37號</p>
+        <h1>{{title}}</h1>
+        <p>{{phone}}</p>
+        <p style="margin-bottom: 20px;">{{place}}</p>
         <!-- <a src=" -->
         <i class="fi fi-brands-facebook"></i>
         <a href="https://www.google.com.tw/maps/place/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85%EF%BC%88%E6%A2%A7%E6%A3%B2%E5%BA%97%EF%BC%89/@24.2467507,120.5456227,17z/data=!3m1!4b1!4m5!3m4!1s0x346915859dc0b4dd:0x37ba3c60d4fc0ca8!8m2!3d24.2467287!4d120.5478919?hl=zh-TW&authuser=0">
@@ -31,17 +31,14 @@
 <script>
 export default {
  name:'Footer',
- data:()=>({
-   textItem:[{
-     content: "電話：0952404078"
-   },
-   {
-     content: "地址：臺中市梧棲區民和路一段37號"
-   },
-   {
-     content: "Facebook"
-   }]
- })
+ data(){
+   return{
+     title:"聯絡我們",
+     phone:"電話：0952404078",
+     place:"地址：臺中市梧棲區民和路一段37號",
+   }
+ }
+ 
 }
 </script>
 
