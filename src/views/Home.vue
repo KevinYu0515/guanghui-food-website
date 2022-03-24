@@ -33,13 +33,13 @@
 
 <script>
 import Merchandise from "./Merchandise.vue";
-import Photos from "./Photos.vue";
+import Photos from "./Photos_test.vue"
 import Comment from "./Comment.vue";
 
 export default {
   name: 'Home',
   components:{
-    Merchandise,Photos,Comment
+    Merchandise,Comment,Photos
   },
   data(){
     return{
