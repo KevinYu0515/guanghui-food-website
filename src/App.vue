@@ -29,6 +29,6 @@ export default {
   margin:0;
 }
 .app{
-  background-color: #F5A02A;
+  background-color: #FDF2D8;
 }
 </style>

@@ -6,7 +6,7 @@
           <i class="decoration"></i>
         </div>
       <!-- <i class="btn">更多照片</i> -->
-          <div class="wrapper">
+          <div class="wrapper" v-show="!mobile">
               <div class="gallery">
                   <div class="image" v-for="(img, index) in images" :key="index">
                     <span><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
@@ -25,20 +25,67 @@
             </div>
         </div>
         <div class="shadow"></div>
+
+        <Swiper
+            :slides-per-view="1"
+            :space-between="50"
+            :modules="modules"
+            navigation
+            :pagination="{ clickable: true, dynamicBullets:true }"
+            grab-cursor
+            virtual
+        >
+            <swiper-slide v-for="(img, index) in images" :key="index" :virtualIndex="index">
+                <img :src="require(`@/assets/picture/${img}.jpg`)"/>
+            </swiper-slide>
+        </Swiper>
+
     </section>
 </template>
 
+
 <script>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation, Pagination,  Virtual } from 'swiper'
+import 'swiper/swiper-bundle.css'
 
 export default {
+    components: {
+        Swiper,
+        SwiperSlide,
+    },
+    setup() {
+        return {
+            modules: [Navigation, Pagination, Virtual],
+        };
+    },
+
     data(){
         return{
+            mobile:null,
             images:["001","002","003","004","005","006","007"],
         }
+    },
+
+    created(){
+      window.addEventListener('resize', this.checkScreen);
+      this.checkScreen();
+    },
+    methods:{
+        checkScreen(){
+            this.windowWidth = window.innerWidth;
+            if(this.windowWidth <= 850){
+                this.mobile = true;
+                return
+                }
+            this.mobile = false;
+            return;
+        },
     }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/Home/gallery.scss";
+@import "@/assets/scss/Home/swiper.scss";
 </style>

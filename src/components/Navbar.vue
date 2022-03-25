@@ -2,22 +2,13 @@
 
   <header :class="{'scrolled-nav': scrollNav}">
         <ul v-show="!mobile">
-            <li><router-link :to="{name:'Home', hash:'#time'}">首頁</router-link> </li>
-            <li><router-link :to="{name:'Photos', hash:'#photos'}">相簿</router-link> </li>
-            <li><router-link :to="{name:'Comment', hash:'#comment'}">評價</router-link> </li>
-            <li><router-link to="/#contact">聯絡我們</router-link> </li>
+            <li v-for="(tab, index) in tabs" :key="index">
+              <router-link :to="{name:tab.name, hash:tab.hash}">
+                {{tab.show}}
+              </router-link> 
+            </li>
+            <li><router-link to='/#contact'>{{ex_tab}}</router-link> </li>
         </ul>
-        <div class="navbar_icon">
-          <i @click="toggleMobileNav" v-show="mobile" class="fi fi-br-menu-burger" :class="{'icon-active':mobileNav}" ></i>
-        </div>
-        <transition name='mobile-nav'>
-            <ul v-show="mobileNav" class="dropdown-nav">
-              <li><router-link :to="{name:'Home', hash:'#time'}">首頁</router-link> </li>
-              <li><router-link :to="{name:'Photos', hash:'#photos'}">相簿</router-link> </li>
-              <li><router-link :to="{name:'Comment', hash:'#comment'}">評價</router-link> </li>
-              <li><router-link to="/#contact">聯絡我們</router-link> </li>
-            </ul>
-        </transition>
   </header>
 
 </template>
@@ -25,14 +16,24 @@
 <script>
 export default {
   name: 'Navbar',
-  data(){
-    return{
-      mobileNav: null,
-      scrollNav: null,
-      windowWidth: null,
-      mobile:null,
-      };
-  },
+  data:()=>({
+    ex_tab:'聯絡我們',
+    tabs:[
+      {
+        name:'Home' ,show:'首頁' ,hash:'#time',
+    },{
+        name:'Photos' ,show:'相簿' ,hash:'#photos',
+    },{
+        name:'Comment' ,show:'評價' ,hash:'#comment',
+    }],
+
+    mobileNav: null,
+    scrollNav: null,
+    windowWidth: null,
+    mobile:null,
+
+    }),
+
   created(){
       window.addEventListener('resize', this.checkScreen);
       this.checkScreen();

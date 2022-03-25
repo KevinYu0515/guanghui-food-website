@@ -22,6 +22,9 @@
               <h1>{{item.name}}</h1>
               <p>一個15元</p>
             </div>
+            <div v-show="mobile" class="description">
+                <p>{{item.name}}</p>
+            </div>          
           </div> 
         </div>
     </section>
