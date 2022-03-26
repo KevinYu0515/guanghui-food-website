@@ -4,7 +4,7 @@
         <i class="decoration"></i>
         <p class="content-title">相關評論</p>
         <i class="decoration"></i>
-    </div>
+    </div
     </section> 
 </template>
 

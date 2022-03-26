@@ -5,6 +5,7 @@
         <p class="content-title">相關評論</p>
         <i class="decoration"></i>
     </div>
+    <img :src="require('@/assets/waiting.png')"/>
     </section> 
 </template>
 
@@ -14,6 +15,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import "@/assets/scss/Home/comment.scss";
+<style>
+
 </style>

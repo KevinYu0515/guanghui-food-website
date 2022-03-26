@@ -26,7 +26,7 @@
 
     <Merchandise></Merchandise>
     <Photos></Photos>
-    <Comment></Comment>
+    <!-- <Comment></Comment> -->
     
   </div>
 </template>

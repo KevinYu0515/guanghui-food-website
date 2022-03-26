@@ -5,6 +5,7 @@
         <p class="content-title">相關評論</p>
         <i class="decoration"></i>
     </div>
+    <img :src="require('@/assets/waiting.png')"/>
     </section> 
 </template>
 
