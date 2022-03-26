@@ -10,10 +10,6 @@ header{
     align-items: center;
     z-index: 10;
     transition: .7s;
-    @media screen and (max-width:850px) {
-      display: flex;
-      justify-content: flex-end;
-    }
 
       // .logo{
       //   color:rgb(255, 255, 255);
@@ -33,9 +29,6 @@ header{
           list-style: none;
           margin-right: 20px;
           background: none;
-          @media screen and (max-width:850px){
-            margin-right: 0;
-          }
           a{
               color:#F7E3B1;
               border-radius: 20px;
@@ -48,17 +41,10 @@ header{
               padding: 0 15px;
               letter-spacing: 1px;
               cursor: pointer;
-              @media screen and (max-width:850px) {
-                font-size: 1.5rem;
-              }
 
               &:hover{
                   color:aliceblue;
                   background-color: #ee7748;
-                  @media screen and (max-width:850px) {
-                    background-color: transparent;
-                    filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg) brightness(103%) contrast(87%);
-                  }
               }
 
               i{
@@ -68,10 +54,6 @@ header{
           a.router-link-exact-active{
               color:aliceblue;
               background-color: #ee7748;
-              @media screen and (max-width:850px) {
-                background-color:transparent;
-                filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg) brightness(103%) contrast(87%);
-              }
           }
         }
       } 
@@ -80,12 +62,14 @@ header{
 .scrolled-nav{
   background: #9E261B;
   height: 65px;
+  display: flex;
+  justify-content: flex-end;
 
   .logo{
     color:#F7E3B1;
   }
   ul li {
-    
+    margin-right: 0;
     a{
       height: 40px;
       line-height: 40px;

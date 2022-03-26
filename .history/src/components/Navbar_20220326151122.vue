@@ -9,17 +9,13 @@
             </li>
             <li><router-link to='/#contact'>{{ex_tab}}</router-link> </li>
         </ul>
-        <ul v-show="mobile">
+        <ul v-show="!mobile">
             <li v-for="(tab, index) in tabs" :key="index">
               <router-link :to="{name:tab.name, hash:tab.hash}">
-                <i :class="`${tab.icon}`"></i>
+                {{tab.show}}
               </router-link> 
             </li>
-            <li>
-              <router-link to='/#contact'>
-                <i class="fi fi-sr-call-incoming"></i>
-              </router-link> 
-            </li>
+            <li><router-link to='/#contact'>{{ex_tab}}</router-link> </li>
         </ul>
   </header>
 
@@ -32,11 +28,11 @@ export default {
     ex_tab:'聯絡我們',
     tabs:[
       {
-        name:'Home' ,show:'首頁' ,hash:'#time', icon:"fi fi-sr-calendar"
+        name:'Home' ,show:'首頁' ,hash:'#time',
     },{
-        name:'Photos' ,show:'相簿' ,hash:'#photos', icon:"fi fi-br-picture"
+        name:'Photos' ,show:'相簿' ,hash:'#photos',
     },{
-        name:'Comment' ,show:'評價' ,hash:'#comment', icon:"fi fi-sr-comment-alt"
+        name:'Comment' ,show:'評價' ,hash:'#comment',
     }],
 
     mobileNav: null,
@@ -83,8 +79,4 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/navbar.scss";
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
 </style>

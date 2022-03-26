@@ -48,16 +48,13 @@ header{
               padding: 0 15px;
               letter-spacing: 1px;
               cursor: pointer;
-              @media screen and (max-width:850px) {
-                font-size: 1.5rem;
-              }
 
               &:hover{
                   color:aliceblue;
                   background-color: #ee7748;
                   @media screen and (max-width:850px) {
-                    background-color: transparent;
-                    filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg) brightness(103%) contrast(87%);
+                    background-color: wh
+                    color:#ee7748;
                   }
               }
 
@@ -69,8 +66,8 @@ header{
               color:aliceblue;
               background-color: #ee7748;
               @media screen and (max-width:850px) {
-                background-color:transparent;
-                filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg) brightness(103%) contrast(87%);
+                background-color: none;
+                color:#ee7748;
               }
           }
         }

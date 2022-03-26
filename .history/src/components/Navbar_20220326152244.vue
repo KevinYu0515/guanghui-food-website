@@ -12,7 +12,7 @@
         <ul v-show="mobile">
             <li v-for="(tab, index) in tabs" :key="index">
               <router-link :to="{name:tab.name, hash:tab.hash}">
-                <i :class="`${tab.icon}`"></i>
+                <i class="{}"></i>
               </router-link> 
             </li>
             <li>
@@ -85,6 +85,6 @@ export default {
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css')
 @import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
 </style>
