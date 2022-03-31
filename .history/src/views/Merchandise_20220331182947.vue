@@ -1,7 +1,7 @@
 <template>
-  <section id="merchandise" data-aos="fade-up" data-aos-duration="1000">
-      <div class="content-titlewrapper">
-        <i class="decoration"></i>
+  <section id="merchandise">
+      <div class="content-titlewrapper" data-aos="fade-up">
+        <i class="decoration" data-aos="fade-up"></i>
         <p class="content-title">水煎包</p>
         <i class="decoration"></i>
       </div>

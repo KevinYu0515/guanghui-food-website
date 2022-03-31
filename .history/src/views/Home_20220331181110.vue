@@ -2,7 +2,7 @@
   <div class='home'>
 
     <section id="time">
-      <p class="store-name" >{{store_name}}</p>
+      <p class="store-name"data-0-top="opacity:0;left:100px;" data-200-top="opacity:1;left:0px;">{{store_name}}</p>
       <p class="store-subname">{{store_subname}}</p>
       <div class="timetable">
           <p class="timetable-subtitle">{{timetable_title}}</p>
@@ -17,10 +17,12 @@
       </div>
     </section>
 
-    <section id="about" data-aos="fade-up" data-aos-duration="1000">
-      <h1>{{news_title}}</h1>
-      <p>{{news_content}}</p>
-    </section>
+    <transition name="about">
+      <section v-show="mobileNews" id="about">
+        <h1>{{news_title}}</h1>
+        <p>{{news_content}}</p>
+      </section>
+    </transition>
 
     <Merchandise></Merchandise>
     <Photos></Photos>
@@ -58,13 +60,13 @@ export default {
   },
 
   methods:{
-    // updateScroll(){
-    //   const scrollPosition = window.scrollY;
-    //   if(scrollPosition > 100){
-    //     this.mobileNews = true;
-    //     return;
-    //   }
-    // },
+    updateScroll(){
+      const scrollPosition = window.scrollY;
+      if(scrollPosition > 100){
+        this.mobileNews = true;
+        return;
+      }
+    },
   },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <section id="photos" data-aos="fade-up" data-aos-duration="1000">
+  <section id="photos">
         <div class="content-titlewrapper">
           <i class="decoration"></i>
           <p class="content-title">相關照片</p>

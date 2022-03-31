@@ -17,7 +17,7 @@
       </div>
     </section>
 
-    <section id="about" data-aos="fade-up" data-aos-duration="1000">
+    <section id="about" data-aos="tr>
       <h1>{{news_title}}</h1>
       <p>{{news_content}}</p>
     </section>

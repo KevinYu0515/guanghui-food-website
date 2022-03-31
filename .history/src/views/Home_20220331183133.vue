@@ -17,7 +17,7 @@
       </div>
     </section>
 
-    <section id="about" data-aos="fade-up" data-aos-duration="1000">
+    <section v-show="mobileNews" id="about">
       <h1>{{news_title}}</h1>
       <p>{{news_content}}</p>
     </section>
@@ -58,13 +58,13 @@ export default {
   },
 
   methods:{
-    // updateScroll(){
-    //   const scrollPosition = window.scrollY;
-    //   if(scrollPosition > 100){
-    //     this.mobileNews = true;
-    //     return;
-    //   }
-    // },
+    updateScroll(){
+      const scrollPosition = window.scrollY;
+      if(scrollPosition > 100){
+        this.mobileNews = true;
+        return;
+      }
+    },
   },
 }
 </script>

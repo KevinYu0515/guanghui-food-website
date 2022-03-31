@@ -1,11 +1,11 @@
 <template>
-  <section id="merchandise" data-aos="fade-up" data-aos-duration="1000">
-      <div class="content-titlewrapper">
-        <i class="decoration"></i>
-        <p class="content-title">水煎包</p>
-        <i class="decoration"></i>
+  <section id="merchandise">
+      <div class="content-titlewrapper" data-aos="fade-up">
+        <i class="decoration" data-aos="fade-up"></i>
+        <p class="content-title" data-aos="fade-up">水煎包</p>
+        <i class="decoration" data-aos="fade-up"></i>
       </div>
-      <p class="content-description">
+      <p class="content-description" data-aos="fade-up">
         {{content}}
       </p>
         <!-- <div class="card" v-for="(item,index) in goods" :key="index">

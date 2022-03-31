@@ -1,6 +1,6 @@
 <template>
-  <section id="merchandise" data-aos="fade-up" data-aos-duration="1000">
-      <div class="content-titlewrapper">
+  <section id="merchandise">
+      <div class="content-titlewrapper" data-0-top="opacity:1;bottom:100px;" data-200>
         <i class="decoration"></i>
         <p class="content-title">水煎包</p>
         <i class="decoration"></i>
