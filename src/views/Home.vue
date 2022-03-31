@@ -1,9 +1,10 @@
 <template>
   <div class='home'>
-
     <section id="time">
+      <!-- 主標 -->
       <p class="store-name" >{{store_name}}</p>
       <p class="store-subname">{{store_subname}}</p>
+      <!-- 時間表 -->
       <div class="timetable">
           <p class="timetable-subtitle">{{timetable_title}}</p>
           <ul>
@@ -16,12 +17,12 @@
           </ul>
       </div>
     </section>
-
+    <!-- 相關說明版面 -->
     <section id="about" data-aos="fade-up" data-aos-duration="1000">
       <h1>{{news_title}}</h1>
       <p>{{news_content}}</p>
     </section>
-
+    <!-- 其他版面 -->
     <Merchandise></Merchandise>
     <Photos></Photos>
     <!-- <Comment></Comment> -->
