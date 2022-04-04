@@ -1,6 +1,7 @@
 <template>
 
   <header :class="{'scrolled-nav': scrollNav}">
+    <!-- 寬版navbar -->
         <ul v-show="!mobile">
             <li v-for="(tab, index) in tabs" :key="index">
               <router-link :to="{name:tab.name, hash:tab.hash}">
@@ -9,15 +10,18 @@
             </li>
             <li><router-link to='/#contact'>{{ex_tab}}</router-link> </li>
         </ul>
+        <!-- 窄版navbar -->
         <ul v-show="mobile">
             <li v-for="(tab, index) in tabs" :key="index">
-              <router-link :to="{name:tab.name, hash:tab.hash}">
+              <router-link :to="{name:tab.name, hash:tab.hash}" >
                 <i :class="`${tab.icon}`"></i>
+                <p class="icontext">{{tab.show}}</p>
               </router-link> 
             </li>
             <li>
               <router-link to='/#contact'>
                 <i class="fi fi-sr-call-incoming"></i>
+                <p class="icontext">{{ex_tab}}</p>
               </router-link> 
             </li>
         </ul>
@@ -32,11 +36,11 @@ export default {
     ex_tab:'聯絡我們',
     tabs:[
       {
-        name:'Home' ,show:'首頁' ,hash:'#time', icon:"fi fi-sr-calendar"
+        name:'Home' ,show:"首頁" ,hash:'#time', icon:"fi fi-sr-calendar"
     },{
-        name:'Merchandise' ,show:'水煎包' ,hash:'#merchandise', icon:"fi fi-rr-restaurant"
+        name:'Merchandise' ,show:"水煎包" ,hash:'#merchandise', icon:"fi fi-rr-restaurant"
     },{
-        name:'Photos' ,show:'相簿' ,hash:'#photos', icon:"fi fi-br-picture"
+        name:'Photos' ,show:"相簿" ,hash:'#photos', icon:"fi fi-br-picture"
     },
     // {name:'Comment' ,show:'評論' ,hash:'#comment', icon:"fi fi-sr-comment-alt"}
     ],

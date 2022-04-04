@@ -1,4 +1,5 @@
 <template>
+
   <div class='home'>
     <section id="time">
       <!-- 主標 -->
@@ -9,7 +10,6 @@
           <p class="timetable-subtitle">{{timetable_title}}</p>
           <ul>
             <li v-for="(day,index) in days" :key="index">
-              
               {{day}} &nbsp;&nbsp;<p>{{times[0]}} &nbsp;{{times[1]}}</p>
             </li>
             <li>{{weekends[0]}} &nbsp;&nbsp;<p>{{times[0]}}</p></li>

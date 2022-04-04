@@ -34,7 +34,7 @@ header{
           margin-right: 20px;
           background: none;
           @media screen and (max-width:850px){
-            margin-right: 0;
+            margin: 0;
           }
           a{
               color:#F7E3B1;
@@ -50,6 +50,19 @@ header{
               cursor: pointer;
               @media screen and (max-width:850px) {
                 font-size: 1.5rem;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                i{
+                  color: rgb(255, 255, 255);
+                  line-height: 0;
+                }
+                .icontext{
+                  font-size: 1px;
+                  line-height: 20px;
+                  color: rgb(255, 255, 255);
+                  margin: 0px;
+                }
               }
 
               &:hover{
@@ -59,10 +72,6 @@ header{
                     background-color: transparent;
                     filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg) brightness(103%) contrast(87%);
                   }
-              }
-
-              i{
-                color: rgb(255, 255, 255);
               }
             }
           a.router-link-exact-active{
