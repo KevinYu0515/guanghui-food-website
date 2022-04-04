@@ -96,19 +96,42 @@
                     opacity: 1;
                     transform: translateY(0px);
                 }
-                .description{
-                    position: relative;
-                    background-color: #F5A02A;
-                    padding: 1rem 2rem 1rem 2rem;
-                    display: flex;
-                    justify-content: center;
-                    top:180px;
-                    font-size: 1.5rem;
-                    z-index: 2;
-                    border-radius: 5px;
-                    border:#000000;
-                }
             }
         }
+        .card_mobile{
+            width: 80%;
+            height: auto;
+            margin: 5px 20px;
+            background:#F5A02A;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: beige;
+            img{
+                max-width: 200px;
+                height: auto;
+            }
+            .description{
+                position: relative;
+                width: 100%;
+                height: auto;
+                display: inline-block;
+                margin: 20px;
+                padding: 7px 2px;
+                .item-name{
+                    font-size: 0.5vmax;
+                    margin: 2px;
+                    span{
+                        font-size: 3vmax;
+                        padding-bottom: 200px;
+                        font-weight: bolder;
+                    }
+                }
+                .item-content{
+                    margin-top: 5px;
+                    font-size: 1rem;
+                }
+            }
+        }    
     }
 }

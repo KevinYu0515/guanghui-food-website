@@ -11,43 +11,72 @@
       </p>
       <!-- 各產品卡片內容 -->
       <!-- 寬版架構 -->
-        <div class="cardwrapper">
+        <div class="cardwrapper" v-show="!mobile">
           <div class="card" v-for="(item, index) in cardItems" :key="index">
             <img :src="item.imgPath">
             <div class="info">
               <h1>{{item.name}}</h1>
               <p>{{cardcontent}}</p>
             </div>
-          <!-- 窄版架構 -->
-            <div v-show="mobile" class="description">
-                <p>{{item.name}}</p>
-            </div>          
-          </div> 
+          </div>
         </div>
+      <!-- 窄版架構 -->
+        <div class="card_mobile" 
+        v-show="mobile" 
+        v-for="(item, index) in cardItems" :key="index"
+        data-aos="fade-left" data-aos-duration="1000" 
+        >
+          <img :src="item.imgPath"> 
+          <div class="description">
+            <p class="item-name"><span>{{item.name}}</span><br>{{item.name2}}</p>
+            <p class="item-content">{{cardcontent}}</p>
+          </div>
+        </div> 
     </section>
 </template>
 
 <script>
 export default {
-    data:()=>({
-        cardItems:[
-        {
-            imgPath: require('@/assets/picture/001.jpg'),
-            name: "高麗菜水煎包",
-            
+  data:()=>({
+      cardItems:[
+      {
+          imgPath: require('@/assets/picture/001.jpg'),
+          name: "高麗菜水煎包",
+          name2: "Fried bun stuffed with cabbage",
+      },
+      {
+          imgPath: require('@/assets/picture/002.jpg'),
+          name: "筍子水煎包",
+          name2: "Fried bun stuffed with bamboo shoots",
+      },
+      {
+          imgPath: require('@/assets/picture/003.jpg'),
+          name: "冬粉水煎包",
+          name2: "Fried bun stuffed with bean thread",
+      }],
+      title:"水煎包",
+      title_content:"主要賣三種水煎包，內餡分別為高麗菜、筍子、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
+      cardcontent:"一個15元",
+      mobile:null,
+  }),
+  created(){
+      window.addEventListener('resize', this.checkScreen);
+      this.checkScreen();
+    },
+    methods:{
+        checkScreen(){
+            this.windowWidth = window.innerWidth;
+            if(this.windowWidth <= 420){
+                this.mobile = false;
+                return
+                }else if(this.windowWidth<= 850){
+                  this.mobile = true;
+                  return
+                }
+            this.mobile = false;
+            return;
         },
-        {
-            imgPath: require('@/assets/picture/002.jpg'),
-            name: "筍子水煎包",
-        },
-        {
-            imgPath: require('@/assets/picture/003.jpg'),
-            name: "冬粉水煎包",
-        }],
-        title:"水煎包",
-        title_content:"主要賣三種水煎包，內餡分別為高麗菜、筍子、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
-        cardcontent:"一個15元",
-    })
+    }
 }
 </script>
 
