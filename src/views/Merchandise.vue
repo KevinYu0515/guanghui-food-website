@@ -11,7 +11,7 @@
       </p>
       <!-- 各產品卡片內容 -->
       <!-- 寬版架構 -->
-        <div class="cardwrapper" v-show="!mobile">
+        <div class="cardwrapper" v-show="!mobile2">
           <div class="card" v-for="(item, index) in cardItems" :key="index">
             <img :src="item.imgPath">
             <div class="info">
@@ -22,7 +22,7 @@
         </div>
       <!-- 窄版架構 -->
         <div class="card_mobile" 
-        v-show="mobile" 
+        v-show="mobile2" 
         v-for="(item, index) in cardItems" :key="index"
         data-aos="fade-left" data-aos-duration="1000" 
         >
@@ -57,7 +57,7 @@ export default {
       title:"水煎包",
       title_content:"主要賣三種水煎包，內餡分別為高麗菜、筍子、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
       cardcontent:"一個15元",
-      mobile:null,
+      mobile2:null,
   }),
   created(){
       window.addEventListener('resize', this.checkScreen);
@@ -66,14 +66,11 @@ export default {
     methods:{
         checkScreen(){
             this.windowWidth = window.innerWidth;
-            if(this.windowWidth <= 420){
-                this.mobile = false;
-                return
-                }else if(this.windowWidth<= 850){
-                  this.mobile = true;
+            if(this.windowWidth<= 850){
+                  this.mobile2 = true;
                   return
                 }
-            this.mobile = false;
+            this.mobile2 = false;
             return;
         },
     }
