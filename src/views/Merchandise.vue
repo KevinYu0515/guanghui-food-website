@@ -1,5 +1,5 @@
 <template>
-  <section id="merchandise" data-aos="fade-up" data-aos-duration="1000">
+  <section id="merchandise" data-aos="fade-up">
     <!-- 主標 -->
       <div class="content-titlewrapper">
         <i class="decoration"></i>
@@ -24,7 +24,7 @@
         <div class="card_mobile" 
         v-show="mobile2" 
         v-for="(item, index) in cardItems" :key="index"
-        data-aos="fade-up-left" data-aos-duration="1000" 
+        data-aos="fade-up"
         >
           <img :src="item.imgPath"> 
           <div class="description">
