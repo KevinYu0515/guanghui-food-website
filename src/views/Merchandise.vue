@@ -15,7 +15,7 @@
           <div class="card" v-for="(item, index) in cardItems" :key="index">
             <img :src="item.imgPath">
             <div class="info">
-              <h1>{{item.name}}</h1>
+              <h1>{{item.name}}<br><span>{{item.name2}}</span></h1>
               <p>{{cardcontent}}</p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default {
       },
       {
           imgPath: require('@/assets/picture/002.jpg'),
-          name: "筍子水煎包",
+          name: "竹筍水煎包",
           name2: "Fried bun stuffed with bamboo shoots",
       },
       {

@@ -17,12 +17,13 @@
           </ul>
       </div>
     </section>
-    <!-- 相關說明版面 -->
-    <section id="about" data-aos="fade-up" data-aos-duration="1000">
+    <!-- 新公告說明版面 -->
+    <section id="news" data-aos="fade-up" data-aos-duration="1000">
       <h1>{{news_title}}</h1>
       <p>{{news_content}}</p>
     </section>
     <!-- 其他版面 -->
+    <About></About>
     <Merchandise></Merchandise>
     <Photos></Photos>
     <!-- <Comment></Comment> -->
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import About from "./About.vue";
 import Merchandise from "./Merchandise.vue";
 import Photos from "./Photos_test.vue"
 import Comment from "./Comment.vue";
@@ -38,7 +40,7 @@ import Comment from "./Comment.vue";
 export default {
   name: 'Home',
   components:{
-    Merchandise,Comment,Photos
+    About,Merchandise,Comment,Photos
   },
   data(){
     return{
@@ -73,6 +75,5 @@ export default {
 <style lang="scss" scoped>
   @import "@/assets/scss/Home/home.scss";
   @import "@/assets/scss/Home/time.scss";
-  @import "@/assets/scss/Home/about.scss";
-  @import "@/assets/scss/Home/comment.scss";
+  @import "@/assets/scss/Home/news.scss";
 </style>

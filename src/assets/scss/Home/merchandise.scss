@@ -24,8 +24,8 @@
             .card{
                 max-width: 100%;
                 height: auto;
-                padding: 6rem 6rem;
-                background: #F5A02A;
+                padding: 4rem 4rem;
+                background: $light-orange;
                 position: relative;
                 display: flex;
                 flex-direction: column;
@@ -74,7 +74,7 @@
                 .info{
                     position: relative;
                     z-index:3;
-                    color:aliceblue;
+                    color:$white;
                     opacity: 0;
                     transform: translateY(30px);
                     transition: .5s all;
@@ -82,6 +82,10 @@
                         margin: 0;
                         @media screen and (max-width:$screen-md) {
                             width: 150px;
+                        }
+                        span{
+                            font-size: 1vmax;
+                            font-weight: bolder;
                         }
                     }
                     p{
@@ -102,11 +106,11 @@
             width: 80%;
             height: auto;
             margin: 5px 20px;
-            background:#F5A02A;
+            background:$light-orange;
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
-            background-color: beige;
+            background-color:$white2;
             img{
                 max-width: 200px;
                 height: auto;
