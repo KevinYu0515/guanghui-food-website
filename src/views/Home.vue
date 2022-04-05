@@ -17,21 +17,21 @@
           </ul>
       </div>
     </section>
-    <div class="socialMedia3" data-aos="fade-up">
+    <div class="socialMedia3" v-show="!mobileIcon" data-aos="fade-up">
       <a href="https://www.facebook.com/people/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85-%E6%A2%A7%E6%A3%B2%E5%BA%97/100075103166257/">
         <i class="icon fi fi-brands-facebook"><span style="font-weight:bolder">{{facebook}}</span></i>
       </a>
     </div>
-    <div class="socialMedia2" data-aos="fade-up">
+    <div class="socialMedia2" v-show="!mobileIcon" data-aos="fade-up">
       <a href="https://www.google.com.tw/maps/place/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85%EF%BC%88%E6%A2%A7%E6%A3%B2%E5%BA%97%EF%BC%89/@24.2467507,120.5456227,17z/data=!3m1!4b1!4m5!3m4!1s0x346915859dc0b4dd:0x37ba3c60d4fc0ca8!8m2!3d24.2467287!4d120.5478919?hl=zh-TW&authuser=0">
         <i class="icon fi fi-rs-marker"><span>{{place}}</span></i>
       </a>
     </div>
-    <div class="socialMedia" data-aos="fade-up">
+    <div class="socialMedia" v-show="!mobileIcon" data-aos="fade-up">
       <i class="icon fi fi-rr-call-incoming"><span>{{phone}}</span></i>
     </div>
     <!-- 新公告說明版面 -->
-    <section id="news" data-aos="fade-up">
+    <section id="news" v-show="!mobileNews" data-aos="fade-up">
       <h1>{{news_title}}</h1>
       <p>{{news_content}}</p>
     </section>
@@ -57,7 +57,6 @@ export default {
   },
   data(){
     return{
-      mobileNews: null,
       store_name: "光慧水煎包",
       store_subname:"(梧棲店)",
       timetable_title:"營業時間",
@@ -66,12 +65,28 @@ export default {
       days:['週一','週二','週三','週四','週五'],
       weekends:['週六','週日'],
       times:["0600~0900","1500~1700","公休"],
+      mobileNews: null,
+      mobileIcon: null,
     }
   },
-  
+  created(){
+    window.addEventListener('resize', this.checkScreen);
+    this.checkScreen();
+  },
   mounted(){
     window.addEventListener('scroll',this.updateScroll);
   },
+  methods:{
+    checkScreen(){
+            this.windowWidth = window.innerWidth;
+            if(this.windowWidth <= 850){
+                this.mobileIcon = true;
+                return
+                }
+            this.mobileIcon = false;
+            return;
+        },
+  }
 }
 </script>
 
