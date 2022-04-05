@@ -10,29 +10,6 @@
     box-sizing: border-box;
     margin-bottom: 30px;
     background-color: $brown;
-    .icon-container{
-        position: relative;
-        max-width: 100%;
-        height: auto;
-        top:-110px;
-        display: inline-flex;
-        align-items: flex-end;
-        a{
-            text-decoration:none;
-          } 
-        .icon{
-            color:#F7E3B1;
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            span{
-                font-style: normal;
-                font-size: 1rem;
-                margin-left: 10px;
-                }
-        }
-    }
     h1{
         font-size: 3rem;
         color: $white;

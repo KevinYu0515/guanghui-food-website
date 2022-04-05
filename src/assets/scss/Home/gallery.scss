@@ -50,7 +50,7 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        background: #fff;
+        background: $white;
         max-width: 500px;
         width: 100%;
         pointer-events: all;
@@ -73,7 +73,7 @@
             }
             .icon{
                 cursor: pointer;
-                color:cornflowerblue;
+                color:$blue;
                 font-size: 20px;
             }
         }

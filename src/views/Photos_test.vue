@@ -12,6 +12,7 @@
                   <div class="image" 
                    v-for="(img, i) in images" :key="i"
                    >
+                   <!-- @click="popup=true" 可開啟相片彈出檢視窗功能 -->
                     <span @click="popup=false"><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
                 </div>
               </div>
