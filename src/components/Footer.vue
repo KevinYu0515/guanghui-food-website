@@ -10,23 +10,15 @@
       <div class="contact-box">
         <div class="decoration4"></div>
         <h1>{{title}}</h1>
-        <p>{{phone}}</p>
-        <p style="margin-bottom: 20px;">{{place}}</p>
-        <!-- <a src=" -->
         <a href="https://www.facebook.com/people/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85-%E6%A2%A7%E6%A3%B2%E5%BA%97/100075103166257/">
-          <i class="fi fi-brands-facebook"></i>
+          <i class="icon fi fi-brands-facebook"><span style="font-weight:bolder">{{facebook}}</span></i>
         </a>
         <a href="https://www.google.com.tw/maps/place/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85%EF%BC%88%E6%A2%A7%E6%A3%B2%E5%BA%97%EF%BC%89/@24.2467507,120.5456227,17z/data=!3m1!4b1!4m5!3m4!1s0x346915859dc0b4dd:0x37ba3c60d4fc0ca8!8m2!3d24.2467287!4d120.5478919?hl=zh-TW&authuser=0">
-          <i class="fi fi-rs-marker"></i>
+          <i class="icon fi fi-rs-marker"><span>{{place}}</span></i>
         </a>
-        <i class="fi fi-rr-call-incoming"></i>
+        <i class="icon fi fi-rr-call-incoming"><span>{{phone}}</span></i>
       </div>
     </section>
-    <!--<div v-for="(text, index) in textItems" :key="index">
-      <div class="footer_text">
-        {{text.content}}
-      </div>
-    </div>-->
   </div>
 </template>
 
@@ -36,8 +28,9 @@ export default {
  data(){
    return{
      title:"聯絡我們",
-     phone:"電話：0952404078",
-     place:"地址：臺中市梧棲區民和路一段37號",
+     facebook:"facebook",
+     phone:"0952404078 | 0935368684",
+     place:"臺中市梧棲區民和路一段37號",
    }
  }
  

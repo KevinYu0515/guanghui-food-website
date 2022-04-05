@@ -23,7 +23,6 @@
       height: 70vh;
       width: 100%;
       display: flex;
-      justify-content: center;
       @media screen and (max-width:1120px) {
         flex-direction: column;
         height: 110vh;
@@ -61,7 +60,9 @@
       .contact-box{
           padding: 50px;
           padding-top: 0;
-          display: inline;
+          display: inline-flex;
+          align-items: flex-start;
+          flex-direction: column;
           .decoration4{
               height: 1vmin;
               width:5vw;
@@ -73,16 +74,20 @@
               margin-bottom: 20px;
               color:#F7E3B1;
           }
-          p{
-            color:#F7E3B1;
-          }
           a{
             text-decoration:none;
           } 
           i{
             color:#F7E3B1;
-            font-size: 5vmin;
-            margin-right: 10px;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            span{
+              font-style: normal;
+              font-size: 1rem;
+              margin-left: 10px;
+            }
           }
       }
       
