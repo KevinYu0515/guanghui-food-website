@@ -13,7 +13,9 @@
         <p>{{phone}}</p>
         <p style="margin-bottom: 20px;">{{place}}</p>
         <!-- <a src=" -->
-        <i class="fi fi-brands-facebook"></i>
+        <a href="https://www.facebook.com/people/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85-%E6%A2%A7%E6%A3%B2%E5%BA%97/100075103166257/">
+          <i class="fi fi-brands-facebook"></i>
+        </a>
         <a href="https://www.google.com.tw/maps/place/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85%EF%BC%88%E6%A2%A7%E6%A3%B2%E5%BA%97%EF%BC%89/@24.2467507,120.5456227,17z/data=!3m1!4b1!4m5!3m4!1s0x346915859dc0b4dd:0x37ba3c60d4fc0ca8!8m2!3d24.2467287!4d120.5478919?hl=zh-TW&authuser=0">
           <i class="fi fi-rs-marker"></i>
         </a>
