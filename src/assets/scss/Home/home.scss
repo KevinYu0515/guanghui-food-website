@@ -1,5 +1,20 @@
+$screen-xs: 480px;
+$screen-sm: 800px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$dark-brown:#9E261B;
+$brown:#AF3314;
+$light-orange:#F5A02A;
+$orange:#ee7748;
+$yellow:rgb(240, 241, 156);
+$gray:rgba(247,227,177,0.4);
+$blue:cornflowerblue;
+$white:#fff;
+$white2:beige;
+$black:#000;
 
 // 主頁底板設計以及其他內容裝飾
+
 html{
     font-size:20px;
     max-width: 500px;

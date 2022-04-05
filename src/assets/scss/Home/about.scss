@@ -20,7 +20,7 @@
         color: antiquewhite;
     }
 }
-@media screen and (max-width:950px) {
+@media screen and (max-width:$screen-md) {
     #about{
         height: 30vh;
         margin-bottom: 0px;

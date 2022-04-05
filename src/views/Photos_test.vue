@@ -9,24 +9,25 @@
         <!-- 寬版架構-相片藝廊 -->
           <div class="wrapper" v-show="!mobile">
               <div class="gallery">
-                  <div class="image" v-for="(img, index) in images" :key="index">
-                    <span><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
+                  <div class="image" 
+                   v-for="(img, i) in images" :key="i"
+                   >
+                    <span @click="popup=false"><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
                 </div>
               </div>
           </div>
+
           <!-- 相片彈出檢視窗 -->
-          <div class="preview-box" v-show="!mobile">
-            <div class="details">
-                <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
-                <span class="icon fas fa-times"></span>
+            <div class="preview-box" v-if="popup">
+                <div class="details">
+                    <span class="title">Image</span>
+                    <span v-if="popup" @click="popup=false" class="icon fi fi-br-cross" ></span>
+                </div>
+                <div class="image-box">
+                    <img :src="require('@/assets/picture/001.jpg')" alt="">
+                </div>
             </div>
-            <div class="image-box" v-show="!mobile">
-                <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-                <div class="slide next"><i class="fas fa-angle-right"></i></div>
-                <img src="" alt="">
-            </div>
-        </div>
-        <div class="shadow"></div>
+            <div class="shadow"></div>
 
         <!-- 窄版架構-swiper -->
         <div class="swiper-area">
@@ -73,14 +74,26 @@ export default {
             modules: [Navigation, Pagination],
         };
     },
-
+    // props:{
+    //     images:{
+    //         type:Array,
+    //         required:true,
+    //     },
+    //     index:{
+    //         type:Number,
+    //         required:false,
+    //         default:null,
+    //     }
+    // },
 
     data(){
-
         return{
-            mobile:null,
             images:['001','002','003','004','005','006','007'],
             title:"相關照片",
+            mobile:null,
+            popup:null,
+            // imageIndex:this.index,
+            // image:null,
         }
     },
 
@@ -88,6 +101,15 @@ export default {
       window.addEventListener('resize', this.checkScreen);
       this.checkScreen();
     },
+    // computed:{
+    //     imageUrl() {
+    //         const img = this.images[this.imgIndex];
+    //         if (typeof img === "string") {
+    //             return img;
+    //         }
+    //         return img.url;
+    //     },
+    // },
     methods:{
         checkScreen(){
             this.windowWidth = window.innerWidth;
@@ -98,10 +120,21 @@ export default {
             this.mobile = false;
             return;
         },
+        // onClickImage(image,index){
+        //     this.imageIndex = index;
+        // },
+        // close() {
+        //     const eventData = {
+        //         imgIndex: this.imgIndex
+        //     };
+        //     this.imgIndex = null;
+        //     this.$emit("close", eventData);
+        // },
     }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/Home/gallery.scss";
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 </style>
