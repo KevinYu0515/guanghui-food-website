@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-      <!-- <v-container class="container"> -->
         <Navbar></Navbar>
           <router-view/>
         <Footer></Footer>
-      <!-- </v-container> -->
   </div>
 </template>
 

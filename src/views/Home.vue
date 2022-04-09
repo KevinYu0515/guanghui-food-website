@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/assets/scss/Home/home.scss";
+  @import "@/assets/scss/Home/index.scss";
   @import "@/assets/scss/Home/time.scss";
   @import "@/assets/scss/Home/news.scss";
 </style>
