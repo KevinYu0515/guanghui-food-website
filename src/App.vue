@@ -1,8 +1,10 @@
 <template>
-  <div class="app">
-    <Navbar></Navbar>
-      <router-view/>
-    <Footer></Footer>
+  <div id="app">
+      <!-- <v-container class="container"> -->
+        <Navbar></Navbar>
+          <router-view/>
+        <Footer></Footer>
+      <!-- </v-container> -->
   </div>
 </template>
 
@@ -29,7 +31,7 @@ export default {
   margin:0;
   text-decoration: none;
 }
-.app{
-  background-color: #FDF2D8;
+#app{
+    background-color: #FDF2D8;
 }
 </style>

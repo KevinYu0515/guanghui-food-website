@@ -31,70 +31,44 @@
             <div class="shadow"></div>
 
         <!-- 窄版架構-swiper -->
-        <div class="swiper-area">
+         <div class="swiper-area">
             <swiper
                 v-show="mobile"
-                :slides-per-view="1"
-                :space-between="50"
-                :modules="modules"
+                :slidesPerView="1"
+                :spaceBetween="30"
                 :pagination="{ clickable: true, dynamicBullets: true }"
-                @swiper="onSwiper"
-                @slideChange="onSlideChange"
+                :navigation="true"
+                :loop="true"
             >
                 <swiper-slide v-for="(img, index) in images" :key="index">
                     <img :src="require(`@/assets/picture/${img}.jpg`)"/>
                 </swiper-slide>
-
-            </swiper>
-        </div>
+    </swiper>
+</div>
 
     </section>
 </template>
 
 
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import SwiperCore, { Navigation, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
+
+SwiperCore.use([Pagination,Navigation])
+
 
 export default {
     components: {
         Swiper,
         SwiperSlide,
     },
-    setup() {
-        const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-        return {
-            onSwiper,
-            onSlideChange,
-            modules: [Navigation, Pagination],
-        };
-    },
-    // props:{
-    //     images:{
-    //         type:Array,
-    //         required:true,
-    //     },
-    //     index:{
-    //         type:Number,
-    //         required:false,
-    //         default:null,
-    //     }
-    // },
 
-    data(){
+    data() {
         return{
             images:['001','002','003','004','005','006','007'],
             title:"相關照片",
             mobile:null,
-            popup:null,
-            // imageIndex:this.index,
-            // image:null,
         }
     },
 
@@ -102,15 +76,7 @@ export default {
       window.addEventListener('resize', this.checkScreen);
       this.checkScreen();
     },
-    // computed:{
-    //     imageUrl() {
-    //         const img = this.images[this.imgIndex];
-    //         if (typeof img === "string") {
-    //             return img;
-    //         }
-    //         return img.url;
-    //     },
-    // },
+
     methods:{
         checkScreen(){
             this.windowWidth = window.innerWidth;
@@ -121,21 +87,11 @@ export default {
             this.mobile = false;
             return;
         },
-        // onClickImage(image,index){
-        //     this.imageIndex = index;
-        // },
-        // close() {
-        //     const eventData = {
-        //         imgIndex: this.imgIndex
-        //     };
-        //     this.imgIndex = null;
-        //     this.$emit("close", eventData);
-        // },
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 @import "@/assets/scss/Home/gallery.scss";
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 </style>

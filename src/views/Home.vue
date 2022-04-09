@@ -38,7 +38,7 @@
     <!-- 其他版面 -->
     <About></About>
     <Merchandise></Merchandise>
-    <Photos></Photos>
+    <Gallery></Gallery>
     <!-- <Comment></Comment> -->
     
   </div>
@@ -47,13 +47,13 @@
 <script>
 import About from "./About.vue";
 import Merchandise from "./Merchandise.vue";
-import Photos from "./Photos_test.vue"
+import Gallery from "./Gallery.vue"
 import Comment from "./Comment.vue";
 
 export default {
   name: 'Home',
   components:{
-    About,Merchandise,Comment,Photos
+    About,Merchandise,Comment,Gallery
   },
   data(){
     return{
@@ -61,7 +61,7 @@ export default {
       store_subname:"(梧棲店)",
       timetable_title:"營業時間",
       news_title:"最新公告",
-      news_content:"清明連假公休",
+      news_content:"暫無新公告",
       days:['週一','週二','週三','週四','週五'],
       weekends:['週六','週日'],
       times:["0600~0900","1500~1700","公休"],
