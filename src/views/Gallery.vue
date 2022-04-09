@@ -36,15 +36,15 @@
                 v-show="mobile"
                 :slidesPerView="1"
                 :spaceBetween="30"
-                :pagination="{ clickable: true, dynamicBullets: true }"
+                :pagination="{ clickable: true, dynamicBullets: false }"
                 :navigation="true"
                 :loop="true"
             >
                 <swiper-slide v-for="(img, index) in images" :key="index">
                     <img :src="require(`@/assets/picture/${img}.jpg`)"/>
                 </swiper-slide>
-    </swiper>
-</div>
+            </swiper>
+        </div>
 
     </section>
 </template>
@@ -69,6 +69,7 @@ export default {
             images:['001','002','003','004','005','006','007'],
             title:"相關照片",
             mobile:null,
+            popup:null,
         }
     },
 

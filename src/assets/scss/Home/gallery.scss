@@ -118,21 +118,30 @@
         img{
             width: 55%;
             height: auto;
-            
+            padding-bottom: 50px;
+            border-radius: 20px;
         }
+    }
+    .swiper-button-prev{
+        --swiper-navigation-size: 30px;
+        color: $dark-brown;
+    }
+    .swiper-button-next{
+        --swiper-navigation-size: 30px;
+        color: $dark-brown;
     }
     .swiper-pagination-bullet {
         width: 15px;
         height: 15px;
         display: inline-block;
         border-radius: 50%;
-        background: $dark-brown;
+        background: $black;
         opacity: 0.6;
     
     }
     .swiper-pagination-bullet-active {
         opacity: 1;
-        background: $white2;
+        background: $light-orange;
     }
 }
 
