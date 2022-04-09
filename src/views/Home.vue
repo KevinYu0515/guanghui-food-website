@@ -39,7 +39,7 @@
     <About></About>
     <Merchandise></Merchandise>
     <Gallery></Gallery>
-    <!-- <Comment></Comment> -->
+    <Comment></Comment>
     
   </div>
 </template>

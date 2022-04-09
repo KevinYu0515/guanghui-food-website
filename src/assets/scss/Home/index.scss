@@ -20,11 +20,6 @@ html{
     max-width: 500px;
 }
 
-#app{
-    background-color: #FDF2D8;
-}
-
-
 .home{
     margin: 0;
     background: #FDF2D8;
@@ -130,5 +125,48 @@ html{
     &:hover{
         color: pink;
         transition: .5s all;
+    }
+}
+
+
+:deep(.swiper-area){
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+
+    .swiper-wrapper{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .swiper-slide {
+        display: flex;
+        align-items: center;
+        
+        img{
+            width: 55%;
+            height: auto;
+            padding-bottom: 50px;
+            border-radius: 20px;
+        }
+    }
+    .swiper-button-prev{
+        --swiper-navigation-size: 30px;
+        color: $dark-brown;
+    }
+    .swiper-button-next{
+        --swiper-navigation-size: 30px;
+        color: $dark-brown;
+    }
+    .swiper-pagination-bullet {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        border-radius: 50%;
+        background: $black;
+        opacity: 0.6;
+    }
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: $light-orange;
     }
 }
