@@ -11,7 +11,13 @@
         width: 100%;
         height: auto;
         margin-top: 50px;
-
+        .swiper-wrapper{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .swiper-slide {
+            display: flex;
+            align-items: center;
             .comment-card{
                 display: grid;
                 grid-template-columns: repeat(8,30px);
@@ -68,6 +74,7 @@
                     font-size: small;
                 }
             }
+        }
             
         .swiper-button-prev{
             --swiper-navigation-size: 30px;

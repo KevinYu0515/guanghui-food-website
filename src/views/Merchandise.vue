@@ -55,7 +55,7 @@ export default {
           name2: "Fried bun stuffed with bean thread",
       }],
       title:"水煎包",
-      title_content:"主要賣三種水煎包，內餡分別為高麗菜、筍子、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
+      title_content:"主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
       cardcontent:"一個15元",
       mobile2:null,
   }),
