@@ -17,14 +17,14 @@
             <swiper-slide v-for="(comment, index) in comments" :key="index">
                 <div class="comment-card">
                     <div class="stars">
-                        <i class="fi fi-ss-star"></i>
-                        <i class="fi fi-ss-star"></i>
-                        <i class="fi fi-ss-star"></i>
-                        <i class="fi fi-ss-star"></i>
-                        <i class="fi fi-ss-star"></i>
+                        <i class="icon fi fi-ss-star"></i>
+                        <i class="icon fi fi-ss-star"></i>
+                        <i class="icon fi fi-ss-star"></i>
+                        <i class="icon fi fi-ss-star"></i>
+                        <i class="icon fi fi-ss-star"></i>
                     </div>
                     <div class="comment-content">{{comment.content}}</div>
-                    <div class="headicon"><i class="fi fi-sr-user"></i></div>
+                    <div class="headicon"><i class="icon fi fi-sr-user"></i></div>
                     <div class="name">{{comment.name}}</div>
                     <div class="record-time">{{comment.record_time}}</div>
                 </div>
