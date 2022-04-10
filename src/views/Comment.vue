@@ -1,5 +1,5 @@
 <template>
-  <section id="comment">
+  <section id="comment" data-aos="fade-up">
       <!-- 主標 -->
     <div class="content-titlewrapper">
         <i class="decoration"></i>
