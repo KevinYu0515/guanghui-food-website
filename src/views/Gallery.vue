@@ -12,17 +12,16 @@
                   <div class="image" 
                    v-for="(img, i) in images" :key="i"
                    >
-                   <!-- @click="popup=true" 可開啟相片彈出檢視窗功能 -->
-                    <span @click="popup=false"><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
+                    <span><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
                 </div>
               </div>
           </div>
 
           <!-- 相片彈出檢視窗 -->
-            <div class="preview-box" v-if="popup">
+            <div class="preview-box">
                 <div class="details">
                     <span class="title">Image</span>
-                    <span v-if="popup" @click="popup=false" class="icon fi fi-br-cross" ></span>
+                    <span class="icon fi fi-br-cross" ></span>
                 </div>
                 <div class="image-box">
                     <img :src="require('@/assets/picture/001.jpg')" alt="">
@@ -54,6 +53,7 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
+// import { onMounted } from 'vue'
 
 SwiperCore.use([Pagination,Navigation])
 
@@ -69,15 +69,28 @@ export default {
             images:['001','002','003','004','005','006','007'],
             title:"相關照片",
             mobile:null,
-            popup:null,
         }
     },
+
+    // setup(){
+    //     onMounted(()=>{
+    //         popup_image = document.querySelectorAll('.image span').forEach(image =>{
+    //             image.onclick = () =>{
+    //                 document.querySelector('perview-box').style.display = 'block';
+    //                 document.querySelector('.image-box img').src = image.getAttribute('src');
+    //             }
+    //         });
+    //         document.querySelector('.details icon').onclick = () =>{
+    //         document.querySelector('preview-box').style.display = 'none';
+    //         }
+    //     });
+    // },
 
     created(){
       window.addEventListener('resize', this.checkScreen);
       this.checkScreen();
     },
-
+    
     methods:{
         checkScreen(){
             this.windowWidth = window.innerWidth;

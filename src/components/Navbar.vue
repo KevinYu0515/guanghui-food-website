@@ -41,8 +41,8 @@ export default {
         name:'Merchandise' ,show:"水煎包" ,hash:'#merchandise', icon:"fi fi-rr-restaurant"
     },{
         name:'Photos' ,show:"相簿" ,hash:'#photos', icon:"fi fi-br-picture"
-    },
-    // {name:'Comment' ,show:'評論' ,hash:'#comment', icon:"fi fi-sr-comment-alt"}
+    },{
+        name:'Comment' ,show:'評論' ,hash:'#comment', icon:"fi fi-sr-comment-alt"}
     ],
 
     mobileNav: null,
