@@ -3,7 +3,7 @@
     <i class="decoration"></i>
      <section id="contact">
        <img class="logo" :src="require('@/assets/logo.jpg')">
-      <div class="mapBox">
+      <div class="mapBox" v-show="!mobile">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.857831780853!2d120.54562271494271!3d24.246750684347145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346915859dc0b4dd%3A0x37ba3c60d4fc0ca8!2z5YWJ5oWn5rC054WO5YyF77yI5qKn5qOy5bqX77yJ!5e0!3m2!1szh-TW!2stw!4v1647614092352!5m2!1szh-TW!2stw" 
          style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
@@ -31,8 +31,25 @@ export default {
      facebook:"facebook",
      phone:"0952404078 | 0935368684",
      place:"臺中市梧棲區民和路一段37號",
+     mobile:null,
    }
- }
+ },
+ created(){
+      window.addEventListener('resize', this.checkScreen);
+      this.checkScreen();
+  },
+  methods:{
+    checkScreen(){
+        this.windowWidth = window.innerWidth;
+        if(this.windowWidth <= 850){
+            this.mobile = true;
+            return
+        }
+        this.mobile = false;
+        this.mobileNav = false;
+        return;
+    },
+  }
  
 }
 </script>
