@@ -2,11 +2,12 @@
 
 #news{
     position: relative;
-    height:44vh;
+    height:auto;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 100px;
     box-sizing: border-box;
     margin-bottom: 30px;
     background-color: $brown;
@@ -20,9 +21,9 @@
         color: $white;
     }
 }
+
 @media screen and (max-width:$screen-md) {
     #news{
-        height: 30vh;
         margin-bottom: 0px;
         h1{
             font-size: 2rem;

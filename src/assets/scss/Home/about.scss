@@ -3,12 +3,12 @@
 
 #about{
     position: relative;
-    height:35vh;
-    width: 100%;
+    height:auto;
+    max-width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    box-sizing: border-box;
+    margin-top: 60px;
     .title{
         font-size: 2rem;
         color: $brown;
@@ -21,13 +21,9 @@
         color: $brown;
     }
 }
+
 @media screen and (max-width:$screen-md) {
     #about{
-        height: 50vh;
-        margin-bottom: 0px;
-        .title{
-            font-size: 2rem;
-        }
         .content{
             width: 80%;
             font-size: 1.1rem;

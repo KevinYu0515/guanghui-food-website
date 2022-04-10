@@ -8,7 +8,7 @@
          style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div class="contact-box">
-        <div class="decoration4"></div>
+        <div class="decoration2"></div>
         <h1>{{title}}</h1>
         <a href="https://www.facebook.com/people/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85-%E6%A2%A7%E6%A3%B2%E5%BA%97/100075103166257/">
           <i class="icon fi fi-brands-facebook"><span style="font-weight:bolder">{{facebook}}</span></i>
@@ -41,7 +41,7 @@ export default {
   methods:{
     checkScreen(){
         this.windowWidth = window.innerWidth;
-        if(this.windowWidth <= 850){
+        if(this.windowWidth <= 1120){
             this.mobile = true;
             return
         }

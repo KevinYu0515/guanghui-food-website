@@ -15,8 +15,10 @@
           <div class="card" v-for="(item, index) in cardItems" :key="index">
             <img :src="item.imgPath">
             <div class="info">
-              <h1>{{item.name}}<br><span>{{item.name2}}</span></h1>
-              <p>{{cardcontent}}</p>
+              <h1>{{item.name}}<br>
+                <span>{{item.name2}}</span> 
+                <p>{{cardcontent}}</p> 
+              </h1>
             </div>
           </div>
         </div>
@@ -28,8 +30,12 @@
         >
           <img :src="item.imgPath"> 
           <div class="description">
-            <p class="item-name"><span>{{item.name}}</span><br>{{item.name2}}</p>
-            <p class="item-content">{{cardcontent}}</p>
+            <p class="item-content">
+              <span>{{item.name}}</span><br>
+              {{item.name2}}<br>
+              {{cardcontent}}
+            </p>
+            
           </div>
         </div> 
     </section>
@@ -66,7 +72,7 @@ export default {
     methods:{
         checkScreen(){
             this.windowWidth = window.innerWidth;
-            if(this.windowWidth<= 850){
+            if(this.windowWidth<= 992){
                   this.mobile2 = true;
                   return
                 }

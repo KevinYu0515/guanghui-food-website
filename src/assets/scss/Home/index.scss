@@ -38,10 +38,11 @@ html{
     height: 4vmin;
     display: flex;
     align-items: baseline;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+
     .decoration{
         height: 10px;
-        width: 100px;
+        width: 15vw;
         background-color: red;
         margin: 0px 10px;
     }
@@ -58,31 +59,7 @@ html{
     font-size: 1.1rem;
     font-weight: 700;
     text-align: center;
-    width: 40%;
-    @media screen and (max-width:800px) {
-        width:370px;
-    }
-}
-
-.btn{
-    cursor:pointer;
-    position: relative;
-    border-radius: 4px;
-    display: inline-block;
-    padding: 10px 30px;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    font-weight: bold;
-    font-size: 1.3rem;
-    font-style:normal;
-    background: #f72585;
-    color:#edf2fb;
-    margin-bottom: 50px;
-    &:hover{
-        background: #530de9;
-        color:#edf2fb;
-    }
+    max-width: 80%;
 }
 
 .socialMedia{
