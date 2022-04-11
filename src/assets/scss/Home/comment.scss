@@ -2,8 +2,6 @@
 
 
 #comment{
-    height: auto;
-    max-width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 60px;
@@ -25,7 +23,7 @@
                 grid-template-rows: 30px 90px 30px;
                 grid-gap: 15px 15px;
                 padding: 50px;
-                margin: 40px 0px;
+                margin: 40px 0;
                 margin-bottom: 80px;
                 color: $black;
                 background-color: $white;
@@ -92,24 +90,24 @@
 @media screen and (max-width:$screen-xs) {
     #comment{
         :deep(.swiper-area .swiper-slide .comment-card){
-            grid-template-columns: repeat(8,15px);
-            grid-template-rows: 15px 45px 15px;
+            grid-template-columns: repeat(8,20px);
+            grid-template-rows: 20px 60px 20px;
             grid-gap: 20px 20px;
             padding: 10px;
             .stars .icon{
                 font-size: 1rem;
             }
             .comment-content{
-                font-size: .2rem;
+                font-size: .8rem;
             }
             .headicon .icon{
                 font-size: 1rem;
             }
             .name{
-                font-size: .2rem;
+                font-size: .8rem;
             }
             .record-time{
-                font-size: .2rem;
+                font-size: .8rem;
             }
         }
     }

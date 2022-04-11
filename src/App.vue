@@ -23,9 +23,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 * {
   font-family: "Noto Sans TC", 'Secular One', Arial, sans-serif;
+  height: auto;
+  max-width: 100%;
+  margin:0;
   justify-content: center;
   align-items: center;
-  margin:0;
   text-decoration: none;
 }
 #app{
