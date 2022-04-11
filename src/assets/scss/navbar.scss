@@ -48,7 +48,11 @@ header{
 @media screen and (max-width:850px) {
   header{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    .logo{
+      width: 50px;
+      margin-left: 20px;
+    }
     ul li{
       margin: 0;
       a{
@@ -77,6 +81,13 @@ header{
       }
     }
   }
+}
+
+@media screen and (max-width:400px){
+  header ul {
+    display: none;
+  }
+  
 }
 
 .scrolled-nav{

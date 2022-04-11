@@ -11,6 +11,9 @@
             <li><router-link to='/#contact'>{{ex_tab}}</router-link> </li>
         </ul>
         <!-- 窄版navbar -->
+        <div class="logo" v-show="mobile">
+          <img :src="require('@/assets/picture/guanghui.png')">
+        </div>
         <ul v-show="mobile">
             <li v-for="(tab, index) in tabs" :key="index">
               <router-link :to="{name:tab.name, hash:tab.hash}" >
