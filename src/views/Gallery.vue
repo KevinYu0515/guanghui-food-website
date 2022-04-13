@@ -51,7 +51,6 @@ import {ref} from "vue"
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
-// import { onMounted } from 'vue'
 
 SwiperCore.use([Pagination,Navigation])
 
