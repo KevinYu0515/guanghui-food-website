@@ -49,10 +49,16 @@
       <template #sectionTitle>
         {{sectionTitle[1]}}
       </template>
+      <template #sectionTitleContent>
+        {{sectionTitleContent[1]}}
+      </template>
     </gallery>
     <comment>
       <template #sectionTitle>
         {{sectionTitle[2]}}
+      </template>
+      <template #sectionTitleContent>
+        {{sectionTitleContent[2]}}
       </template>
     </comment>
     
@@ -83,7 +89,9 @@ export default {
       sectionTitle:["水煎包","相片集","評論區"],
       sectionTitleContent:[
         "主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
-        ],
+        "由商家提供的照片，其中包含最新實體店面、三種水煎包、水煎包烹煮過程，拍攝技術拙劣還請見諒",
+        "評論皆於Google評論索取，五星好評謝謝大家的支持"
+      ],
       mobileNews: null,
       mobileIcon: null,
     }

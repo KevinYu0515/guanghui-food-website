@@ -8,6 +8,9 @@
             </p>
             <i class="decoration"></i>
         </div>
+        <p class="content-description">
+            <slot name="sectionTitleContent"></slot>
+        </p>
         <!-- 寬版架構-相片藝廊 -->
           <div class="wrapper" v-show="!mobile">
               <div class="gallery">

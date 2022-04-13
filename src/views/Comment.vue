@@ -8,6 +8,9 @@
       </p>
       <i class="decoration"></i>
     </div>
+    <p class="content-description">
+        <slot name="sectionTitleContent"></slot>
+    </p>
     <div class="swiper-area">
         <!-- 寬版swiper -->
         <swiper
