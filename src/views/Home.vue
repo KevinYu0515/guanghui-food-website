@@ -36,24 +36,39 @@
       <p>{{news_content}}</p>
     </section>
     <!-- 其他版面 -->
-    <About></About>
-    <Merchandise></Merchandise>
-    <Gallery></Gallery>
-    <Comment></Comment>
+    <about></about>
+    <merchandise>
+      <template #sectionTitle>
+        {{sectionTitle[0]}}
+      </template>
+      <template #sectionTitleContent>
+        {{sectionTitleContent[0]}}
+      </template>
+    </merchandise>
+    <gallery>
+      <template #sectionTitle>
+        {{sectionTitle[1]}}
+      </template>
+    </gallery>
+    <comment>
+      <template #sectionTitle>
+        {{sectionTitle[2]}}
+      </template>
+    </comment>
     
   </div>
 </template>
 
 <script>
-import About from "./About.vue";
-import Merchandise from "./Merchandise.vue";
-import Gallery from "./Gallery.vue"
-import Comment from "./Comment.vue";
+import about from "./About.vue";
+import merchandise from "./Merchandise.vue";
+import gallery from "./Gallery.vue"
+import comment from "./Comment.vue";
 
 export default {
   name: 'Home',
   components:{
-    About,Merchandise,Comment,Gallery
+    about,merchandise,comment,gallery
   },
   data(){
     return{
@@ -65,6 +80,10 @@ export default {
       days:['週一','週二','週三','週四','週五'],
       weekends:['週六','週日'],
       times:["0600~0900","1500~1700","公休"],
+      sectionTitle:["水煎包","相片集","評論區"],
+      sectionTitleContent:[
+        "主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
+        ],
       mobileNews: null,
       mobileIcon: null,
     }

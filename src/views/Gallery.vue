@@ -2,9 +2,11 @@
   <section id="photos" data-aos="fade-up">
       <!-- 主標 -->
         <div class="content-titlewrapper">
-          <i class="decoration"></i>
-          <p class="content-title">{{title}}</p>
-          <i class="decoration"></i>
+            <i class="decoration"></i>
+            <p class="content-title">
+                <slot name="sectionTitle"></slot>
+            </p>
+            <i class="decoration"></i>
         </div>
         <!-- 寬版架構-相片藝廊 -->
           <div class="wrapper" v-show="!mobile">
@@ -67,7 +69,6 @@ export default {
     data() {
         return{
             images:['001','002','003','004','005','006','007'],
-            title:"相關照片",
             mobile:null,
         }
     },

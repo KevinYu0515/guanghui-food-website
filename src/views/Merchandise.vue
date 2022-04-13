@@ -1,14 +1,16 @@
 <template>
   <section id="merchandise" data-aos="fade-up">
     <!-- 主標 -->
-      <div class="content-titlewrapper">
-        <i class="decoration"></i>
-        <p class="content-title">{{title}}</p>
-        <i class="decoration"></i>
-      </div>
-      <p class="content-description">
-        {{title_content}}
+    <div class="content-titlewrapper">
+      <i class="decoration"></i>
+      <p class="content-title">
+        <slot name="sectionTitle"></slot>
       </p>
+      <i class="decoration"></i>
+    </div>
+    <p class="content-description">
+        <slot name="sectionTitleContent"></slot>
+    </p>
       <!-- 各產品卡片內容 -->
       <!-- 寬版架構 -->
         <div class="cardwrapper" v-show="!mobile2">
@@ -60,8 +62,6 @@ export default {
           name: "冬粉水煎包",
           name2: "Fried bun stuffed with bean thread",
       }],
-      title:"水煎包",
-      title_content:"主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價15元，飲料有 紅茶、奶茶 另售10元",
       cardcontent:"一個15元",
       mobile2:null,
   }),

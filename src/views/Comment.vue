@@ -1,10 +1,12 @@
 <template>
   <section id="comment" data-aos="fade-up">
-      <!-- 主標 -->
+    <!-- 主標 -->
     <div class="content-titlewrapper">
-        <i class="decoration"></i>
-        <p class="content-title">{{title}}</p>
-        <i class="decoration"></i>
+      <i class="decoration"></i>
+      <p class="content-title">
+        <slot name="sectionTitle"></slot>
+      </p>
+      <i class="decoration"></i>
     </div>
     <div class="swiper-area">
         <!-- 寬版swiper -->
@@ -74,7 +76,6 @@ export default {
         SwiperSlide,
     },
     data:()=>({
-            title:"相關評論",
             comments:[
             {
                 content: '"光慧素食水煎包在梧棲也吃得到啦！只是品項只有三種，不過沒關係，三種都很好吃噢😋，下午茶時段不怕肚子餓沒素食點心可以吃了，大力地給它點下去吧！"',
