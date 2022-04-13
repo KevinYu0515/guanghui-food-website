@@ -13,7 +13,7 @@
     </p>
       <!-- 各產品卡片內容 -->
       <!-- 寬版架構 -->
-        <div class="cardwrapper" v-show="!mobile2">
+        <div class="cardwrapper" v-show="!mobile">
           <div class="card" v-for="(item, index) in cardItems" :key="index">
             <img :src="item.imgPath">
             <div class="info">
@@ -26,7 +26,7 @@
         </div>
       <!-- 窄版架構 -->
         <div class="card_mobile" 
-        v-show="mobile2" 
+        v-show="mobile" 
         v-for="(item, index) in cardItems" :key="index"
         data-aos="fade-up"
         >
@@ -63,7 +63,7 @@ export default {
           name2: "Fried bun stuffed with bean thread",
       }],
       cardcontent:"一個15元",
-      mobile2:null,
+      mobile:null,
   }),
   created(){
       window.addEventListener('resize', this.checkScreen);
@@ -73,10 +73,10 @@ export default {
         checkScreen(){
             this.windowWidth = window.innerWidth;
             if(this.windowWidth<= 992){
-                  this.mobile2 = true;
+                  this.mobile = true;
                   return
                 }
-            this.mobile2 = false;
+            this.mobile = false;
             return;
         },
     }

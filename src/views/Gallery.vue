@@ -15,24 +15,15 @@
           <div class="wrapper" v-show="!mobile">
               <div class="gallery">
                   <div class="image" 
-                   v-for="(img, i) in images" :key="i"
+                   v-for="(img, index) in images" :key="index"
                    >
-                    <span><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
+                    <span @click="isOpen = true"><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
+                    <Popup :open="isOpen" @close="isOpen = !isOpen">
+                        <img :src="require(`@/assets/picture/${img}.jpg`)"/>
+                    </Popup>
                 </div>
               </div>
           </div>
-
-          <!-- 相片彈出檢視窗 -->
-            <div class="preview-box">
-                <div class="details">
-                    <span class="title">Image</span>
-                    <span class="icon fi fi-br-cross" ></span>
-                </div>
-                <div class="image-box">
-                    <img :src="require('@/assets/picture/001.jpg')" alt="">
-                </div>
-            </div>
-            <div class="shadow"></div>
 
         <!-- 窄版架構-swiper -->
          <div class="swiper-area">
@@ -55,6 +46,8 @@
 
 
 <script>
+import Popup from "../components/Popup.vue"
+import {ref} from "vue"
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
@@ -67,6 +60,12 @@ export default {
     components: {
         Swiper,
         SwiperSlide,
+        Popup,
+    },
+    setup(){
+        const isOpen = ref(false);
+        return {isOpen};
+    
     },
 
     data() {
@@ -75,20 +74,6 @@ export default {
             mobile:null,
         }
     },
-
-    // setup(){
-    //     onMounted(()=>{
-    //         popup_image = document.querySelectorAll('.image span').forEach(image =>{
-    //             image.onclick = () =>{
-    //                 document.querySelector('perview-box').style.display = 'block';
-    //                 document.querySelector('.image-box img').src = image.getAttribute('src');
-    //             }
-    //         });
-    //         document.querySelector('.details icon').onclick = () =>{
-    //         document.querySelector('preview-box').style.display = 'none';
-    //         }
-    //     });
-    // },
 
     created(){
       window.addEventListener('resize', this.checkScreen);

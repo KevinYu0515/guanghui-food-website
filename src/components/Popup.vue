@@ -1,0 +1,43 @@
+<template>
+    <div class="preview-box">
+        <div class="details">
+            <span class="title">Image</span>
+            <span class="icon fi fi-br-cross"  @click="close"></span>
+        </div>
+        <div class="image-box">
+            <slot />
+        </div>
+    </div>
+    <div class="shadow"></div>
+</template>
+
+<script>
+import { onMounted, onUnmounted } from "vue";
+export default {
+    props:{
+        open:{
+            type:Boolean,
+            default:true,
+        }
+    },
+    setup(_, { emit }) {
+    const close = () => {
+      emit("close");
+    };
+    const handleKeyup = (event) => {
+      if (event.keyCode === 27) {
+        close();
+      }
+    };
+
+    onMounted(() => document.addEventListener("keyup", handleKeyup));
+    onUnmounted(() => document.removeEventListener("keyup", handleKeyup));
+
+    return { close };
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+@import "@/assets/scss/popup.scss"
+</style>

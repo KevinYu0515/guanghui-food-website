@@ -31,7 +31,7 @@
       <i class="icon fi fi-rr-call-incoming"><span>{{phone}}</span></i>
     </div>
     <!-- 新公告說明版面 -->
-    <section id="news" v-show="!mobileNews" data-aos="fade-up">
+    <section id="news" v-show="true" data-aos="fade-up">
       <h1>{{news_title}}</h1>
       <p>{{news_content}}</p>
     </section>
@@ -92,7 +92,6 @@ export default {
         "由商家提供的照片，其中包含最新實體店面、三種水煎包、水煎包烹煮過程，拍攝技術拙劣還請見諒",
         "評論皆於Google評論索取，五星好評謝謝大家的支持"
       ],
-      mobileNews: null,
       mobileIcon: null,
     }
   },
