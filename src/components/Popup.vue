@@ -1,9 +1,9 @@
-<template>
+<template >
   <transition name="fade">
     <div class="background" v-show="open" >
         <div class="preview-box" >
             <div class="details">
-                <span class="title">{{imageName}}</span>
+                <span class="title">{{image.Name}}</span>
                 <span class="icon fi fi-br-cross"  @click="close"></span>
             </div>
             <div class="image-box">
