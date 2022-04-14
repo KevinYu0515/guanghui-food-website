@@ -1,14 +1,18 @@
 <template>
-    <div class="preview-box">
-        <div class="details">
-            <span class="title">Image</span>
-            <span class="icon fi fi-br-cross"  @click="close"></span>
+  <transition name="fade">
+    <div class="background" v-show="open" >
+        <div class="preview-box" >
+            <div class="details">
+                <span class="title">{{imageName}}</span>
+                <span class="icon fi fi-br-cross"  @click="close"></span>
+            </div>
+            <div class="image-box">
+                <slot />
+            </div>
         </div>
-        <div class="image-box">
-            <slot />
-        </div>
+      <div class="shadow"></div>
     </div>
-    <div class="shadow"></div>
+  </transition>
 </template>
 
 <script>
@@ -35,6 +39,11 @@ export default {
 
     return { close };
   },
+  data(){
+      return{
+        imageName:"照片預覽"
+      }
+  }
 }
 </script>
 

@@ -14,12 +14,46 @@
         <!-- 寬版架構-相片藝廊 -->
           <div class="wrapper" v-show="!mobile">
               <div class="gallery">
-                  <div class="image" 
-                   v-for="(img, index) in images" :key="index"
-                   >
-                    <span @click="isOpen = true"><img :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
-                    <Popup :open="isOpen" @close="isOpen = !isOpen">
-                        <img :src="require(`@/assets/picture/${img}.jpg`)"/>
+                  <div class="image">
+                    <span @click="isOpen_1 = true"><img class="initial_img" :src="require(`@/assets/picture/001.jpg`)" alt=""></span>
+                    <Popup :open="isOpen_1" @close="isOpen_1 = !isOpen_1">
+                        <img :src="require('@/assets/picture/001.jpg')"/>
+                    </Popup>
+                </div>
+                <div class="image">
+                    <span @click="isOpen_2 = true"><img class="initial_img" :src="require(`@/assets/picture/002.jpg`)" alt=""></span>
+                    <Popup :open="isOpen_2" @close="isOpen_2 = !isOpen_2">
+                        <img :src="require('@/assets/picture/002.jpg')"/>
+                    </Popup>
+                </div>
+                <div class="image">
+                    <span @click="isOpen_3 = true"><img class="initial_img" :src="require(`@/assets/picture/003.jpg`)" alt=""></span>
+                    <Popup :open="isOpen_3" @close="isOpen_3 = !isOpen_3">
+                        <img :src="require('@/assets/picture/003.jpg')"/>
+                    </Popup>
+                </div>
+                <div class="image">
+                    <span @click="isOpen_4 = true"><img class="initial_img" :src="require(`@/assets/picture/004.jpg`)" alt=""></span>
+                    <Popup :open="isOpen_4" @close="isOpen_4 = !isOpen_4">
+                        <img :src="require('@/assets/picture/004.jpg')"/>
+                    </Popup>
+                </div>
+                <div class="image">
+                    <span @click="isOpen_5 = true"><img class="initial_img" :src="require(`@/assets/picture/005.jpg`)" alt=""></span>
+                    <Popup :open="isOpen_5" @close="isOpen_5 = !isOpen_5">
+                        <img :src="require('@/assets/picture/005.jpg')"/>
+                    </Popup>
+                </div>
+                <div class="image">
+                    <span @click="isOpen_6 = true"><img class="initial_img" :src="require(`@/assets/picture/006.jpg`)" alt=""></span>
+                    <Popup :open="isOpen_6" @close="isOpen_6 = !isOpen_6">
+                        <img :src="require('@/assets/picture/006.jpg')"/>
+                    </Popup>
+                </div>
+                <div class="image">
+                    <span @click="isOpen_7 = true"><img class="initial_img" :src="require(`@/assets/picture/007.jpg`)" alt=""></span>
+                    <Popup :open="isOpen_7" @close="isOpen_7 = !isOpen_7">
+                        <img :src="require('@/assets/picture/007.jpg')"/>
                     </Popup>
                 </div>
               </div>
@@ -62,9 +96,14 @@ export default {
         Popup,
     },
     setup(){
-        const isOpen = ref(false);
-        return {isOpen};
-    
+        const isOpen_1 = ref(false);
+        const isOpen_2 = ref(false);
+        const isOpen_3 = ref(false);
+        const isOpen_4 = ref(false);
+        const isOpen_5 = ref(false);
+        const isOpen_6 = ref(false);
+        const isOpen_7 = ref(false);
+        return {isOpen_1, isOpen_2, isOpen_3, isOpen_4, isOpen_5, isOpen_6, isOpen_7};
     },
 
     data() {
