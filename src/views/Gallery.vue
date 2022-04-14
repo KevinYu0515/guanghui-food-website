@@ -13,50 +13,32 @@
         </p>
         <!-- 寬版架構-相片藝廊 -->
           <div class="wrapper" v-show="!mobile">
-              <div class="gallery">
-                  <div class="image">
-                    <span @click="isOpen_1 = true"><img class="initial_img" :src="require(`@/assets/picture/001.jpg`)" alt=""></span>
-                    <Popup :open="isOpen_1" @close="isOpen_1 = !isOpen_1">
-                        <img :src="require('@/assets/picture/001.jpg')"/>
-                    </Popup>
+            <div class="gallery">
+                <div class="image" v-for="(img, index) in images" :key="index">
+                    <span @click="imgClick(index)"><img class="initial_img" :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
                 </div>
-                <div class="image">
-                    <span @click="isOpen_2 = true"><img class="initial_img" :src="require(`@/assets/picture/002.jpg`)" alt=""></span>
-                    <Popup :open="isOpen_2" @close="isOpen_2 = !isOpen_2">
-                        <img :src="require('@/assets/picture/002.jpg')"/>
-                    </Popup>
-                </div>
-                <div class="image">
-                    <span @click="isOpen_3 = true"><img class="initial_img" :src="require(`@/assets/picture/003.jpg`)" alt=""></span>
-                    <Popup :open="isOpen_3" @close="isOpen_3 = !isOpen_3">
-                        <img :src="require('@/assets/picture/003.jpg')"/>
-                    </Popup>
-                </div>
-                <div class="image">
-                    <span @click="isOpen_4 = true"><img class="initial_img" :src="require(`@/assets/picture/004.jpg`)" alt=""></span>
-                    <Popup :open="isOpen_4" @close="isOpen_4 = !isOpen_4">
-                        <img :src="require('@/assets/picture/004.jpg')"/>
-                    </Popup>
-                </div>
-                <div class="image">
-                    <span @click="isOpen_5 = true"><img class="initial_img" :src="require(`@/assets/picture/005.jpg`)" alt=""></span>
-                    <Popup :open="isOpen_5" @close="isOpen_5 = !isOpen_5">
-                        <img :src="require('@/assets/picture/005.jpg')"/>
-                    </Popup>
-                </div>
-                <div class="image">
-                    <span @click="isOpen_6 = true"><img class="initial_img" :src="require(`@/assets/picture/006.jpg`)" alt=""></span>
-                    <Popup :open="isOpen_6" @close="isOpen_6 = !isOpen_6">
-                        <img :src="require('@/assets/picture/006.jpg')"/>
-                    </Popup>
-                </div>
-                <div class="image">
-                    <span @click="isOpen_7 = true"><img class="initial_img" :src="require(`@/assets/picture/007.jpg`)" alt=""></span>
-                    <Popup :open="isOpen_7" @close="isOpen_7 = !isOpen_7">
-                        <img :src="require('@/assets/picture/007.jpg')"/>
-                    </Popup>
-                </div>
-              </div>
+                <Popup :open="isOpen_1" @close="isOpen_1 = !isOpen_1">
+                    <img :src="require('@/assets/picture/001.jpg')"/>
+                </Popup>
+                <Popup :open="isOpen_2" @close="isOpen_2 = !isOpen_2">
+                    <img :src="require('@/assets/picture/002.jpg')"/>
+                </Popup>
+                <Popup :open="isOpen_3" @close="isOpen_3 = !isOpen_3">
+                    <img :src="require('@/assets/picture/003.jpg')"/>
+                </Popup>
+                <Popup :open="isOpen_4" @close="isOpen_4 = !isOpen_4">
+                    <img :src="require('@/assets/picture/004.jpg')"/>
+                </Popup>
+                <Popup :open="isOpen_5" @close="isOpen_5 = !isOpen_5">
+                    <img :src="require('@/assets/picture/005.jpg')"/>
+                </Popup>
+                <Popup :open="isOpen_6" @close="isOpen_6 = !isOpen_6">
+                    <img :src="require('@/assets/picture/006.jpg')"/>
+                </Popup>
+                <Popup :open="isOpen_7" @close="isOpen_7 = !isOpen_7">
+                    <img :src="require('@/assets/picture/007.jpg')"/>
+                </Popup>
+            </div>
           </div>
 
         <!-- 窄版架構-swiper -->
@@ -103,7 +85,7 @@ export default {
         const isOpen_5 = ref(false);
         const isOpen_6 = ref(false);
         const isOpen_7 = ref(false);
-        return {isOpen_1, isOpen_2, isOpen_3, isOpen_4, isOpen_5, isOpen_6, isOpen_7};
+        return {isOpen_1, isOpen_2, isOpen_3, isOpen_4, isOpen_5, isOpen_6, isOpen_7}
     },
 
     data() {
@@ -127,6 +109,27 @@ export default {
                 }
             this.mobile = false;
             return;
+        },
+        closeAllisOpen(){
+            this.isOpen_1 = false;
+            this.isOpen_2 = false;
+            this.isOpen_3 = false;
+            this.isOpen_4 = false;
+            this.isOpen_5 = false;
+            this.isOpen_6 = false;
+            this.isOpen_7 = false;
+        },
+        imgClick(index){
+            this.closeAllisOpen();
+            switch(index){
+                case 0: this.isOpen_1 = true; break
+                case 1: this.isOpen_2 = true; break
+                case 2: this.isOpen_3 = true; break
+                case 3: this.isOpen_4 = true; break
+                case 4: this.isOpen_5 = true; break
+                case 5: this.isOpen_6 = true; break
+                case 6: this.isOpen_7 = true; break
+            }
         },
     }
 }
