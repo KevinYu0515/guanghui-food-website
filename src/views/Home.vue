@@ -33,7 +33,9 @@
     <!-- 新公告說明版面 -->
     <section id="news" v-show="true" data-aos="fade-up">
       <h1>{{news_title}}</h1>
-      <p>{{news_content}}</p>
+      <p v-for="(news_content, index) in news_contents" :key="index">
+        {{news_content}}
+      </p>
     </section>
     <!-- 其他版面 -->
     <about></about>
@@ -80,9 +82,10 @@ export default {
     return{
       store_name: "光慧水煎包",
       store_subname:"(梧棲店)",
-      timetable_title:"營業時間",
-      news_title:"最新公告",
-      news_content:"暫無新公告",
+      timetable_title:"正常營業時間",
+      news_title:"近期公告",
+      news_contents:["4/19(二)\n休息一日",
+                     "於五月開始，因應物價上漲，水煎包售價為18元，感謝你的體諒",],
       days:['週一','週二','週三','週四','週五'],
       weekends:['週六','週日'],
       times:["0600~0900","1500~1700","公休"],
