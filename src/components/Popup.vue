@@ -2,12 +2,12 @@
   <transition name="fade">
     <div class="background" v-show="open" >
         <div class="preview-box" >
-            <div class="details">
-                <span class="title">{{imageName}}</span>
+            <div class="details" >
+                <slot name="imageName"><span class="title">{{imageName}}</span></slot>
                 <span class="icon fi fi-br-cross"  @click="close"></span>
             </div>
             <div class="image-box">
-                <slot />
+                <slot name="img"></slot>
             </div>
         </div>
       <div class="shadow"></div>

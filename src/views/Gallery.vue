@@ -15,28 +15,35 @@
           <div class="wrapper" v-show="!mobile">
             <div class="gallery">
                 <div class="image" v-for="(img, index) in images" :key="index">
-                    <span @click="imgClick(index)"><img class="initial_img" :src="require(`@/assets/picture/${img}.jpg`)" alt=""></span>
+                    <span @click="imgClick(index)"><img class="initial_img" :src="img.src" alt=""></span>
                 </div>
                 <Popup :open="isOpen_1" @close="isOpen_1 = !isOpen_1">
-                    <img :src="require('@/assets/picture/001.jpg')"/>
+                    <template #imageName>{{images[0].name}}</template>
+                    <template #img><img :src="images[0].src"/></template>
                 </Popup>
                 <Popup :open="isOpen_2" @close="isOpen_2 = !isOpen_2">
-                    <img :src="require('@/assets/picture/002.jpg')"/>
+                    <template #imageName>{{images[1].name}}</template>
+                    <template #img><img :src="images[1].src"/></template>
                 </Popup>
                 <Popup :open="isOpen_3" @close="isOpen_3 = !isOpen_3">
-                    <img :src="require('@/assets/picture/003.jpg')"/>
+                     <template #imageName>{{images[2].name}}</template>
+                    <template #img><img :src="images[2].src"/></template>
                 </Popup>
                 <Popup :open="isOpen_4" @close="isOpen_4 = !isOpen_4">
-                    <img :src="require('@/assets/picture/004.jpg')"/>
+                    <template #imageName>{{images[3].name}}</template>
+                    <template #img><img :src="images[3].src"/></template>
                 </Popup>
                 <Popup :open="isOpen_5" @close="isOpen_5 = !isOpen_5">
-                    <img :src="require('@/assets/picture/005.jpg')"/>
+                    <template #imageName>{{images[4].name}}</template>
+                    <template #img><img :src="images[4].src"/></template>
                 </Popup>
                 <Popup :open="isOpen_6" @close="isOpen_6 = !isOpen_6">
-                    <img :src="require('@/assets/picture/006.jpg')"/>
+                    <template #imageName>{{images[5].name}}</template>
+                    <template #img><img :src="images[5].src"/></template>
                 </Popup>
                 <Popup :open="isOpen_7" @close="isOpen_7 = !isOpen_7">
-                    <img :src="require('@/assets/picture/007.jpg')"/>
+                    <template #imageName>{{images[6].name}}</template>
+                    <template #img><img :src="images[6].src"/></template>
                 </Popup>
             </div>
           </div>
@@ -52,7 +59,7 @@
                 :loop="true"
             >
                 <swiper-slide v-for="(img, index) in images" :key="index">
-                    <img :src="require(`@/assets/picture/${img}.jpg`)"/>
+                    <img :src="img.src"/>
                 </swiper-slide>
             </swiper>
         </div>
@@ -90,7 +97,29 @@ export default {
 
     data() {
         return{
-            images:['001','002','003','004','005','006','007'],
+            images:[
+                {
+                    src:require("@/assets/picture/001.jpg"),
+                    name:"高麗菜水煎包",
+                },{
+                    src:require("@/assets/picture/002.jpg"),
+                    name:"竹筍水煎包",
+                },{
+                    src:require("@/assets/picture/003.jpg"),
+                    name:"冬粉水煎包",
+                },{
+                    src:require("@/assets/picture/004.jpg"),
+                    name:"水煎包下鍋瞜~",
+                },{
+                    src:require("@/assets/picture/005.jpg"),
+                    name:"水煎包快起鍋瞜~",
+                },{
+                    src:require("@/assets/picture/006.jpg"),
+                    name:"店面右斜側拍",
+                },{
+                    src:require("@/assets/picture/007.jpg"),
+                    name:"店面左斜側拍",
+                }],
             mobile:null,
         }
     },
