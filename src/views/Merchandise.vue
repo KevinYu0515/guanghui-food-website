@@ -29,7 +29,6 @@
         v-show="mobile" 
         v-for="(item, index) in cardItems" :key="index"
         data-aos="fade-left"
-        
         >
           <img :src="item.imgPath"> 
           <div class="description">

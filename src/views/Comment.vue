@@ -11,37 +11,11 @@
     <p class="content-description">
         <slot name="sectionTitleContent"></slot>
     </p>
+    <!-- swiper -->
     <div class="swiper-area">
-        <!-- 寬版swiper -->
         <swiper
-            v-show="!mobile"
-            :slidesPerView="2"
-            :spaceBetween="20"
-            :pagination="{ clickable: true, dynamicBullets: false }"
-            :navigation="true"
-            :loop="true"
-        >
-            <swiper-slide v-for="(comment, index) in comments" :key="index">
-                <div class="comment-card">
-                    <div class="stars">
-                        <i class="icon fi fi-ss-star"></i>
-                        <i class="icon fi fi-ss-star"></i>
-                        <i class="icon fi fi-ss-star"></i>
-                        <i class="icon fi fi-ss-star"></i>
-                        <i class="icon fi fi-ss-star"></i>
-                    </div>
-                    <div class="comment-content">{{comment.content}}</div>
-                    <div class="headicon"><i class="icon fi fi-sr-user"></i></div>
-                    <div class="name">{{comment.name}}</div>
-                    <div class="record-time">{{comment.record_time}}</div>
-                </div>
-            </swiper-slide>
-        </swiper>
-        <!-- 窄版swiper -->
-        <swiper
-            v-show="mobile"
-            :slidesPerView="1"
-            :spaceBetween="30"
+            :slidesPerView=" !mobile ? 2 : 1 "
+            :spaceBetween=" !mobile ? 20 : 30 "
             :pagination="{ clickable: true, dynamicBullets: false }"
             :navigation="true"
             :loop="true"
