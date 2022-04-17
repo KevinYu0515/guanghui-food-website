@@ -29,6 +29,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  
 }
 #app{
     background-color: #FDF2D8;

@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     margin-top: 60px;
+    
 
     .cardwrapper{
         display: flex;
@@ -115,6 +116,8 @@
 
 @media screen and (max-width:$screen-md) {
     #merchandise{
+        overflow-x:hidden;
+        overflow-y:hidden;
         .cardwrapper{
             display: block;
             .card{
@@ -132,6 +135,8 @@
 
 @media screen and (max-width:$screen-xs) {
     #merchandise{
+        overflow-x:hidden;
+        overflow-y:hidden;
         .card_mobile .description{
             .item-content{
                 font-size: 0.8rem;
