@@ -1,10 +1,10 @@
 <template>
   <transition name="fade">
-    <div class="background" v-show="open" >
-        <div class="preview-box" >
+    <div class="background" v-show="open">
+        <div class="preview-box">
             <div class="details" >
                 <slot name="imageName"><span class="title">{{imageName}}</span></slot>
-                <span class="icon fi fi-br-cross"  @click="close"></span>
+                <span class="icon fi fi-br-cross" @click="close"></span>
             </div>
             <div class="image-box">
                 <slot name="img"></slot>
@@ -43,7 +43,7 @@ export default {
       return{
         imageName:"照片:p"
       }
-  }
+  },
 }
 </script>
 
