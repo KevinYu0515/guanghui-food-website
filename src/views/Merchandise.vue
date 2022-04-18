@@ -15,7 +15,7 @@
       <!-- 寬版架構 -->
         <div class="cardwrapper" v-show="!mobile">
           <div class="card" v-for="(item, index) in cardItems" :key="index">
-            <img :src="item.imgPath">
+            <img :src="item.src">
             <div class="info">
               <h1>{{item.name}}<br>
                 <span>{{item.name2}}</span> 
@@ -26,11 +26,11 @@
         </div>
       <!-- 窄版架構 -->
         <div class="card_mobile" 
-        v-show="mobile" 
-        v-for="(item, index) in cardItems" :key="index"
-        data-aos="fade-left"
+          v-show="mobile" 
+          v-for="(item, index) in cardItems" :key="index"
+          data-aos="fade-left"
         >
-          <img :src="item.imgPath"> 
+          <img :src="item.src"> 
           <div class="description">
             <p class="item-content">
               <span>{{item.name}}</span><br>
@@ -48,17 +48,17 @@ export default {
   data:()=>({
       cardItems:[
       {
-          imgPath: require('@/assets/picture/001.jpg'),
+          src: require('@/assets/picture/001.jpg'),
           name: "高麗菜水煎包",
           name2: "Fried bun stuffed with cabbage",
       },
       {
-          imgPath: require('@/assets/picture/002.jpg'),
+          src: require('@/assets/picture/002.jpg'),
           name: "竹筍水煎包",
           name2: "Fried bun stuffed with bamboo shoots",
       },
       {
-          imgPath: require('@/assets/picture/003.jpg'),
+          src: require('@/assets/picture/003.jpg'),
           name: "冬粉水煎包",
           name2: "Fried bun stuffed with bean thread",
       }],

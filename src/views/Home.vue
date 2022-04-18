@@ -1,5 +1,4 @@
 <template>
-
   <div class='home'>
     <section id="time">
       <!-- 主標 -->
