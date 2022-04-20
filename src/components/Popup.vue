@@ -1,15 +1,17 @@
 <template>
   <transition name="fade">
     <div class="background" v-show="open">
-        <div class="preview-box">
-            <div class="details" >
-                <slot name="imageName"><span class="title">{{imageName}}</span></slot>
-                <span class="icon fi fi-br-cross" @click="close"></span>
-            </div>
-            <div class="image-box">
-                <slot name="img"></slot>
-            </div>
+      <div class="preview-box">
+        <div class="details">
+          <slot name="imageName"
+            ><span class="title">{{ imageName }}</span></slot
+          >
+          <span class="icon fi fi-br-cross" @click="close"></span>
         </div>
+        <div class="image-box">
+          <slot name="img"></slot>
+        </div>
+      </div>
       <div class="shadow"></div>
     </div>
   </transition>
@@ -18,13 +20,13 @@
 <script>
 import { onMounted, onUnmounted } from "vue";
 export default {
-    props:{
-        open:{
-            type:Boolean,
-            default:true,
-        }
+  props: {
+    open: {
+      type: Boolean,
+      default: true,
     },
-    setup(_, { emit }) {
+  },
+  setup(_, { emit }) {
     const close = () => {
       emit("close");
     };
@@ -39,14 +41,14 @@ export default {
 
     return { close };
   },
-  data(){
-      return{
-        imageName:"照片:p"
-      }
+  data() {
+    return {
+      imageName: "照片:p",
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/popup.scss"
+@import "@/assets/scss/popup.scss";
 </style>

@@ -1,105 +1,104 @@
-
-header{
+header {
   position: fixed;
   top: 0;
-  width:100%;
-  height:80px;
+  width: 100%;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99;
-  transition: .7s;
-  ul{
+  transition: 0.7s;
+  ul {
     display: flex;
     justify-content: center;
     align-items: center;
     background: none;
-    li{
+    li {
       list-style: none;
       margin-right: 20px;
       background: none;
-      
-      a{
-        color:#F7E3B1;
+
+      a {
+        color: #f7e3b1;
         border-radius: 20px;
-        height:50px;
+        height: 50px;
         line-height: 50px;
         display: inline-block;
         text-decoration: none;
         font-size: 1.2rem;
-        font-weight:bolder;
+        font-weight: bolder;
         padding: 0 15px;
         letter-spacing: 1px;
         cursor: pointer;
 
-        &:hover{
-            color:aliceblue;
-            background-color: #ee7748;
+        &:hover {
+          color: aliceblue;
+          background-color: #ee7748;
         }
       }
-      a.router-link-exact-active{
-          color:aliceblue;
-          background-color: #ee7748;
+      a.router-link-exact-active {
+        color: aliceblue;
+        background-color: #ee7748;
       }
     }
-  } 
+  }
 }
 
-@media screen and (max-width:850px) {
-  header{
+@media screen and (max-width: 850px) {
+  header {
     display: flex;
     justify-content: space-between;
-    .logo{
+    .logo {
       width: 50px;
       margin-left: 20px;
     }
-    ul li{
+    ul li {
       margin: 0;
-      a{
+      a {
         font-size: 1.5rem;
         display: flex;
         justify-content: center;
         flex-direction: column;
-        i{
+        i {
           color: rgb(255, 255, 255);
           line-height: 0;
         }
-        .icontext{
-          font-size: .5rem;
+        .iconText {
+          font-size: 0.5rem;
           line-height: 20px;
           color: rgb(255, 255, 255);
           margin: 0px;
         }
-        &:hover{
+        &:hover {
           background-color: transparent;
-          filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg) brightness(103%) contrast(87%);
+          filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg)
+            brightness(103%) contrast(87%);
         }
-        a.router-link-exact-active{
-          background-color:transparent;
-          filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg) brightness(103%) contrast(87%);
+        a.router-link-exact-active {
+          background-color: transparent;
+          filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg)
+            brightness(103%) contrast(87%);
         }
       }
     }
   }
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width: 400px) {
   header ul {
     display: none;
   }
-  
 }
 
-.scrolled-nav{
-  background: #9E261B;
+.scrolled-nav {
+  background: #9e261b;
   height: 65px;
 
-  .logo{
-    color:#F7E3B1;
+  .logo {
+    color: #f7e3b1;
   }
   ul li {
-    
-    a{
+    a {
       height: 40px;
       line-height: 40px;
     }

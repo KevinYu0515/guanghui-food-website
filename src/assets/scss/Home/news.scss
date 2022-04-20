@@ -1,36 +1,36 @@
 @import "@/assets/scss/Home/index.scss";
 
-#news{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 100px;
-    padding-top: 50px;
-    box-sizing: border-box;
-    margin-bottom: 30px;
-    background-color: $brown;
-    h1{
-        font-size: 3rem;
-        color: $white;
-    }
-    p{
-        font-size: 1.8vw;
-        margin-top: 20px;
-        text-align: center;
-        color: $white;
-    }
+#news {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px;
+  padding-top: 50px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  background-color: $brown;
+  h1 {
+    font-size: 3rem;
+    color: $white;
+  }
+  p {
+    font-size: 1.8vw;
+    margin-top: 20px;
+    text-align: center;
+    color: $white;
+  }
 }
 
-@media screen and (max-width:$screen-md) {
-    #news{
-        margin-bottom: 0px;
-        h1{
-            font-size: 2rem;
-        }
-        p{
-            font-size: 1.4rem;
-            max-width: 100%;
-        }
+@media screen and (max-width: $screen-md) {
+  #news {
+    margin-bottom: 0px;
+    h1 {
+      font-size: 2rem;
     }
+    p {
+      font-size: 1.4rem;
+      max-width: 100%;
+    }
+  }
 }

@@ -4,7 +4,7 @@
      <section id="contact">
        <img class="logo" :src="logo">
       <div class="mapBox" v-show="!mobile">
-        <iframe :src="mapsrc" 
+        <iframe :src="mapSrc" 
           style="border:0;" 
           allowfullscreen="" 
           loading="lazy"
@@ -49,7 +49,7 @@ export default {
        src:"https://reurl.cc/9Gzn6a",
        name:"臺中市梧棲區民和路一段37號"
      }],
-     mapsrc:"https://reurl.cc/Lm1nnX",
+     mapSrc:"https://reurl.cc/Lm1nnX",
      mobile:null,
    }
  },
