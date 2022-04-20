@@ -8,7 +8,9 @@
       <div class="timetable">
           <p class="timetable-title">{{timetable_title}}</p>
           <ul>
-            <li v-for="(day,i) in days.slice(0,5)" :key="i">
+            <li>{{days[index]}} &nbsp;&nbsp;<p>{{times[index]}} &nbsp;{{times[index+1]}}</p></li>
+            <li>{{days[index+1]}} &nbsp; {{times[index+3]}}</li>
+            <li v-for="(day,i) in days.slice(2,5)" :key="i">
               {{day}} &nbsp;&nbsp;<p>{{times[index]}} &nbsp;{{times[index+1]}}</p>
             </li>
             <li>{{days[index+5]}} &nbsp;&nbsp;<p>{{times[index]}}</p></li>
@@ -85,7 +87,7 @@ export default {
       news_contents:['4/19(二)\n休息一日',
                      '於五月開始，因應物價上漲，水煎包售價為18元，感謝你的體諒',],
       days:['週一','週二','週三','週四','週五','週六','週日'],
-      times:['0600~0900','1500~1700','公休'],
+      times:['0600~0900','1500~1700','公休','4/19休息一日'],
       sections:[{
         title:"水煎包",
         content:"主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價15元\n飲料有 紅茶、奶茶 另售10元"

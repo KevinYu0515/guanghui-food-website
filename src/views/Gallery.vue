@@ -111,15 +111,7 @@ export default {
         },
         imgClick(index){
             this.isOpen = true;
-            switch(index){
-                case 0: this.imgIndex = 0; return this.imgIndex;
-                case 1: this.imgIndex = 1; return this.imgIndex;
-                case 2: this.imgIndex = 2; return this.imgIndex;
-                case 3: this.imgIndex = 3; return this.imgIndex;
-                case 4: this.imgIndex = 4; return this.imgIndex;
-                case 5: this.imgIndex = 5; return this.mgIndex;
-                case 6: this.imgIndex = 6; return this.imgIndex;
-            }
+            this.imgIndex = index;
         },
     }
 }
