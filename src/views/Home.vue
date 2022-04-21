@@ -68,6 +68,7 @@
         {{ sections[index + 2].content }}
       </template>
     </comment>
+    <test></test>
   </div>
 </template>
 
@@ -76,6 +77,7 @@ import about from "./About.vue";
 import merchandise from "./Merchandise.vue";
 import gallery from "./Gallery.vue";
 import comment from "./Comment.vue";
+import test from "./Test.vue"
 
 export default {
   name: "Home",
@@ -84,6 +86,7 @@ export default {
     merchandise,
     comment,
     gallery,
+    test,
   },
   data() {
     return {
