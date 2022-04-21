@@ -3,17 +3,12 @@
     <section id="time">
       <!-- 主標 -->
       <p class="store-name">{{ store[index].name }}</p>
-      <p class="store-subname">{{ store[index].subname }}</p>
+      <p class="store-subName">{{ store[index].subName }}</p>
       <!-- 時間表 -->
       <div class="timetable">
         <p class="timetable-title">{{ timetable_title }}</p>
         <ul>
-          <li>
-            {{ days[index] }} &nbsp;&nbsp;
-            <p>{{ times[index] }} &nbsp;{{ times[index + 1] }}</p>
-          </li>
-          <li>{{ days[index + 1] }} &nbsp; {{ times[index + 3] }}</li>
-          <li v-for="(day, i) in days.slice(2, 5)" :key="i">
+          <li v-for="(day, i) in days.slice(0, 5)" :key="i">
             {{ day }} &nbsp;&nbsp;
             <p>{{ times[index] }} &nbsp;{{ times[index + 1] }}</p>
           </li>
@@ -92,11 +87,10 @@ export default {
   },
   data() {
     return {
-      store: [{ name: "光慧水煎包", subname: "(梧棲店)" }],
+      store: [{ name: "光慧水煎包", subName: "(梧棲店)" }],
       timetable_title: "正常營業時間",
       news_title: "近期公告",
       news_contents: [
-        "4/19(二)\n休息一日",
         "於五月開始，因應物價上漲，水煎包售價為18元，感謝你的體諒",
       ],
       days: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"],
