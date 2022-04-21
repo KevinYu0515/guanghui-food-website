@@ -1,7 +1,7 @@
 <template>
   <section id="photos" data-aos="fade-up">
     <!-- 主標 -->
-    <div class="content-titlewrapper">
+    <div class="content-titleWrapper">
       <i class="decoration"></i>
       <p class="content-title">
         <slot name="sectionTitle"></slot>

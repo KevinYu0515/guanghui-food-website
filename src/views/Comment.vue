@@ -1,7 +1,7 @@
 <template>
   <section id="comment" data-aos="fade-up">
     <!-- 主標 -->
-    <div class="content-titlewrapper">
+    <div class="content-titleWrapper">
       <i class="decoration"></i>
       <p class="content-title">
         <slot name="sectionTitle"></slot>
@@ -30,7 +30,7 @@
               <i class="icon fi fi-ss-star"></i>
             </div>
             <div class="comment-content">{{ comment.content }}</div>
-            <div class="headicon"><i class="icon fi fi-sr-user"></i></div>
+            <div class="headIcon"><i class="icon fi fi-sr-user"></i></div>
             <div class="name">{{ comment.name }}</div>
             <div class="record-time">{{ comment.record_time }}</div>
           </div>

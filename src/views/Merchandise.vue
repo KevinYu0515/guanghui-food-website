@@ -1,7 +1,7 @@
 <template>
   <section id="merchandise" data-aos="fade-up">
     <!-- 主標 -->
-    <div class="content-titlewrapper">
+    <div class="content-titleWrapper">
       <i class="decoration"></i>
       <p class="content-title">
         <slot name="sectionTitle"></slot>
@@ -13,7 +13,7 @@
     </p>
     <!-- 各產品卡片內容 -->
     <!-- 寬版架構 -->
-    <div class="cardwrapper" v-show="!mobile">
+    <div class="cardWrapper" v-show="!mobile">
       <div class="card" v-for="(item, index) in cardItems" :key="index">
         <img :src="item.src" />
         <div class="info">
