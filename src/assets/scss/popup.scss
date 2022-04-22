@@ -1,0 +1,71 @@
+@import "@/assets/scss/Home/index.scss";
+
+.background {
+  width: 100%;
+
+  .preview-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: $white;
+    max-width: calc(100% / 3);
+    pointer-events: all;
+    border-radius: 3px;
+    padding: 0 5px 5px 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 1s ease;
+
+    .details {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px 12px 10px;
+      justify-content: space-between;
+      .title {
+        display: flex;
+        font-size: 18px;
+        font-weight: 400;
+      }
+      .icon {
+        cursor: pointer;
+        color: $blue;
+        font-size: 20px;
+      }
+    }
+
+    .image-box {
+      display: flex;
+      position: relative;
+      img {
+        border-radius: 0 0 3px 3px;
+      }
+    }
+  }
+
+  .shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 55;
+    display: none;
+    background: rgba(0, 0, 0, 0.45);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

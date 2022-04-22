@@ -1,146 +1,87 @@
 @import "@/assets/scss/Home/index.scss";
 
-#photos{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @media screen and (max-width:$screen-sm) {
-        height: 65vh;
-    }
+#photos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 100px;
 
-    .wrapper{
-        margin-top: 50px;
-        max-width: 1000px;
+  .wrapper {
+    max-width: 1000px;
+    margin-top: 30px;
 
-        .gallery{
-            display: flex;
-            flex-wrap: wrap;
-            .image{
-                padding: 30px 10px;
-                width: calc(100% / 5);
-                cursor: pointer;
-                @media screen and (max-width:$screen-sm) {
-                    width:calc(100%/2.8);
-                }
-                span{
-                    display: flex;
-                    width: 100%;
-                    height: auto;
-                    border-radius: 15px;
-                    overflow: hidden;
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      .image {
+        padding: 30px 10px;
+        width: calc(100% / 5);
+        cursor: pointer;
 
-                }
-                img{
-                    max-width: 100%;
-                    height: auto;
-                    object-fit: cover;
-                    vertical-align: middle;
-                    transition: all 0.3s ease;
-                    
-                }
-                &:hover img{
-                    transform: scale(1.1);
-                }
-            }
+        span {
+          display: flex;
+          width: 100%;
+          height: auto;
+          border-radius: 15px;
+          overflow: hidden;
         }
-    }
-    .preview-box{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        background: $white;
-        max-width: 500px;
-        width: 100%;
-        pointer-events: all;
-        border-radius: 3px;
-        padding: 0 5px 5px 5px;
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-        z-index: 99;
-        transform: translate(-50%, -50%) scale(1);
-        transition: all 1s ease;
-        display: none;
-        
-        .details{
-            display: flex;
-            align-items: center;
-            padding: 12px 15px 12px 10px;
-            justify-content: space-between;
-            .title{
-                display: flex;
-                font-size: 18px;
-                font-weight: 400;
-            }
-            .icon{
-                cursor: pointer;
-                color:$blue;
-                font-size: 20px;
-            }
+        .initial_img {
+          object-fit: cover;
+          vertical-align: middle;
+          transition: all 0.3s ease;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
-        
-        .image-box{
-            display: flex;
-            max-width: 100%;
-            position: relative;
-            img{
-                max-width: 100%;
-                border-radius: 0 0 3px 3px;
-                
-            }
-        }   
+      }
     }
-
-    .shadow{
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 55;
-        display: none;
-        background: rgba(0,0,0,0.45);
-    }
+  }
 }
 
-:deep(.swiper-area){
-    width: 100%;
-    height: auto;
-    margin-top: 50px;
+@media screen and (max-width: $screen-sm) {
+  #photo .wrapper .gallery .image {
+    width: calc(100% / 2.8);
+  }
+}
 
-    .swiper-wrapper{
-        display: flex;
-        justify-content: flex-start;
+:deep(.swiper-area) {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+
+  .swiper-wrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 55%;
+      height: auto;
+      padding-bottom: 50px;
+      border-radius: 20px;
     }
-    .swiper-slide {
-        display: flex;
-        align-items: center;
-        
-        img{
-            width: 55%;
-            height: auto;
-            padding-bottom: 50px;
-            border-radius: 20px;
-        }
-    }
-    .swiper-button-prev{
-        --swiper-navigation-size: 30px;
-        color: $dark-brown;
-    }
-    .swiper-button-next{
-        --swiper-navigation-size: 30px;
-        color: $dark-brown;
-    }
-    .swiper-pagination-bullet {
-        width: 15px;
-        height: 15px;
-        display: inline-block;
-        border-radius: 50%;
-        background: $black;
-        opacity: 0.6;
-    }
-    .swiper-pagination-bullet-active {
-        opacity: 1;
-        background: $light-orange;
-    }
+  }
+  .swiper-button-prev {
+    --swiper-navigation-size: 30px;
+    color: $dark-brown;
+  }
+  .swiper-button-next {
+    --swiper-navigation-size: 30px;
+    color: $dark-brown;
+  }
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    background: $black;
+    opacity: 0.6;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: $light-orange;
+  }
 }
