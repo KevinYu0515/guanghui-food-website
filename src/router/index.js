@@ -26,10 +26,6 @@ const routes = [
     name: 'Comment',
     component: Home
   },
-  {
-    path: '/test',
-    component: () => import('../views/Test.vue')
-  }
 ]
 
 const router = createRouter({

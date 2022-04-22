@@ -60,6 +60,25 @@
         }
       }
     }
+    .addNewComment {
+      width: 250px;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0px 8px 38px rgba(0, 0, 0, 0.1);
+      .addComment {
+        margin: 0;
+        transform: scale(4);
+        opacity: 0.5;
+        &:hover{
+          cursor: pointer;
+          opacity: 1;
+        }
+      }
+    }
 
     .swiper-button-prev {
       --swiper-navigation-size: 30px;
