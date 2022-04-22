@@ -23,10 +23,10 @@
                         <i class="icon fi fi-ss-star"></i>
                         <i class="icon fi fi-ss-star"></i>
                     </div>
-                    <div class="comment-content">{{comment.content}}</div>
+                    <div class="comment-content">{{ comment.content }}</div>
                     <div class="headicon"><i class="icon fi fi-sr-user"></i></div>
-                    <div class="name">{{comment.name}}</div>
-                    <div class="record-time">{{comment.record_time}}</div>
+                    <div class="name">{{ comment.name }}</div>
+                    <div class="record-time">{{ comment.record_time }}</div>
                 </div>
             </swiper-slide>
         </swiper>

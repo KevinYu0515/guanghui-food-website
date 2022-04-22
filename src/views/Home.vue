@@ -30,6 +30,7 @@
     <div class="socialMedia" v-show="!mobileIcon" data-aos="fade-up">
       <i class="icon fi fi-rr-call-incoming"><span>{{phone}}</span></i>
     </div>
+    <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdghDIBO_y0AV43M7LQhrI4jyRCwuSvRvkRH7cdIL3vrgqKWw/viewform?embedded=true" width="640" height="772" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe> -->
     <!-- 新公告說明版面 -->
     <section id="news" v-show="!mobileNews" data-aos="fade-up">
       <h1>{{news_title}}</h1>
