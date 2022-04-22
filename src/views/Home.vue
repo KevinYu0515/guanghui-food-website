@@ -87,7 +87,7 @@ export default {
             this.mobileIcon = false;
             return;
         },
-  }
+  },
 }
 </script>
 
