@@ -29,24 +29,30 @@
               <i class="icon fi fi-ss-star"></i>
               <i class="icon fi fi-ss-star"></i>
             </div>
-            <div class="comment-content">{{ comment[3] }}</div>
+            <div class="comment-content">{{ comment.content }}</div>
             <div class="headIcon"><i class="icon fi fi-sr-user"></i></div>
-            <div class="name">{{ comment[2] }}</div>
-            <div class="record-time">{{ comment[0] }}</div>
+            <div class="name">{{ comment.name }}</div>
+            <div class="record-time">{{ comment.record_time }}</div>
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <!-- <swiper-slide>
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
-        </swiper-slide>
+        </swiper-slide> -->
       </swiper>
     </div>
     <Popup :open="addComment" @close="addComment = !addComment">
       <template #imageName>評論表單</template>
-      <template #img
-        ></template
-      >
+      <template #img>
+        <input type="text" class="name" v-model.trim="commentInput.name" />
+        <input
+          type="text"
+          class="comment"
+          v-model.trim="commentInput.content"
+        />
+        <input type="text" class="star" v-model.trim="commentInput.star" />
+      </template>
     </Popup>
   </section>
 </template>
@@ -71,12 +77,12 @@ export default {
     return { addComment };
   },
   data: () => ({
-    commentInput:{
-      name:"",
-      comment:"",
-      star:"",
+    commentInput: {
+      name: "",
+      content: "",
+      star: "",
     },
-    comments:[],
+    comments: [],
     mobile: null,
   }),
   created() {
@@ -84,7 +90,14 @@ export default {
     this.checkScreen();
   },
   mounted() {
-    this.fetchData();
+    this.axios
+      .get("http://localhost:8020/comments")
+      .then((res) => {
+        this.comments = res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   methods: {
     checkScreen() {

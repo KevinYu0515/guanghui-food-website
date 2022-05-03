@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "json": "json-server --watch comment.json --port 8020"
   },
   "dependencies": {
     "@mdi/js": "^6.5.95",
@@ -14,6 +15,7 @@
     "swiper": "^6.8.4",
     "vue": "^3.2.31",
     "vue-awesome-swiper": "^5.0.0",
+    "vue-axios": "^3.4.1",
     "vue-router": "^4.0.13",
     "vuetify": "^2.6.4"
   },

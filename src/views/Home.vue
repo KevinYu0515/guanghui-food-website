@@ -60,14 +60,14 @@
         {{ sections[index + 1].content }}
       </template>
     </gallery>
-    <!-- <comment>
+    <comment>
       <template #sectionTitle>
         {{ sections[index + 2].title }}
       </template>
       <template #sectionTitleContent>
         {{ sections[index + 2].content }}
       </template>
-    </comment> -->
+    </comment>
   </div>
 </template>
 
@@ -75,14 +75,14 @@
 import about from "./About.vue";
 import merchandise from "./Merchandise.vue";
 import gallery from "./Gallery.vue";
-// import comment from "./Comment.vue";
+import comment from "./Comment.vue";
 
 export default {
   name: "Home",
   components: {
     about,
     merchandise,
-    // comment,
+    comment,
     gallery,
   },
   data() {
