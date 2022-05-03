@@ -14,19 +14,12 @@
       <div class="contact-box">
         <div class="decoration2"></div>
         <h1>{{title}}</h1>
-        <a :href="contacts[0].src">
-          <i class="icon fi fi-brands-facebook">
-            <span style="font-weight:bolder">{{contacts[0].name}}</span>
-          </i>
-        </a>
-        <a :href="contacts[2].src">
-          <i class="icon fi fi-rs-marker">
-            <span>{{contacts[2].name}}</span>
-          </i>
-        </a>
-        <i class="icon fi fi-rr-call-incoming">
-          <span>{{contacts[1].name}}</span>
-        </i>
+        <div v-for="(item, index) in contacts" :key="index" class="contact">
+          <a :href="item.src">
+            <img :src="item.icon" class="icon">
+          </a>
+          <span>{{item.name}}</span>
+        </div>
       </div>
     </section>
   </div>
@@ -41,12 +34,15 @@ export default {
      logo:require('@/assets/logo.jpg'),
      contacts:[{
        src:"https://reurl.cc/g2vY6V",
+       icon:require('@/assets/icon/facebook.png'),
        name:"facebook",
      },{
        src:"",
+       icon:require('@/assets/icon/calling.png'),
        name:"0952404078 | 0935368684"
      },{
        src:"https://reurl.cc/9Gzn6a",
+       icon:require('@/assets/icon/mapMark.png'),
        name:"臺中市梧棲區民和路一段37號"
      }],
      mapSrc:"https://reurl.cc/Lm1nnX",

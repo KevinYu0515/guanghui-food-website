@@ -52,19 +52,21 @@
         margin-bottom: 20px;
         color: #f7e3b1;
       }
-      a {
+      .contact{
         text-decoration: none;
-      }
-      .icon {
-        color: #f7e3b1;
-        font-size: 2rem;
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
+        display:flex;
+        .icon {
+          filter: invert(80%) sepia(27%) saturate(327%) hue-rotate(1deg) brightness(109%) contrast(94%);
+          width: 30px;
+          margin-bottom: 10px;
+        }
         span {
           font-style: normal;
+          font-weight:bolder;
+          color:#f7e3b1;
           font-size: 1rem;
           margin-left: 10px;
+          transform: translateY(-50%);
         }
       }
     }
@@ -89,7 +91,12 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .footer #contact .logo {
-    width: 80%;
+  .footer #contact{
+    .logo {
+      width: 80%;
+    }
+    .contact-box .contact span{
+      font-size: 0.5rem;
+    } 
   }
 }

@@ -66,7 +66,7 @@ export default {
         name2: "Fried bun stuffed with bean thread",
       },
     ],
-    cardContent: "一個15元",
+    cardContent: "一個18元",
     mobile: null,
   }),
   created() {

@@ -6,7 +6,7 @@
           <slot name="imageName"
             ><span class="title">{{ imageName }}</span></slot
           >
-          <span class="icon fi fi-br-cross" @click="close"></span>
+          <img class="icon" @click=close :src="require('@/assets/icon/cross.png')">
         </div>
         <div class="image-box">
           <slot name="img"></slot>

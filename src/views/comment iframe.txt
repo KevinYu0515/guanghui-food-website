@@ -1,0 +1,25 @@
+<iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSdghDIBO_y0AV43M7LQhrI4jyRCwuSvRvkRH7cdIL3vrgqKWw/viewform?embedded=true"
+    width="640"
+    height="800"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    style="height: 600px"
+    >載入中…
+</iframe>
+
+// fetchData() {
+    //   fetch(
+    //     "https://sheets.googleapis.com/v4/spreadsheets/1IPYox3nrd4tOB-qZ0f6QOUjhsUJQhLsyJFJcvAlqt9I/values/2:5?key=AIzaSyDYbFfNwD7kuhIHSdMOLWCglO268IM_ZCg"
+    //   )
+    //     .then((response) => {
+    //       return response.json();
+    //     })
+    //     .then((data) => {
+    //       this.comments = data.values;
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },

@@ -125,5 +125,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/scss/Home/gallery.scss";
-@import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
+
 </style>

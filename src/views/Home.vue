@@ -22,9 +22,9 @@
     </section>
     <div class="socialMedia3" v-show="!mobileIcon" data-aos="fade-up">
       <a :href="facebook_src">
-        <i class="icon fi fi-brands-facebook"
-          ><span style="font-weight: bolder">{{ facebook }}</span></i
-        >
+        <i class="icon fi fi-brands-facebook">
+          <span style="font-weight: bolder">{{ facebook }}</span>
+        </i>
       </a>
     </div>
     <div class="socialMedia2" v-show="!mobileIcon" data-aos="fade-up">
@@ -35,7 +35,6 @@
     <div class="socialMedia" v-show="!mobileIcon" data-aos="fade-up">
       <i class="icon fi fi-rr-call-incoming"></i>
     </div>
-    <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdghDIBO_y0AV43M7LQhrI4jyRCwuSvRvkRH7cdIL3vrgqKWw/viewform?embedded=true" width="640" height="772" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe> -->
     <!-- 新公告說明版面 -->
     <section id="news" v-show="true" data-aos="fade-up">
       <h1>{{ news_title }}</h1>
@@ -61,14 +60,14 @@
         {{ sections[index + 1].content }}
       </template>
     </gallery>
-    <comment>
+    <!-- <comment>
       <template #sectionTitle>
         {{ sections[index + 2].title }}
       </template>
       <template #sectionTitleContent>
         {{ sections[index + 2].content }}
       </template>
-    </comment>
+    </comment> -->
   </div>
 </template>
 
@@ -76,14 +75,14 @@
 import about from "./About.vue";
 import merchandise from "./Merchandise.vue";
 import gallery from "./Gallery.vue";
-import comment from "./Comment.vue";
+// import comment from "./Comment.vue";
 
 export default {
   name: "Home",
   components: {
     about,
     merchandise,
-    comment,
+    // comment,
     gallery,
   },
   data() {
@@ -92,7 +91,7 @@ export default {
       timetable_title: "正常營業時間",
       news_title: "近期公告",
       news_contents: [
-        "於五月開始，因應物價上漲，水煎包售價為18元，感謝你的體諒",
+        "營業時間微調\n05/08 營業一日\n05/09 休息一日",
       ],
       days: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"],
       times: ["0600~0900", "1500~1700", "公休", "4/19休息一日"],
@@ -100,7 +99,7 @@ export default {
         {
           title: "水煎包",
           content:
-            "主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價15元\n飲料有 紅茶、奶茶 另售10元",
+            "主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價18元\n飲料有 紅茶10元、奶茶15元",
         },
         {
           title: "相片集",
