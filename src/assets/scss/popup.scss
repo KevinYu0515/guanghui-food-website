@@ -2,7 +2,8 @@
 
 .background {
   width: 100%;
-
+  z-index:100;
+  
   .preview-box {
     position: fixed;
     top: 50%;

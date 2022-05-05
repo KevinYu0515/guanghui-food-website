@@ -32,26 +32,59 @@
             <div class="comment-content">{{ comment.content }}</div>
             <div class="headIcon"><i class="icon fi fi-sr-user"></i></div>
             <div class="name">{{ comment.name }}</div>
-            <div class="record-time">{{ comment.record_time }}</div>
+            <div class="record-time">{{ comment.star }}</div>
           </div>
         </swiper-slide>
-        <!-- <swiper-slide>
+        <swiper-slide v-show="!mobile">
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
-        </swiper-slide> -->
+        </swiper-slide>
       </swiper>
     </div>
     <Popup :open="addComment" @close="addComment = !addComment">
       <template #imageName>評論表單</template>
       <template #img>
-        <input type="text" class="name" v-model.trim="commentInput.name" />
-        <input
-          type="text"
-          class="comment"
-          v-model.trim="commentInput.content"
-        />
-        <input type="text" class="star" v-model.trim="commentInput.star" />
+        <div class="input">
+          <label class="nameLabel">Name 評論者名稱</label>
+          <input
+            type="text"
+            class="name"
+            placeholder="評論者姓名"
+            v-model.trim="commentInput.name"
+          />
+          <input
+            type="text"
+            class="star"
+            placeholder="0"
+            v-model.trim="commentInput.star"
+          />
+          <i class="icon fi fi-ss-star"></i>
+          <label class="commentLabel">Comment 評論內容</label>
+          <textarea
+            rows="2"
+            cols="23"
+            class="content"
+            placeholder="評論內容"
+            v-model.trim="commentInput.content"
+          ></textarea>
+          <div class="buttonBox">
+            <button
+              type="button"
+              class="btn btn-outline-primary delete"
+              @click="cancelHandler()"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-warning send"
+              @click="submitHandler()"
+            >
+              Send
+            </button>
+          </div>
+        </div>
       </template>
     </Popup>
   </section>
@@ -76,15 +109,17 @@ export default {
     const addComment = ref(false);
     return { addComment };
   },
-  data: () => ({
-    commentInput: {
-      name: "",
-      content: "",
-      star: "",
-    },
-    comments: [],
-    mobile: null,
-  }),
+  data(){
+    return{
+      commentInput: {
+        name: "",
+        content: "",
+        star: "",
+      },
+      comments: [],
+      mobile: null,
+    }
+  },
   created() {
     window.addEventListener("resize", this.checkScreen);
     this.checkScreen();
@@ -108,6 +143,25 @@ export default {
       }
       this.mobile = false;
       return;
+    },
+    submitHandler() {
+      let { name, content, star } = this.commentInput;
+      if (!name || !content || !star) return;
+      this.axios
+        .post("http://localhost:8020/comments", this.commentInput)
+        .then((res) => {
+          this.comments.push(res.data);
+          this.cancelHandler();
+          this.addComment != this.addComment;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    cancelHandler() {
+      this.commentInput.name = "";
+      this.commentInput.content = "";
+      this.commentInput.star = "";
     },
   },
 };
