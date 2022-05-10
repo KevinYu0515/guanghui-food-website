@@ -10,7 +10,7 @@
         <ul>
           <li v-for="(day, i) in days.slice(0, 5)" :key="i">
             {{ day }} &nbsp;&nbsp;
-            <p>{{ times[index] }} &nbsp;{{ times[index + 1] }}</p>
+            <p>{{ times[index] }}</p>
           </li>
           <li>
             {{ days[index + 5] }} &nbsp;&nbsp;
@@ -91,7 +91,7 @@ export default {
       timetable_title: "正常營業時間",
       news_title: "近期公告",
       news_contents: [
-        "營業時間微調\n05/08(母親節) 營業一日\n05/09 休息一日",
+        "各位親愛的顧客好，本店於5/10(二)之後，因應疫情持續高漲，只開店於早上時段，下午時段待疫情穩定退燒後再度開放，感謝你的體諒",
       ],
       days: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"],
       times: ["0600~0900", "1500~1700", "公休", "4/19休息一日"],

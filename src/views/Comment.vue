@@ -32,14 +32,14 @@
             <div class="comment-content">{{ comment.content }}</div>
             <div class="headIcon"><i class="icon fi fi-sr-user"></i></div>
             <div class="name">{{ comment.name }}</div>
-            <div class="record-time">{{ comment.star }}</div>
+            <!-- <div class="record-time">{{ comment.star }}</div> -->
           </div>
         </swiper-slide>
-        <swiper-slide v-show="!mobile">
+        <!-- <swiper-slide v-show="!mobile">
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
-        </swiper-slide>
+        </swiper-slide> -->
       </swiper>
     </div>
     <Popup :open="addComment" @close="addComment = !addComment">
