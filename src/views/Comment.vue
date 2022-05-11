@@ -22,24 +22,22 @@
       >
         <swiper-slide v-for="(comment, index) in comments" :key="index">
           <div class="comment-card">
-            <div class="stars">
-              <i class="icon fi fi-ss-star"></i>
-              <i class="icon fi fi-ss-star"></i>
-              <i class="icon fi fi-ss-star"></i>
-              <i class="icon fi fi-ss-star"></i>
-              <i class="icon fi fi-ss-star"></i>
-            </div>
+            <star-rating
+              :rating="comment.star"
+              :read-only="true"
+              :increment="0.5"
+              :show-rating="false"
+            ></star-rating>
             <div class="comment-content">{{ comment.content }}</div>
             <div class="headIcon"><i class="icon fi fi-sr-user"></i></div>
             <div class="name">{{ comment.name }}</div>
-            <!-- <div class="record-time">{{ comment.star }}</div> -->
           </div>
         </swiper-slide>
-        <!-- <swiper-slide v-show="!mobile">
+        <swiper-slide v-show="!mobile">
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
-        </swiper-slide> -->
+        </swiper-slide>
       </swiper>
     </div>
     <Popup :open="addComment" @close="addComment = !addComment">
@@ -53,13 +51,14 @@
             placeholder="評論者姓名"
             v-model.trim="commentInput.name"
           />
-          <input
-            type="text"
-            class="star"
-            placeholder="0"
-            v-model.trim="commentInput.star"
-          />
-          <i class="icon fi fi-ss-star"></i>
+          <star-rating
+            :increment="0.5"
+            :max-rating="5"
+            inactive-color="#000"
+            active-color="#f0f19c"
+            :star-size="30"
+            v-model:rating="commentInput.star"
+          ></star-rating>
           <label class="commentLabel">Comment 評論內容</label>
           <textarea
             rows="2"
@@ -95,6 +94,7 @@ import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/swiper-bundle.css";
 import Popup from "../components/Popup.vue";
+import StarRating from "vue-star-rating";
 import { ref } from "vue";
 
 SwiperCore.use([Pagination, Navigation]);
@@ -104,13 +104,14 @@ export default {
     Swiper,
     SwiperSlide,
     Popup,
+    StarRating,
   },
   setup() {
     const addComment = ref(false);
     return { addComment };
   },
-  data(){
-    return{
+  data() {
+    return {
       commentInput: {
         name: "",
         content: "",
@@ -118,7 +119,7 @@ export default {
       },
       comments: [],
       mobile: null,
-    }
+    };
   },
   created() {
     window.addEventListener("resize", this.checkScreen);
