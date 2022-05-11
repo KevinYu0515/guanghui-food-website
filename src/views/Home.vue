@@ -60,7 +60,7 @@
         {{ sections[index + 1].content }}
       </template>
     </gallery>
-    <comment>
+    <comment v-show="!mobile">
       <template #sectionTitle>
         {{ sections[index + 2].title }}
       </template>
@@ -116,6 +116,7 @@ export default {
       map_src:
         "https://www.google.com.tw/maps/place/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85%EF%BC%88%E6%A2%A7%E6%A3%B2%E5%BA%97%EF%BC%89/@24.2467507,120.5456227,17z/data=!3m1!4b1!4m5!3m4!1s0x346915859dc0b4dd:0x37ba3c60d4fc0ca8!8m2!3d24.2467287!4d120.5478919?hl=zh-TW&authuser=0",
       mobileIcon: null,
+      mobile:null,
       index: 0,
     };
   },
@@ -131,9 +132,11 @@ export default {
       this.windowWidth = window.innerWidth;
       if (this.windowWidth <= 850) {
         this.mobileIcon = true;
+        this.mobile = true;
         return;
       }
       this.mobileIcon = false;
+      this.mobile = false;
       return;
     },
   },

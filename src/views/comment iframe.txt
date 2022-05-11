@@ -23,3 +23,6 @@
     //       console.log(error);
     //     });
     // },
+
+自編 json 問題：手機裝置無法顯示
+Google XML 問題：無法從後台更動數據

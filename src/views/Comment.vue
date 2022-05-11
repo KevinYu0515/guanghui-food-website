@@ -33,7 +33,7 @@
             <div class="name">{{ comment.name }}</div>
           </div>
         </swiper-slide>
-        <swiper-slide v-show="!mobile">
+        <swiper-slide>
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
@@ -118,7 +118,7 @@ export default {
         star: "",
       },
       comments: [],
-      mobile: null,
+      mobile:null,
     };
   },
   created() {
