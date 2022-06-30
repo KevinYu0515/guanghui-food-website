@@ -8,7 +8,7 @@
 
   .wrapper {
     max-width: 1000px;
-    margin-top: 30px;
+    margin-top: 20px;
 
     .gallery {
       display: flex;
@@ -40,28 +40,32 @@
 
 @media screen and (max-width: $screen-sm) {
   #photo .wrapper .gallery .image {
-    width: calc(100% / 2.8);
+    width: 100%;
   }
 }
 
 :deep(.swiper-area) {
   width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 20px;
+  .swiper-container{
+    height:300px;
 
-  .swiper-wrapper {
-    display: flex;
-    justify-content: flex-start;
-  }
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-
-    img {
-      width: 55%;
-      height: auto;
-      padding-bottom: 50px;
-      border-radius: 20px;
+    .swiper-wrapper {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .swiper-slide {
+      width:100%;
+      display: flex;
+      align-items: center;
+      img {
+        width: 100%;
+        height: auto;
+        padding-bottom: 50px;
+        padding-left: 10px;
+        border-radius: 20px;
+      }
     }
   }
   .swiper-button-prev {

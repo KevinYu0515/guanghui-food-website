@@ -34,78 +34,76 @@
 
 <script>
 export default {
-  name: "Navbar",
   data: () => ({
     tabs: [
       {
         name: "Home",
         show: "首頁",
         hash: "#time",
-        icon: "fi fi-sr-calendar",
+        icon: "fi fi-sr-calendar"
       },
       {
         name: "Merchandise",
         show: "水煎包",
         hash: "#merchandise",
-        icon: "fi fi-rr-restaurant",
+        icon: "fi fi-rr-restaurant"
       },
       {
         name: "Photos",
         show: "相簿",
         hash: "#photos",
-        icon: "fi fi-br-picture",
+        icon: "fi fi-br-picture"
       },
       {
         name: "Comment",
         show: "評論",
         hash: "#comment",
-        icon: "fi fi-sr-comment-alt",
+        icon: "fi fi-sr-comment-alt"
       },
       {
         name: "Contact",
         show: "聯絡我們",
         hash: "#contact",
-        icon: "fi fi-sr-call-incoming",
-      },
+        icon: "fi fi-sr-call-incoming"
+      }
     ],
     iconImg: require("@/assets/picture/guanghui.png"),
     mobileNav: null,
     scrollNav: null,
     windowWidth: null,
-    mobile: null,
+    mobile: null
   }),
 
-  created() {
-    window.addEventListener("resize", this.checkScreen);
-    this.checkScreen();
+  created () {
+    window.addEventListener("resize", this.checkScreen)
+    this.checkScreen()
   },
-  mounted() {
-    window.addEventListener("scroll", this.updateScroll);
+  mounted () {
+    window.addEventListener("scroll", this.updateScroll)
   },
   methods: {
-    toggleMobileNav() {
-      this.mobileNav = !this.mobileNav;
+    toggleMobileNav () {
+      this.mobileNav = !this.mobileNav
     },
-    updateScroll() {
-      const scrollPosition = window.scrollY;
+    updateScroll () {
+      const scrollPosition = window.scrollY
       if (scrollPosition > 20) {
-        this.scrollNav = true;
-        return;
+        this.scrollNav = true
+        return
       }
-      this.scrollNav = false;
+      this.scrollNav = false
     },
-    checkScreen() {
-      this.windowWidth = window.innerWidth;
+    checkScreen () {
+      this.windowWidth = window.innerWidth
       if (this.windowWidth <= 850) {
-        this.mobile = true;
-        return;
+        this.mobile = true
+        return
       }
-      this.mobile = false;
-      this.mobileNav = false;
-      return;
-    },
-  },
-};
+      this.mobile = false
+      this.mobileNav = false
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

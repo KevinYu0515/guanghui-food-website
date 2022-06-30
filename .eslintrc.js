@@ -1,19 +1,23 @@
 module.exports = {
-  root: true,
   env: {
-    node: true
+    browser: true,
+    es2021: true
   },
-  'extends': [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended'
+  extends: [
+    "plugin:vue/essential",
+    "standard"
   ],
+  parser: "vue-eslint-parser",
   parserOptions: {
-    parser: 'babel-eslint'
+    ecmaVersion: "latest",
+    sourceType: "module"
   },
+  plugins: [
+    "vue"
+  ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'vue/no-deprecated-slot-attribute': 'off',
-    "vetur.validation.template": false,
+    "vue/multi-word-component-names": 0,
+    "vue/no-reserved-component-names": 0,
+    quotes: [1, "double"]
   }
 }

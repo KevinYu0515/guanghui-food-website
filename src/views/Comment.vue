@@ -57,7 +57,7 @@
             inactive-color="#000"
             active-color="#f0f19c"
             :star-size="30"
-            v-model:rating="commentInput.star"
+            :rating="commentInput.star"
           ></star-rating>
           <label class="commentLabel">Comment 評論內容</label>
           <textarea
@@ -90,82 +90,80 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import SwiperCore, { Navigation, Pagination } from "swiper";
-import "swiper/swiper-bundle.css";
-import Popup from "../components/Popup.vue";
-import StarRating from "vue-star-rating";
-import { ref } from "vue";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper"
+import SwiperCore, { Navigation, Pagination } from "swiper"
+import "swiper/swiper-bundle.css"
+import Popup from "../components/Popup.vue"
+import StarRating from "vue-star-rating"
+import { ref } from "vue"
 
-SwiperCore.use([Pagination, Navigation]);
+SwiperCore.use([Pagination, Navigation])
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
     Popup,
-    StarRating,
+    StarRating
   },
-  setup() {
-    const addComment = ref(false);
-    return { addComment };
+  setup () {
+    const addComment = ref(false)
+    return { addComment }
   },
-  data() {
+  data () {
     return {
       commentInput: {
         name: "",
         content: "",
-        star: "",
+        star: ""
       },
       comments: [],
-      mobile:null,
-    };
+      mobile: null
+    }
   },
-  created() {
-    window.addEventListener("resize", this.checkScreen);
-    this.checkScreen();
+  created () {
+    window.addEventListener("resize", this.checkScreen)
+    this.checkScreen()
   },
-  mounted() {
+  mounted () {
     this.axios
       .get("http://localhost:8020/comments")
       .then((res) => {
-        this.comments = res.data;
+        this.comments = res.data
       })
       .catch((err) => {
-        console.log(err);
-      });
+        console.log(err)
+      })
   },
   methods: {
-    checkScreen() {
-      this.windowWidth = window.innerWidth;
+    checkScreen () {
+      this.windowWidth = window.innerWidth
       if (this.windowWidth <= 992) {
-        this.mobile = true;
-        return;
+        this.mobile = true
+        return
       }
-      this.mobile = false;
-      return;
+      this.mobile = false
     },
-    submitHandler() {
-      let { name, content, star } = this.commentInput;
-      if (!name || !content || !star) return;
+    submitHandler () {
+      const { name, content, star } = this.commentInput
+      if (!name || !content || !star) return
       this.axios
         .post("http://localhost:8020/comments", this.commentInput)
         .then((res) => {
-          this.comments.push(res.data);
-          this.cancelHandler();
-          this.addComment != this.addComment;
+          this.comments.push(res.data)
+          this.cancelHandler()
         })
         .catch((err) => {
-          console.log(err);
-        });
+          console.log(err)
+        })
     },
-    cancelHandler() {
-      this.commentInput.name = "";
-      this.commentInput.content = "";
-      this.commentInput.star = "";
-    },
-  },
-};
+    cancelHandler () {
+      this.commentInput.name = ""
+      this.commentInput.content = ""
+      this.commentInput.star = ""
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

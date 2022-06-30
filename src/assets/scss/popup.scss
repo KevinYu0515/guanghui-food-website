@@ -1,8 +1,12 @@
 @import "@/assets/scss/Home/index.scss";
 
 .background {
+  position: fixed;
+  top: 0;
   width: 100%;
-  z-index:100;
+  height: 1000px;
+  z-index: 100;
+  background-color:rgba(222, 184, 135, .5);
   
   .preview-box {
     position: fixed;

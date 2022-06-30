@@ -19,10 +19,12 @@
             ><img class="initial_img" :src="img.src" alt=""
           /></span>
         </div>
-        <Popup :open="isOpen" @close="isOpen = !isOpen">
-          <template #imageName>{{ images[imgIndex].name }}</template>
-          <template #img><img :src="images[imgIndex].src" /></template>
-        </Popup>
+        <teleport to="body">
+          <Popup :open="isOpen" @close="isOpen = !isOpen">
+            <template #imageName>{{ images[imgIndex].name }}</template>
+            <template #img><img :src="images[imgIndex].src" /></template>
+          </Popup>
+        </teleport>
       </div>
     </div>
 
@@ -30,11 +32,12 @@
     <div class="swiper-area">
       <swiper
         v-show="mobile"
-        :slidesPerView="1"
+        :slidesPerView="1.5"
         :spaceBetween="30"
+        :centered-slides="true"
         :pagination="{ clickable: true, dynamicBullets: false }"
-        :navigation="true"
-        :loop="true"
+        :navigation="false"
+        :loop="false"
       >
         <swiper-slide v-for="(img, index) in images" :key="index">
           <img :src="img.src" />
@@ -45,82 +48,81 @@
 </template>
 
 <script>
-import Popup from "../components/Popup.vue";
-import { ref } from "vue";
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import SwiperCore, { Navigation, Pagination } from "swiper";
-import "swiper/swiper-bundle.css";
+import Popup from "../components/Popup.vue"
+import { ref } from "vue"
+import { Swiper, SwiperSlide } from "vue-awesome-swiper"
+import SwiperCore, { Navigation, Pagination } from "swiper"
+import "swiper/swiper-bundle.css"
 
-SwiperCore.use([Pagination, Navigation]);
+SwiperCore.use([Pagination, Navigation])
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
-    Popup,
+    Popup
   },
-  setup() {
-    const isOpen = ref(false);
-    return { isOpen };
+  setup () {
+    const isOpen = ref(false)
+    return { isOpen }
   },
 
-  data() {
+  data () {
     return {
       images: [
         {
           src: require("@/assets/picture/001.jpg"),
-          name: "高麗菜水煎包",
+          name: "高麗菜水煎包"
         },
         {
           src: require("@/assets/picture/002.jpg"),
-          name: "竹筍水煎包",
+          name: "竹筍水煎包"
         },
         {
           src: require("@/assets/picture/003.jpg"),
-          name: "冬粉水煎包",
+          name: "冬粉水煎包"
         },
         {
           src: require("@/assets/picture/004.jpg"),
-          name: "水煎包下鍋瞜~",
+          name: "水煎包下鍋瞜~"
         },
         {
           src: require("@/assets/picture/005.jpg"),
-          name: "水煎包快起鍋瞜~",
+          name: "水煎包快起鍋瞜~"
         },
         {
           src: require("@/assets/picture/006.jpg"),
-          name: "店面右斜側拍",
+          name: "店面右斜側拍"
         },
         {
           src: require("@/assets/picture/007.jpg"),
-          name: "店面左斜側拍",
-        },
+          name: "店面左斜側拍"
+        }
       ],
       mobile: null,
-      imgIndex: 0,
-    };
+      imgIndex: 0
+    }
   },
 
-  created() {
-    window.addEventListener("resize", this.checkScreen);
-    this.checkScreen();
+  created () {
+    window.addEventListener("resize", this.checkScreen)
+    this.checkScreen()
   },
   methods: {
-    checkScreen() {
-      this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 850) {
-        this.mobile = true;
-        return;
+    checkScreen () {
+      this.windowWidth = window.innerWidth
+      if (this.windowWidth <= 550) {
+        this.mobile = true
+        return
       }
-      this.mobile = false;
-      return;
+      this.mobile = false
     },
-    imgClick(index) {
-      this.isOpen = true;
-      this.imgIndex = index;
-    },
-  },
-};
+    imgClick (index) {
+      this.isOpen = true
+      this.imgIndex = index
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

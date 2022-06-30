@@ -18,35 +18,35 @@
 </template>
 
 <script>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted } from "vue"
 export default {
   props: {
     open: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
-  setup(_, { emit }) {
+  setup (_, { emit }) {
     const close = () => {
-      emit("close");
-    };
+      emit("close")
+    }
     const handleKeyup = (event) => {
       if (event.keyCode === 27) {
-        close();
+        close()
       }
-    };
+    }
 
-    onMounted(() => document.addEventListener("keyup", handleKeyup));
-    onUnmounted(() => document.removeEventListener("keyup", handleKeyup));
+    onMounted(() => document.addEventListener("keyup", handleKeyup))
+    onUnmounted(() => document.removeEventListener("keyup", handleKeyup))
 
-    return { close };
+    return { close }
   },
-  data() {
+  data () {
     return {
-      imageName: "照片:p",
-    };
-  },
-};
+      imageName: "照片:p"
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

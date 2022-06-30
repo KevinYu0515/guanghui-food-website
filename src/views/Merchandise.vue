@@ -53,38 +53,37 @@ export default {
       {
         src: require("@/assets/picture/001.jpg"),
         name: "高麗菜水煎包",
-        name2: "Fried bun stuffed with cabbage",
+        name2: "Fried bun stuffed with cabbage"
       },
       {
         src: require("@/assets/picture/002.jpg"),
         name: "竹筍水煎包",
-        name2: "Fried bun stuffed with bamboo shoots",
+        name2: "Fried bun stuffed with bamboo shoots"
       },
       {
         src: require("@/assets/picture/003.jpg"),
         name: "冬粉水煎包",
-        name2: "Fried bun stuffed with bean thread",
-      },
+        name2: "Fried bun stuffed with bean thread"
+      }
     ],
     cardContent: "一個18元",
-    mobile: null,
+    mobile: null
   }),
-  created() {
-    window.addEventListener("resize", this.checkScreen);
-    this.checkScreen();
+  created () {
+    window.addEventListener("resize", this.checkScreen)
+    this.checkScreen()
   },
   methods: {
-    checkScreen() {
-      this.windowWidth = window.innerWidth;
+    checkScreen () {
+      this.windowWidth = window.innerWidth
       if (this.windowWidth <= 992) {
-        this.mobile = true;
-        return;
+        this.mobile = true
+        return
       }
-      this.mobile = false;
-      return;
-    },
-  },
-};
+      this.mobile = false
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -5,13 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "json": "json-server --watch comment.json --port 8020"
+    "json": "json-server --watch comment.json --port 8020",
+    "eslint": "eslint --fix \"{,!(node_modules)/**/}*.{js,vue}\""
   },
   "dependencies": {
     "@mdi/js": "^6.5.95",
     "core-js": "^3.6.5",
     "json-server": "^0.17.0",
     "node": "^14.19.1",
+    "primeicons": "^5.0.0",
+    "primevue": "^3.13.1",
     "swiper": "^6.8.4",
     "vue": "^3.2.31",
     "vue-awesome-swiper": "^5.0.0",
@@ -26,7 +29,12 @@
     "@vue/cli-service": "~4.5.15",
     "@vue/compiler-sfc": "^3.0.0",
     "axios": "^0.18.1",
-    "eslint": "^8.12.0",
+    "eslint": "^8.17.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.1.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-axios": "~0.0.4",

@@ -1,14 +1,12 @@
-
-
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production'?'/guanghui-food-website/':'/',
+  publicPath: process.env.NODE_ENV === "production" ? "/guanghui-food-website/" : "/",
 
-    "transpileDependencies": [
-        "vuetify"
-        ],
+  transpileDependencies: [
+    "vuetify"
+  ],
 
-    devServer: {
-        https:true
-    }
-    
+  devServer: {
+    https: true
+  }
+
 }
