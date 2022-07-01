@@ -22,18 +22,18 @@
       >
         <swiper-slide v-for="(comment, index) in comments" :key="index">
           <div class="comment-card">
-            <star-rating
+            <StarRating
               :rating="comment.star"
               :read-only="true"
               :increment="0.5"
               :show-rating="false"
-            ></star-rating>
+            ></StarRating>
             <div class="comment-content">{{ comment.content }}</div>
             <div class="headIcon"><i class="icon fi fi-sr-user"></i></div>
             <div class="name">{{ comment.name }}</div>
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <swiper-slide v-show="false">
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
@@ -48,17 +48,17 @@
           <input
             type="text"
             class="name"
-            placeholder="評論者姓名"
+            placeholder="評論者名稱"
             v-model.trim="commentInput.name"
           />
-          <star-rating
+          <StarRating
             :increment="0.5"
             :max-rating="5"
             inactive-color="#000"
             active-color="#f0f19c"
             :star-size="30"
             :rating="commentInput.star"
-          ></star-rating>
+          ></StarRating>
           <label class="commentLabel">Comment 評論內容</label>
           <textarea
             rows="2"
@@ -89,16 +89,29 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
+
+import axios from "axios"
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
 import { ref } from "vue"
 
 SwiperCore.use([Pagination, Navigation])
 
+const commentInput = {
+  name: "",
+  content: "",
+  star: 0
+}
+const comments = ref([])
+const mobile = ref(null)
+const addComment = ref(false)
+</script>
+
+<script>
 export default {
   components: {
     Swiper,
@@ -106,28 +119,12 @@ export default {
     Popup,
     StarRating
   },
-  setup () {
-    const addComment = ref(false)
-    return { addComment }
-  },
-  data () {
-    return {
-      commentInput: {
-        name: "",
-        content: "",
-        star: ""
-      },
-      comments: [],
-      mobile: null
-    }
-  },
   created () {
     window.addEventListener("resize", this.checkScreen)
     this.checkScreen()
   },
   mounted () {
-    this.axios
-      .get("http://localhost:8020/comments")
+    axios.get("http://localhost:8020/comments")
       .then((res) => {
         this.comments = res.data
       })
@@ -147,8 +144,7 @@ export default {
     submitHandler () {
       const { name, content, star } = this.commentInput
       if (!name || !content || !star) return
-      this.axios
-        .post("http://localhost:8020/comments", this.commentInput)
+      axios.post("http://localhost:8020/comments", this.commentInput)
         .then((res) => {
           this.comments.push(res.data)
           this.cancelHandler()

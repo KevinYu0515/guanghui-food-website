@@ -46,29 +46,32 @@
   </section>
 </template>
 
+<script setup>
+import { ref } from "vue"
+
+const cardItems = ref([
+  {
+    src: require("@/assets/picture/001.jpg"),
+    name: "高麗菜水煎包",
+    name2: "Fried bun stuffed with cabbage"
+  },
+  {
+    src: require("@/assets/picture/002.jpg"),
+    name: "竹筍水煎包",
+    name2: "Fried bun stuffed with bamboo shoots"
+  },
+  {
+    src: require("@/assets/picture/003.jpg"),
+    name: "冬粉水煎包",
+    name2: "Fried bun stuffed with bean thread"
+  }])
+const cardContent = ref("一個18元")
+const mobile = ref(null)
+
+</script>
+
 <script>
 export default {
-  data: () => ({
-    cardItems: [
-      {
-        src: require("@/assets/picture/001.jpg"),
-        name: "高麗菜水煎包",
-        name2: "Fried bun stuffed with cabbage"
-      },
-      {
-        src: require("@/assets/picture/002.jpg"),
-        name: "竹筍水煎包",
-        name2: "Fried bun stuffed with bamboo shoots"
-      },
-      {
-        src: require("@/assets/picture/003.jpg"),
-        name: "冬粉水煎包",
-        name2: "Fried bun stuffed with bean thread"
-      }
-    ],
-    cardContent: "一個18元",
-    mobile: null
-  }),
   created () {
     window.addEventListener("resize", this.checkScreen)
     this.checkScreen()

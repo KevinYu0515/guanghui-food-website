@@ -47,7 +47,7 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import Popup from "../components/Popup.vue"
 import { ref } from "vue"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
@@ -56,52 +56,47 @@ import "swiper/swiper-bundle.css"
 
 SwiperCore.use([Pagination, Navigation])
 
+const isOpen = ref(false)
+const images = ref([
+  {
+    src: require("@/assets/picture/001.jpg"),
+    name: "高麗菜水煎包"
+  },
+  {
+    src: require("@/assets/picture/002.jpg"),
+    name: "竹筍水煎包"
+  },
+  {
+    src: require("@/assets/picture/003.jpg"),
+    name: "冬粉水煎包"
+  },
+  {
+    src: require("@/assets/picture/004.jpg"),
+    name: "水煎包下鍋瞜~"
+  },
+  {
+    src: require("@/assets/picture/005.jpg"),
+    name: "水煎包快起鍋瞜~"
+  },
+  {
+    src: require("@/assets/picture/006.jpg"),
+    name: "店面右斜側拍"
+  },
+  {
+    src: require("@/assets/picture/007.jpg"),
+    name: "店面左斜側拍"
+  }
+])
+const mobile = ref(null)
+const imgIndex = ref(0)
+</script>
+
+<script>
 export default {
   components: {
     Swiper,
     SwiperSlide,
     Popup
-  },
-  setup () {
-    const isOpen = ref(false)
-    return { isOpen }
-  },
-
-  data () {
-    return {
-      images: [
-        {
-          src: require("@/assets/picture/001.jpg"),
-          name: "高麗菜水煎包"
-        },
-        {
-          src: require("@/assets/picture/002.jpg"),
-          name: "竹筍水煎包"
-        },
-        {
-          src: require("@/assets/picture/003.jpg"),
-          name: "冬粉水煎包"
-        },
-        {
-          src: require("@/assets/picture/004.jpg"),
-          name: "水煎包下鍋瞜~"
-        },
-        {
-          src: require("@/assets/picture/005.jpg"),
-          name: "水煎包快起鍋瞜~"
-        },
-        {
-          src: require("@/assets/picture/006.jpg"),
-          name: "店面右斜側拍"
-        },
-        {
-          src: require("@/assets/picture/007.jpg"),
-          name: "店面左斜側拍"
-        }
-      ],
-      mobile: null,
-      imgIndex: 0
-    }
   },
 
   created () {

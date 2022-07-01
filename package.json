@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "json": "json-server --watch comment.json --port 8020",
-    "eslint": "eslint --fix \"{,!(node_modules)/**/}*.{js,vue}\""
+    "lintfix": "eslint --fix \"{,!(node_modules)/**/}*.{js,vue}\""
   },
   "dependencies": {
     "@mdi/js": "^6.5.95",
