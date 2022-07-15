@@ -87,12 +87,16 @@ const images = ref([
     name: "店面左斜側拍"
   }
 ])
-const mobile = ref(null)
 const imgIndex = ref(0)
 </script>
 
 <script>
 export default {
+  data () {
+    return {
+      mobile: null
+    }
+  },
   components: {
     Swiper,
     SwiperSlide,

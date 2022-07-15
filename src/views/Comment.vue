@@ -113,6 +113,11 @@ const addComment = ref(false)
 
 <script>
 export default {
+  data () {
+    return {
+      mobile: null
+    }
+  },
   components: {
     Swiper,
     SwiperSlide,
@@ -144,7 +149,7 @@ export default {
     submitHandler () {
       const { name, content, star } = this.commentInput
       if (!name || !content || !star) return
-      axios.post("http://localhost:8020/comments", this.commentInput)
+      axios.post("http://localhost:8000/comments", this.commentInput)
         .then((res) => {
           this.comments.push(res.data)
           this.cancelHandler()

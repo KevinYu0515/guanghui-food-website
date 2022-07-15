@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "json": "json-server --watch comment.json --port 8020",
+    "json": "json-server --watch comment.json --port 8000",
     "lintfix": "eslint --fix \"{,!(node_modules)/**/}*.{js,vue}\""
   },
   "dependencies": {
