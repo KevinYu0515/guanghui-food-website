@@ -33,11 +33,11 @@
             <div class="name">{{ comment.name }}</div>
           </div>
         </swiper-slide>
-        <swiper-slide v-show="false">
+        <!-- <swiper-slide v-show="false">
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
-        </swiper-slide>
+        </swiper-slide> -->
       </swiper>
     </div>
     <Popup :open="addComment" @close="addComment = !addComment">

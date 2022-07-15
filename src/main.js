@@ -2,7 +2,6 @@ import { createApp } from "vue"
 import App from "./App.vue"
 import router from "./router"
 import axios from "axios"
-import VueAxios from "vue-axios"
 import PrimeVue from "primevue/config"
 import Button from "primevue/button"
 
@@ -12,7 +11,6 @@ import "primeicons/primeicons.css"
 
 createApp(App)
   .component("Button", Button)
-  .use(router)
-  .use(VueAxios, axios)
+  .use(router, axios)
   .use(PrimeVue)
   .mount("#app")

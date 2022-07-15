@@ -2,29 +2,26 @@
   <header :class="{ 'scrolled-nav': scrollNav }">
     <!-- 寬版navbar -->
     <ul v-show="!mobile">
-      <li v-for="(tab, index) in tabs.slice(0, 4)" :key="index">
-        <router-link :to="{ name: tab.name, hash: tab.hash }">
-          {{ tab.show }}
-        </router-link>
-      </li>
-      <li>
-        <router-link :to="`/${tabs[4].hash}`">{{ tabs[4].show }}</router-link>
-      </li>
+      <li v-for="(tab, index) in tabs" :key="index">
+          <router-link :to="`/${tab.name}`">
+            {{ tab.show }}
+          </router-link>
+        </li>
     </ul>
     <!-- 窄版navbar -->
     <div class="logo" v-show="mobile">
       <img :src="iconImg" />
     </div>
     <ul v-show="mobile">
-      <li v-for="(tab, index) in tabs.slice(0, 4)" :key="index">
-        <router-link :to="{ name: tab.name, hash: tab.hash }">
+      <li v-for="(tab, index) in tabs.slice(0,3)" :key="index">
+        <router-link :to="`/${tab.name}`">
           <i :class="`${tab.icon}`"></i>
           <p class="iconText">{{ tab.show }}</p>
         </router-link>
       </li>
       <li>
-        <router-link :to="`/${tabs[4].hash}`">
-          <i :class="`${tabs[4].icon}`"></i>
+        <router-link to="/contact">
+          <i class="fi fi-sr-call-incoming"></i>
           <p class="iconText">{{ tabs[4].show }}</p>
         </router-link>
       </li>
@@ -37,33 +34,28 @@ export default {
   data: () => ({
     tabs: [
       {
-        name: "Home",
+        name: "time",
         show: "首頁",
-        hash: "#time",
         icon: "fi fi-sr-calendar"
       },
       {
-        name: "Merchandise",
+        name: "merchandise",
         show: "水煎包",
-        hash: "#merchandise",
         icon: "fi fi-rr-restaurant"
       },
       {
-        name: "Photos",
+        name: "photos",
         show: "相簿",
-        hash: "#photos",
         icon: "fi fi-br-picture"
       },
       {
-        name: "Comment",
+        name: "comment",
         show: "評論",
-        hash: "#comment",
         icon: "fi fi-sr-comment-alt"
       },
       {
-        name: "Contact",
+        name: "contact",
         show: "聯絡我們",
-        hash: "#contact",
         icon: "fi fi-sr-call-incoming"
       }
     ],
@@ -71,7 +63,8 @@ export default {
     mobileNav: null,
     scrollNav: null,
     windowWidth: null,
-    mobile: null
+    mobile: null,
+    userId: ""
   }),
 
   created () {

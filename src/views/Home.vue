@@ -120,9 +120,6 @@ export default {
     window.addEventListener("resize", this.checkScreen)
     this.checkScreen()
   },
-  mounted () {
-    window.addEventListener("scroll", this.updateScroll)
-  },
   methods: {
     checkScreen () {
       this.windowWidth = window.innerWidth
