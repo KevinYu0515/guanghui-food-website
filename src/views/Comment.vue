@@ -33,11 +33,11 @@
             <div class="name">{{ comment.name }}</div>
           </div>
         </swiper-slide>
-        <swiper-slide v-show="false">
+        <!-- <swiper-slide v-show="false">
           <div class="addNewComment">
             <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
           </div>
-        </swiper-slide>
+        </swiper-slide> -->
       </swiper>
     </div>
     <Popup :open="addComment" @close="addComment = !addComment">
@@ -97,25 +97,22 @@ import "swiper/swiper-bundle.css"
 import axios from "axios"
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
-import { ref } from "vue"
 
 SwiperCore.use([Pagination, Navigation])
-
-const commentInput = {
-  name: "",
-  content: "",
-  star: 0
-}
-const comments = ref([])
-const mobile = ref(null)
-const addComment = ref(false)
 </script>
 
 <script>
 export default {
   data () {
     return {
-      mobile: null
+      mobile: null,
+      commentInput: {
+        name: "",
+        content: "",
+        star: 0
+      },
+      comments: [],
+      addComment: false
     }
   },
   components: {
@@ -129,7 +126,7 @@ export default {
     this.checkScreen()
   },
   mounted () {
-    axios.get("http://localhost:8020/comments")
+    axios.get("http://localhost:8100/comments")
       .then((res) => {
         this.comments = res.data
       })
@@ -149,7 +146,7 @@ export default {
     submitHandler () {
       const { name, content, star } = this.commentInput
       if (!name || !content || !star) return
-      axios.post("http://localhost:8000/comments", this.commentInput)
+      axios.post("http://localhost:8100/comments", this.commentInput)
         .then((res) => {
           this.comments.push(res.data)
           this.cancelHandler()

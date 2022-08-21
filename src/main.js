@@ -11,7 +11,6 @@ import "primeicons/primeicons.css"
 
 createApp(App)
   .component("Button", Button)
-  .use(router)
-  .use(axios)
+  .use(router, axios)
   .use(PrimeVue)
   .mount("#app")

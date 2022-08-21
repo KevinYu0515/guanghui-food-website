@@ -81,7 +81,7 @@ import { ref } from "vue"
 const store = ref([{ name: "光慧水煎包", subName: "(梧棲店)" }])
 const timetableTitle = ref("正常營業時間")
 const newsTitle = ref("近期公告")
-const newsContents = ref(["6/29 下午因家中有事，暫時休息"])
+const newsContents = ref(["暫無新公告"])
 const days = ref(["週一", "週二", "週三", "週四", "週五", "週六", "週日"])
 const times = ref(["06:00~09:00", "15:00~17:00", "公休"])
 const sections = ref([
@@ -123,9 +123,6 @@ export default {
   created () {
     window.addEventListener("resize", this.checkScreen)
     this.checkScreen()
-  },
-  mounted () {
-    window.addEventListener("scroll", this.updateScroll)
   },
   methods: {
     checkScreen () {

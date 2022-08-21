@@ -7,24 +7,30 @@ const routes = [
     component: Home
   },
   {
-    path: "/",
-    name: "Home",
+    path: "/time",
+    name: "time",
     component: Home
   },
   {
-    path: "/",
-    name: "Merchandise",
+    path: "/merchandise",
+    name: "merchandise",
     component: Home
   },
   {
-    path: "/",
-    name: "Photos",
+    path: "/photos",
+    name: "photos",
     component: Home
   },
   {
-    path: "/",
-    name: "Comment",
+    path: "/comment",
+    name: "comment",
     component: Home
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: Home,
+    meta: { scrollToBottom: true }
   }
 ]
 
@@ -34,18 +40,17 @@ const router = createRouter({
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
-    } else if (to.hash) {
-      if (to.hash === "/#contact") {
+    } else if (to.name) {
+      if (to.matched.some(m => m.meta.scrollToBottom)) {
         return {
-          bottom: 0,
+          top: 3000,
           behavior: "smooth"
         }
-      } else {
-        return {
-          el: to.hash,
-          top: 200,
-          behavior: "smooth"
-        }
+      }
+      return {
+        el: `#${to.name}`,
+        top: 200,
+        behavior: "smooth"
       }
     }
   }

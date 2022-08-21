@@ -55,8 +55,6 @@ import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
 
 SwiperCore.use([Pagination, Navigation])
-
-const isOpen = ref(false)
 const images = ref([
   {
     src: require("@/assets/picture/001.jpg"),
@@ -87,14 +85,15 @@ const images = ref([
     name: "店面左斜側拍"
   }
 ])
-const imgIndex = ref(0)
 </script>
 
 <script>
 export default {
   data () {
     return {
-      mobile: null
+      mobile: null,
+      imgIndex: 0,
+      isOpen: false
     }
   },
   components: {
