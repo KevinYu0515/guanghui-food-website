@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 
 const cardItems = ref([
   {
@@ -67,27 +67,19 @@ const cardItems = ref([
   }])
 const cardContent = ref("一個18元")
 
-</script>
+const mobile = ref(null)
+onMounted(() => {
+  window.addEventListener("resize", checkScreen)
+  checkScreen()
+})
 
-<script>
-export default {
-  data () {
-    return { mobile: null }
-  },
-  created () {
-    window.addEventListener("resize", this.checkScreen)
-    this.checkScreen()
-  },
-  methods: {
-    checkScreen () {
-      this.windowWidth = window.innerWidth
-      if (this.windowWidth <= 992) {
-        this.mobile = true
-        return
-      }
-      this.mobile = false
-    }
+const checkScreen = () => {
+  const windowWidth = window.innerWidth
+  if (windowWidth <= 992) {
+    mobile.value = true
+    return
   }
+  mobile.value = false
 }
 </script>
 

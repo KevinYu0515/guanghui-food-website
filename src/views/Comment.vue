@@ -23,69 +23,18 @@
         <swiper-slide v-for="(comment, index) in comments" :key="index">
           <div class="comment-card">
             <StarRating
-              :rating="comment.star"
+              :rating="toNumber(comment.star)"
               :read-only="true"
               :increment="0.5"
               :show-rating="false"
             ></StarRating>
             <div class="comment-content">{{ comment.content }}</div>
-            <div class="headIcon"><i class="icon fi fi-sr-user"></i></div>
+            <div class="headIcon"><img :src="comment.icon" /></div>
             <div class="name">{{ comment.name }}</div>
           </div>
         </swiper-slide>
-        <!-- <swiper-slide v-show="false">
-          <div class="addNewComment">
-            <i class="addComment fi fi-rr-add" @click="addComment = true"></i>
-          </div>
-        </swiper-slide> -->
       </swiper>
     </div>
-    <Popup :open="addComment" @close="addComment = !addComment">
-      <template #imageName>評論表單</template>
-      <template #img>
-        <div class="input">
-          <label class="nameLabel">Name 評論者名稱</label>
-          <input
-            type="text"
-            class="name"
-            placeholder="評論者名稱"
-            v-model.trim="commentInput.name"
-          />
-          <StarRating
-            :increment="0.5"
-            :max-rating="5"
-            inactive-color="#000"
-            active-color="#f0f19c"
-            :star-size="30"
-            :rating="commentInput.star"
-          ></StarRating>
-          <label class="commentLabel">Comment 評論內容</label>
-          <textarea
-            rows="2"
-            cols="23"
-            class="content"
-            placeholder="評論內容"
-            v-model.trim="commentInput.content"
-          ></textarea>
-          <div class="buttonBox">
-            <button
-              type="button"
-              class="btn btn-outline-primary delete"
-              @click="cancelHandler()"
-            >
-              Delete
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-warning send"
-              @click="submitHandler()"
-            >
-              Send
-            </button>
-          </div>
-        </div>
-      </template>
-    </Popup>
   </section>
 </template>
 
@@ -93,74 +42,46 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
+import { ref, onMounted, onUpdated } from "vue"
 
 import axios from "axios"
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
 
 SwiperCore.use([Pagination, Navigation])
+const comments = ref([])
+const mobile = ref(null)
+const toNumber = star => {
+  return parseInt(star)
+}
+onMounted(() => {
+  axios.get("http://localhost:8100/comments")
+    .then((res) => {
+      comments.value = res.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+})
+
+onUpdated(() => {
+  window.addEventListener("resize", checkScreen)
+  checkScreen()
+})
+
+const checkScreen = () => {
+  const windowWidth = window.innerWidth
+  if (windowWidth <= 992) {
+    mobile.value = true
+    return
+  }
+  mobile.value = false
+}
 </script>
 
 <script>
 export default {
-  data () {
-    return {
-      mobile: null,
-      commentInput: {
-        name: "",
-        content: "",
-        star: 0
-      },
-      comments: [],
-      addComment: false
-    }
-  },
-  components: {
-    Swiper,
-    SwiperSlide,
-    Popup,
-    StarRating
-  },
-  created () {
-    window.addEventListener("resize", this.checkScreen)
-    this.checkScreen()
-  },
-  mounted () {
-    axios.get("http://localhost:8100/comments")
-      .then((res) => {
-        this.comments = res.data
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  },
-  methods: {
-    checkScreen () {
-      this.windowWidth = window.innerWidth
-      if (this.windowWidth <= 992) {
-        this.mobile = true
-        return
-      }
-      this.mobile = false
-    },
-    submitHandler () {
-      const { name, content, star } = this.commentInput
-      if (!name || !content || !star) return
-      axios.post("http://localhost:8100/comments", this.commentInput)
-        .then((res) => {
-          this.comments.push(res.data)
-          this.cancelHandler()
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
-    cancelHandler () {
-      this.commentInput.name = ""
-      this.commentInput.content = ""
-      this.commentInput.star = ""
-    }
-  }
+  components: { Swiper, SwiperSlide, Popup, StarRating }
 }
 </script>
 

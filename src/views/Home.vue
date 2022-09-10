@@ -22,9 +22,7 @@
     </section>
     <div class="socialMedia3" v-show="!mobileIcon" data-aos="fade-up">
       <a :href="facebookSrc">
-        <i class="icon fi fi-brands-facebook">
-          <span style="font-weight: bolder">{{ facebook }}</span>
-        </i>
+        <i class="icon fi fi-brands-facebook"></i>
       </a>
     </div>
     <div class="socialMedia2" v-show="!mobileIcon" data-aos="fade-up">
@@ -76,7 +74,7 @@ import about from "./About.vue"
 import merchandise from "./Merchandise.vue"
 import gallery from "./Gallery.vue"
 import comment from "./Comment.vue"
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 
 const store = ref([{ name: "光慧水煎包", subName: "(梧棲店)" }])
 const timetableTitle = ref("正常營業時間")
@@ -100,42 +98,35 @@ const sections = ref([
     content: "評論皆於Google評論索取，五星好評謝謝大家的支持"
   }
 ])
-const facebookSrc = ref("https://www.facebook.com/people/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85-%E6%A2%A7%E6%A3%B2%E5%BA%97/100075103166257/")
-const mapSrc = ref("https://www.google.com.tw/maps/place/%E5%85%89%E6%85%A7%E6%B0%B4%E7%85%8E%E5%8C%85%EF%BC%88%E6%A2%A7%E6%A3%B2%E5%BA%97%EF%BC%89/@24.2467507,120.5456227,17z/data=!3m1!4b1!4m5!3m4!1s0x346915859dc0b4dd:0x37ba3c60d4fc0ca8!8m2!3d24.2467287!4d120.5478919?hl=zh-TW&authuser=0")
 const index = ref(0)
+const mobile = ref(null)
+const mobileIcon = ref(null)
 
+onMounted(() => {
+  window.addEventListener("resize", checkScreen)
+  checkScreen()
+})
+const checkScreen = () => {
+  const windowWidth = window.innerWidth
+  if (windowWidth <= 992) {
+    mobileIcon.value = true
+    mobile.value = true
+    return
+  }
+  mobileIcon.value = false
+  mobile.value = false
+}
 </script>
 
 <script>
 export default {
   data () {
     return {
-      mobile: null,
-      mobileIcon: null
+      facebookSrc: "https://reurl.cc/9pbQ2O",
+      mapSrc: "https://reurl.cc/yMKlzD"
     }
   },
-  components: {
-    about,
-    merchandise,
-    comment,
-    gallery
-  },
-  created () {
-    window.addEventListener("resize", this.checkScreen)
-    this.checkScreen()
-  },
-  methods: {
-    checkScreen () {
-      this.windowWidth = window.innerWidth
-      if (this.windowWidth <= 992) {
-        this.mobileIcon = true
-        this.mobile = true
-        return
-      }
-      this.mobileIcon = false
-      this.mobile = false
-    }
-  }
+  components: { about, merchandise, comment, gallery }
 }
 </script>
 

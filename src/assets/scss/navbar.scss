@@ -62,6 +62,7 @@ header {
         i {
           color: rgb(255, 255, 255);
           line-height: 0;
+          background: transparent;
         }
         .iconText {
           font-size: 0.5rem;
@@ -69,16 +70,24 @@ header {
           color: rgb(255, 255, 255);
           margin: 0px;
         }
-        &:hover {
+        &:hover{
           background-color: transparent;
-          filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg)
-            brightness(103%) contrast(87%);
+          i{
+            color:#ee7748;
+          }
+          .iconText {
+            color:#ee7748;
+          }
         }
-        a.router-link-exact-active {
-          background-color: transparent;
-          filter: invert(49%) sepia(78%) saturate(625%) hue-rotate(330deg)
-            brightness(103%) contrast(87%);
+      }
+      a.router-link-exact-active{
+        i{
+          color:#ee7748;
         }
+        .iconText {
+          color:#ee7748;
+        }
+        background-color: transparent;
       }
     }
   }

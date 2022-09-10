@@ -1,4 +1,3 @@
-from asyncio import ensure_future
 import os
 import re
 import time
@@ -59,17 +58,11 @@ if __name__ == '__main__':
         obj.append(str(ar.find(class_ = "kvMYJc").get('aria-label').strip().strip(" 顆星")))
         obj.append(ar.find(class_ = "rsqaWe").text)
         obj.append(ar.find(class_ = "wiI7pd").text)
+        obj.append(ar.find(class_ = "NBa7we").get('src'))
         comments.append(obj)
-    
-    # dict = {"name":name,
-    #         "star":star_review,
-    #         "date":date_review,
-    #         "text":text_review
-    #         }
-    # print(comments)
-    select_df = pd.DataFrame(comments, columns = ['id','name','star','date','content'])
+    print(comments)
+    select_df = pd.DataFrame(comments, columns = ['id','name','star','date','content','icon'])
     data = json.loads(select_df.to_json(orient = 'records'))
     j = {"comments": data }
     with open('comment.json', 'w', encoding='UTF-8') as f:
         json.dump(j, f, ensure_ascii= False)
-    # # select_df.to_excel('data_sample.xlsx')
