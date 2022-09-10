@@ -9,4 +9,4 @@
     ~~2. hash 的 URL 問題~~  
     ~~3. 刷新頁面導致 name 抓取問題~~   
     ~~4. mobile version 的 icon 顯示問題~~  
-    ~~5. github.io SPA 重新整理問題~~  
+    5. github.io SPA 重新整理問題  
