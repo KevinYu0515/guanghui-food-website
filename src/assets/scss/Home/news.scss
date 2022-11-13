@@ -1,24 +1,25 @@
-@import "@/assets/scss/Home/index.scss";
+@import "../index.scss";
 
 #news {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  @include senction-settings(0px, 0px, 0px, 0px);
+  // position: relative;
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
   padding: 100px;
   padding-top: 50px;
   box-sizing: border-box;
   margin-bottom: 30px;
-  background-color: $brown;
+  background-color: $--brown-50;
   h1 {
     font-size: 3rem;
-    color: $white;
+    color: $--white;
   }
   p {
     font-size: 1.8vw;
     margin-top: 20px;
     text-align: center;
-    color: $white;
+    color: $--white;
   }
 }
 

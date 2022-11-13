@@ -5,7 +5,7 @@
        <img class="logo" :src="logo">
       <div class="mapBox" v-show="!mobile">
         <iframe :src="mapSrc"
-          style="border:0;"
+          style="border: 0"
           allowfullscreen=""
           loading="lazy"
           >

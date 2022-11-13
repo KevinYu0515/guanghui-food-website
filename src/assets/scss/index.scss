@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+//  break point
+$screen-xs: 480px;
+$screen-sm: 800px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+// 輔助色表
+$--white: #fff;
+$--black: #000;
+$--brown-50: #af3314;
+$--brown-100: #9e261b;
+$--orange-50: #f5a02a;
+$--orange-100: #ee7748;
+$--yellow-50: #fdf2d8;
+$--yellow-100: #f7e3b1;
+$--yellow-200: #f0f19c;
+$--red-200: red;
+
+// 特殊樣式參考色表
+$--merchandise-animation-100: #fedb8e;
+$--merchandise-animation-200: rgba(245,160,42,.5);
+$--gallery-popup-bg: rgba(222,184,135,.5);
+$--icon-hover: pink;
+$--card-shadow-100: 0px 8px 38px rgba(0, 0, 0, 0.1);
+$--card-shadow-200: 0px 18px 68px rgba(0, 0, 0, 0.2);
+$--card-shadow-300: 0px 7px 10px rgba(0, 0, 0, 0.5);
+$--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8);
+
+// 主頁底板設計以及其他內容裝飾
+
+* {
+  font-family: "Noto Sans TC", 'Secular One', Arial, sans-serif;
+  box-sizing: border-box;
+  height: auto;
+  max-width: 100%;
+  margin:0;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  // background: $--yellow-50;
+}
+
+:root {
+  font-size: 18px;
+  -webkit-text-size-adjust: none;
+  background-color: $--yellow-50;
+}
+
+.home {
+  margin: 0;
+  background: $--yellow-50;
+  width: 100%;
+  height: 100%;
+  white-space: pre-wrap;
+}
+
+.home_picture {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin senction-settings($my: 100px, $mx: 100px, $py: 100px, $px: 100px) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: $my $mx;
+  padding: $py $px;
+}
+
+.content-titleWrapper {
+  width: 100%;
+  height: 4vmin;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 60px;
+
+  .decoration {
+    height: 10px;
+    width: 15vw;
+    background-color: $--red-200;
+    margin: 0px 10px;
+  }
+  .content-title {
+    font-weight: bolder;
+    font-size: 2rem;
+    color: $--orange-50;
+  }
+}
+
+.content-description {
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  max-width: 80%;
+}
+
+.socialMedia {
+  margin-top: -60px;
+  float: right;
+  position: relative;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 50;
+  width: 60px;
+  height: 60px;
+}
+
+.calling {
+  @extend .socialMedia;
+  right: 280px;
+}
+
+.map {
+  @extend .socialMedia;
+  right: 180px;
+}
+
+.facebook {
+  @extend .socialMedia;
+  right: 80px;
+}
+
+.icon {
+  color: $--white;
+  font-size: 4rem;
+  &:hover {
+    color: $--icon-hover;
+    transition: 0.5s all;
+  }
+}
+
+.btn{
+  cursor: pointer;
+  margin: 0 5px;
+  width: 100px;
+}

@@ -20,17 +20,17 @@
         </ul>
       </div>
     </section>
-    <div class="socialMedia3" v-show="!mobileIcon" data-aos="fade-up">
+    <div class="facebook" v-show="!mobileIcon" data-aos="fade-up">
       <a :href="facebookSrc">
         <i class="icon fi fi-brands-facebook"></i>
       </a>
     </div>
-    <div class="socialMedia2" v-show="!mobileIcon" data-aos="fade-up">
+    <div class="map" v-show="!mobileIcon" data-aos="fade-up">
       <a :href="mapSrc">
         <i class="icon fi fi-rs-marker"></i>
       </a>
     </div>
-    <div class="socialMedia" v-show="!mobileIcon" data-aos="fade-up">
+    <div class="calling" v-show="!mobileIcon" data-aos="fade-up">
       <i class="icon fi fi-rr-call-incoming"></i>
     </div>
     <!-- 新公告說明版面 -->
@@ -131,7 +131,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/Home/index.scss";
+@import "../assets/scss/index.scss";
 @import "@/assets/scss/Home/time.scss";
 @import "@/assets/scss/Home/news.scss";
 </style>

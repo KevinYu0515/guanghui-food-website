@@ -1,10 +1,7 @@
-@import "@/assets/scss/Home/index.scss";
+@import "../index.scss";
 
 #photos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 100px;
+  @include senction-settings(100px, 0, 0, 0);
 
   .wrapper {
     max-width: 1000px;
@@ -71,22 +68,22 @@
   }
   .swiper-button-prev {
     --swiper-navigation-size: 30px;
-    color: $dark-brown;
+    color: $--brown-100;
   }
   .swiper-button-next {
     --swiper-navigation-size: 30px;
-    color: $dark-brown;
+    color: $--brown-100;
   }
   .swiper-pagination-bullet {
     width: 15px;
     height: 15px;
     display: inline-block;
     border-radius: 50%;
-    background: $black;
+    background: $--black;
     opacity: 0.6;
   }
   .swiper-pagination-bullet-active {
     opacity: 1;
-    background: $light-orange;
+    background: $--orange-100;
   }
 }

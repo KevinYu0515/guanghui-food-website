@@ -1,20 +1,18 @@
-@import "@/assets/scss/Home/index.scss";
+@import "../index.scss";
 
 #about {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-top: 60px;
+  @include senction-settings(100px, 0, 0, 0);
+
   .title {
     font-size: 2rem;
-    color: $brown;
+    color: $--brown-100;
   }
   .content {
     width: 60%;
     text-align: center;
     font-size: 1.2rem;
     margin-top: 20px;
-    color: $brown;
+    color: $--brown-100;
   }
 }
 
