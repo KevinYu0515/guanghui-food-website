@@ -38,7 +38,7 @@
   </section>
 </template>
 
-<script setup>
+<script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
@@ -47,8 +47,14 @@ import { ref, onMounted, onUpdated } from "vue"
 import axios from "axios"
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
-
 SwiperCore.use([Pagination, Navigation])
+
+export default {
+  components: { Swiper, SwiperSlide, Popup, StarRating }
+}
+</script>
+
+<script setup>
 const comments = ref([])
 const mobile = ref(null)
 const toNumber = star => {
@@ -76,12 +82,6 @@ const checkScreen = () => {
     return
   }
   mobile.value = false
-}
-</script>
-
-<script>
-export default {
-  components: { Swiper, SwiperSlide, Popup, StarRating }
 }
 </script>
 

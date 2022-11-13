@@ -1,3 +1,5 @@
+@import "./index.scss";
+
 header {
   position: fixed;
   top: 0;
@@ -19,7 +21,7 @@ header {
       background: none;
 
       a {
-        color: #f7e3b1;
+        color: $--yellow-100;
         border-radius: 20px;
         height: 50px;
         line-height: 50px;
@@ -32,13 +34,13 @@ header {
         cursor: pointer;
 
         &:hover {
-          color: aliceblue;
-          background-color: #ee7748;
+          color: $--white;
+          background-color: $--orange-100;
         }
       }
       a.router-link-exact-active {
-        color: aliceblue;
-        background-color: #ee7748;
+        color: $--white;
+        background-color: $--orange-100;
       }
     }
   }
@@ -60,32 +62,32 @@ header {
         justify-content: center;
         flex-direction: column;
         i {
-          color: rgb(255, 255, 255);
+          color: $--white;
           line-height: 0;
           background: transparent;
         }
         .iconText {
           font-size: 0.5rem;
           line-height: 20px;
-          color: rgb(255, 255, 255);
+          color: $--white;
           margin: 0px;
         }
         &:hover{
           background-color: transparent;
           i{
-            color:#ee7748;
+            color: $--orange-100;
           }
           .iconText {
-            color:#ee7748;
+            color: $--orange-100;
           }
         }
       }
       a.router-link-exact-active{
         i{
-          color:#ee7748;
+          color: $--orange-100;
         }
         .iconText {
-          color:#ee7748;
+          color: $--orange-100;
         }
         background-color: transparent;
       }
@@ -100,11 +102,11 @@ header {
 }
 
 .scrolled-nav {
-  background: #9e261b;
+  background: $--brown-100;
   height: 65px;
 
   .logo {
-    color: #f7e3b1;
+    color: $--yellow-50;
   }
   ul li {
     a {

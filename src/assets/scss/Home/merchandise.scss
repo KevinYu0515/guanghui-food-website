@@ -1,10 +1,7 @@
-@import "@/assets/scss/Home/index.scss";
+@import "../index.scss";
 
 #merchandise {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 60px;
+  @include senction-settings(100px, 0, 0, 0);
 
   .cardWrapper {
     display: flex;
@@ -18,8 +15,8 @@
       align-items: center;
       margin: auto 50px;
       padding: 4rem 4rem;
-      background: $light-orange;
-      box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+      background: $--yellow-200;
+      box-shadow: $--card-shadow-300;
       transform: 0.5s ease-in-out;
 
       &:hover {
@@ -35,8 +32,8 @@
         height: 100%;
         background: linear-gradient(
           to bottom,
-          rgba(245, 160, 42, 0.5),
-          rgba(254, 219, 142, 1)
+          $--merchandise-animation-200,
+          $--merchandise-animation-100
         );
         z-index: 2;
         transition: 0.5s all;
@@ -57,7 +54,7 @@
       .info {
         position: relative;
         z-index: 3;
-        color: $white;
+        color: $--white;
         opacity: 0;
         transform: translateY(30px);
         transition: 0.5s all;
@@ -88,8 +85,8 @@
     display: flex;
     align-items: flex-start;
     margin: 5px 20px;
-    background: $light-orange;
-    background-color: $white2;
+    background: $--orange-100;
+    background-color: $--white;
 
     img {
       width: 32vw;

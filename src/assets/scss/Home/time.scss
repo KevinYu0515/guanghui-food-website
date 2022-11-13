@@ -1,12 +1,7 @@
-@import "@/assets/scss/Home/index.scss";
+@import "../index.scss";
 
 #time {
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.7),
-      rgba(79, 76, 76, 0.5),
-      rgba(5, 5, 5, 0.8)
-    ),
-    url("../assets/picture/store.jpg");
+  background: linear-gradient( $--time-background), url("../assets/picture/store.jpg");
   background-position: center;
   background-size: cover;
   z-index: max;
@@ -20,7 +15,7 @@
     font-size: 2rem;
     display: flex;
     justify-content: center;
-    color: $yellow;
+    color: $--yellow-200;
     justify-content: center;
     margin-top: 100px;
   }
@@ -29,7 +24,7 @@
     font-size: 1rem;
     display: flex;
     justify-content: center;
-    color: $yellow;
+    color: $--yellow-200;
     justify-content: center;
     margin-bottom: 20px;
   }
@@ -39,13 +34,13 @@
     transition: 0.5s;
     margin-bottom: 60px;
     &:hover {
-      background: rgba(247, 227, 177, 0.4);
+      background: rgba($--yellow-50, .1);
     }
     .timetable-title {
       font-weight: bolder;
       font-size: 1.8rem;
       display: flex;
-      color: $white;
+      color: $--white;
       justify-content: center;
       margin-bottom: 20px;
     }
@@ -57,13 +52,13 @@
         justify-content: center;
         font-size: 1.2rem;
         margin-bottom: 5px;
-        color: $white;
+        color: $--white;
         @media screen and (max-width: $screen-sm) {
           font-size: 1rem;
         }
         p {
           font-family: "Secular One";
-          color: $white;
+          color: $--white;
         }
       }
     }
