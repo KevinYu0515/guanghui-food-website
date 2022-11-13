@@ -44,7 +44,7 @@ import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
 import { ref, onMounted, onUpdated } from "vue"
 
-import axios from "axios"
+// import axios from "axios"
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
 SwiperCore.use([Pagination, Navigation])
@@ -61,13 +61,16 @@ const toNumber = star => {
   return parseInt(star)
 }
 onMounted(() => {
-  axios.get("http://localhost:8100/comments")
-    .then((res) => {
-      comments.value = res.data
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  const json = require("../../comment.json")
+  comments.value = json
+  // axios.get("../../comment.json")
+  //   .then((res) => {
+  //     console.log(res)
+  //     comments.value = res.data
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
 })
 
 onUpdated(() => {

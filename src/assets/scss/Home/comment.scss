@@ -2,7 +2,6 @@
 
 #comment {
   @include senction-settings(60px, 0, 0, 0);
-  display: none;
 
   :deep(.swiper-area) {
     width: 100%;
