@@ -12,10 +12,10 @@
       <slot name="sectionTitleContent"></slot>
     </p>
     <!-- swiper -->
-    <div class="swiper-area">
+    <div class="swiper-area" v-show="!mobile">
       <swiper
-        :slidesPerView="!mobile ? 2 : 1"
-        :spaceBetween="!mobile ? 20 : 30"
+        :slidesPerView="2"
+        :spaceBetween="30"
         :pagination="{ clickable: true, dynamicBullets: false }"
         :navigation="true"
         :loop="true"
@@ -28,12 +28,31 @@
               :increment="0.5"
               :show-rating="false"
             ></StarRating>
-            <div class="comment-content">{{ comment.content }}</div>
+            <div class="comment-content" @click="popup(index)">{{ commentFilter(comment.content) }}</div>
             <div class="headIcon"><img :src="comment.icon" /></div>
             <div class="name">{{ comment.name }}</div>
           </div>
+          <teleport to="body">
+            <Popup :open="isOpen" @close="isOpen = !isOpen">
+              <template #imageName><img :src="comments[commentIndex].icon" />{{ comments[commentIndex].name }}</template>
+              <template #img><p style="padding: 50px; white-space: pre-wrap; word-wrap: break-word;">{{ comments[commentIndex].content }}</p></template>
+            </Popup>
+          </teleport>
         </swiper-slide>
       </swiper>
+    </div>
+    <div class="commentList" v-show="mobile">
+      <div class="comment-card" v-for="(comment, index) in comments" :key="index">
+        <StarRating
+          :rating="toNumber(comment.star)"
+          :read-only="true"
+          :increment="0.5"
+          :show-rating="false"
+        ></StarRating>
+        <div class="comment-content">{{ comment.content }}</div>
+        <div class="headIcon"><img :src="comment.icon" /></div>
+        <div class="name">{{ comment.name }}</div>
+      </div>
     </div>
   </section>
 </template>
@@ -52,6 +71,7 @@ SwiperCore.use([Pagination, Navigation])
 export default {
   components: { Swiper, SwiperSlide, Popup, StarRating }
 }
+
 </script>
 
 <script setup>
@@ -60,6 +80,8 @@ const mobile = ref(null)
 const toNumber = star => {
   return parseInt(star)
 }
+const isOpen = ref(false)
+const commentIndex = ref(0)
 onMounted(() => {
   const json = require("../../comment.json")
   comments.value = json
@@ -85,6 +107,17 @@ const checkScreen = () => {
     return
   }
   mobile.value = false
+}
+
+const commentFilter = content => {
+  if (content.length > 40) {
+    return content.slice(0, 40) + "...閱讀更多"
+  } else return content
+}
+
+const popup = i => {
+  isOpen.value = true
+  commentIndex.value = i
 }
 </script>
 

@@ -58,7 +58,7 @@
         {{ sections[index + 1].content }}
       </template>
     </gallery>
-    <comment v-show="!mobile">
+    <comment>
       <template #sectionTitle>
         {{ sections[index + 2].title }}
       </template>

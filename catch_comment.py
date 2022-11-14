@@ -63,6 +63,6 @@ if __name__ == '__main__':
     print(comments)
     select_df = pd.DataFrame(comments, columns = ['id','name','star','date','content','icon'])
     data = json.loads(select_df.to_json(orient = 'records'))
-    j = {"comments": data }
+    j = data
     with open('comment.json', 'w', encoding='UTF-8') as f:
         json.dump(j, f, ensure_ascii= False)

@@ -22,7 +22,7 @@
         <teleport to="body">
           <Popup :open="isOpen" @close="isOpen = !isOpen">
             <template #imageName>{{ images[imgIndex].name }}</template>
-            <template #img><img :src="images[imgIndex].src" /></template>
+            <template #img><img height="400" width="400" :src="images[imgIndex].src" /></template>
           </Popup>
         </teleport>
       </div>
