@@ -113,6 +113,22 @@ export default {
         {
           src: require("@/assets/picture/007.jpg"),
           name: "店面左斜側拍"
+        },
+        {
+          src: require("@/assets/picture/008.jpg"),
+          name: "在 Uber Eats 上的總覽圖"
+        },
+        {
+          src: require("@/assets/picture/009.jpg"),
+          name: "竹筍水煎包"
+        },
+        {
+          src: require("@/assets/picture/010.jpg"),
+          name: "高麗菜水煎包"
+        },
+        {
+          src: require("@/assets/picture/011.jpg"),
+          name: "好吃的水煎包"
         }
       ]
     }

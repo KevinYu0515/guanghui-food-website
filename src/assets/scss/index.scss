@@ -40,13 +40,13 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  // background: $--yellow-50;
 }
 
 :root {
   font-size: 18px;
   -webkit-text-size-adjust: none;
   background-color: $--yellow-50;
+  overflow-x: hidden;
 }
 
 .home {

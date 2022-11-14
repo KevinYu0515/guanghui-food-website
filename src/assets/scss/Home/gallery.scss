@@ -12,7 +12,8 @@
       flex-wrap: wrap;
       .image {
         padding: 30px 10px;
-        width: calc(100% / 5);
+        width: calc(100% / 4);
+        height: auto;
         cursor: pointer;
 
         span {

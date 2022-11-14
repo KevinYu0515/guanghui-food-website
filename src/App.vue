@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="isLoading">
-      <loading :active="isLoading" class="loading"><img :src="require('@/assets/R.gif')"/></loading>
+      <loading :active="isLoading" class="loading"><img :src="require('@/assets/loading.gif')"/></loading>
     </div>
     <div v-else>
       <Navbar></Navbar>
