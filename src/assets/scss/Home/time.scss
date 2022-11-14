@@ -1,14 +1,9 @@
 @import "../index.scss";
 
 #time {
-  background: linear-gradient( $--time-background), url("../assets/picture/store.jpg");
-  background-position: center;
-  background-size: cover;
+  @include senction-settings(0, 0, 0, 0);
+  @include background-settings((linear-gradient($--time-background), url("../assets/picture/store.jpg")), true);
   z-index: max;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   .store-name {
     font-weight: bolder;

@@ -41,7 +41,7 @@
         </swiper-slide>
       </swiper>
     </div>
-    <div class="commentList" v-show="mobile">
+    <div class="commentList" :class="{'active': isMore}" v-show="mobile">
       <div class="comment-card" v-for="(comment, index) in comments" :key="index">
         <StarRating
           :rating="toNumber(comment.star)"
@@ -54,6 +54,9 @@
         <div class="name">{{ comment.name }}</div>
       </div>
     </div>
+    <i v-show="isMore" class="fi fi-br-angle-double-small-up icon"></i>
+    <div :class="{'btn-active' : isMore , 'btn': !isMore}" @click="readmore">{{ buttonContent }}</div>
+    <i v-show="!isMore" class="fi fi-br-angle-double-small-down icon"></i>
   </section>
 </template>
 
@@ -77,11 +80,12 @@ export default {
 <script setup>
 const comments = ref([])
 const mobile = ref(null)
-const toNumber = star => {
-  return parseInt(star)
-}
+const toNumber = star => parseInt(star)
 const isOpen = ref(false)
 const commentIndex = ref(0)
+const isMore = ref(false)
+const buttonContent = ref("Read More")
+
 onMounted(() => {
   const json = require("../../comment.json")
   comments.value = json
@@ -119,10 +123,16 @@ const popup = i => {
   isOpen.value = true
   commentIndex.value = i
 }
+
+const readmore = () => {
+  isMore.value = !isMore.value
+  buttonContent.value = isMore.value ? "Read Less" : "Read More"
+}
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/scss/Home/comment.scss";
+@import "../assets/scss/index.scss";
 @import url("https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css");
 @import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
 @import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");

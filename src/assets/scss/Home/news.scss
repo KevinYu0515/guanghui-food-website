@@ -1,16 +1,9 @@
 @import "../index.scss";
 
 #news {
-  @include senction-settings(0px, 0px, 0px, 0px);
-  // position: relative;
-  // display: flex;
-  // justify-content: center;
-  // flex-direction: column;
-  padding: 100px;
-  padding-top: 50px;
-  box-sizing: border-box;
-  margin-bottom: 30px;
-  background-color: $--brown-50;
+  @include senction-settings(0px, 0px, 100px, 0px);
+  @include background-settings($--brown-50, false);
+
   h1 {
     font-size: 3rem;
     color: $--white;

@@ -76,9 +76,21 @@
   }
 
   .commentList {
+    position: relative;
     width: 100%;
-    height: auto;
+    height: 200vh;
     padding: 50px;
+    overflow: hidden;
+
+    &::before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(transparent, $--yellow-50);
+    }
     @media screen and (max-width: $screen-xs) {
      padding: 10px; 
     }
@@ -148,5 +160,18 @@
           }
       }
     }
+  }
+
+  .active{
+    height: auto;
+    overflow: visible;
+    &::before{
+      display: none;
+    }
+  }
+
+  .icon{
+    color: $--orange-100;
+    transform: scale(.5);
   }
 }
