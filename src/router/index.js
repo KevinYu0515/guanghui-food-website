@@ -43,13 +43,13 @@ const router = createRouter({
     } else if (to.name) {
       if (to.matched.some(m => m.meta.scrollToBottom)) {
         return {
-          top: 3000,
+          top: 1000000,
           behavior: "smooth"
         }
       }
       return {
         el: `#${to.name}`,
-        top: 200,
+        top: 100,
         behavior: "smooth"
       }
     }

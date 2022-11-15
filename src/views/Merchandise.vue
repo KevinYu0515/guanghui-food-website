@@ -2,11 +2,11 @@
   <section id="merchandise" data-aos="fade-up">
     <!-- 主標 -->
     <div class="content-titleWrapper">
-      <i class="decoration"></i>
+      <i class="strips-red"></i>
       <p class="content-title">
         <slot name="sectionTitle"></slot>
       </p>
-      <i class="decoration"></i>
+      <i class="strips-red"></i>
     </div>
     <p class="content-description">
       <slot name="sectionTitleContent"></slot>

@@ -18,6 +18,7 @@
       background: $--yellow-200;
       box-shadow: $--card-shadow-300;
       transform: 0.5s ease-in-out;
+      border-radius: 20px;
 
       &:hover {
         transform: translateY(20px);
@@ -38,6 +39,7 @@
         z-index: 2;
         transition: 0.5s all;
         opacity: 0;
+        border-radius: 20px;
       }
       &:hover::before {
         opacity: 1;
@@ -50,6 +52,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        border-radius: 20px;
       }
       .info {
         position: relative;
@@ -79,18 +82,22 @@
       }
     }
   }
+  
   .card_mobile {
     width: 80%;
     height: auto;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin: 5px 20px;
     background: $--orange-100;
     background-color: $--yellow-50;
+    margin: 10px 50px;
 
     img {
-      width: 32vw;
+      width: 35vw;
       height: auto;
+      padding: 0 10px;
+      border-right: 5px solid $--orange-100;
     }
     .description {
       position: relative;
@@ -99,11 +106,11 @@
       text-align: left;
 
       .item-content {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin: 20px;
 
         span {
-          font-size: 1.8rem;
+          font-size: 1.5rem;
           padding-bottom: 200px;
           font-weight: bolder;
         }
@@ -135,13 +142,5 @@
   #merchandise {
     overflow-x: hidden;
     overflow-y: hidden;
-    .card_mobile .description {
-      .item-content {
-        font-size: 0.8rem;
-        span {
-          font-size: 5vw;
-        }
-      }
-    }
   }
 }

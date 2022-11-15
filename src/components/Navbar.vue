@@ -13,7 +13,7 @@
       <img :src="iconImg" />
     </div>
     <ul v-show="mobile">
-      <li v-for="(tab, index) in tabs.slice(0,3)" :key="index">
+      <li v-for="(tab, index) in tabs.slice(0,4)" :key="index">
         <router-link :to="`/${tab.name}`">
           <i :class="`${tab.icon}`"></i>
           <p class="iconText">{{ tab.show }}</p>
@@ -88,7 +88,7 @@ export default {
     },
     checkScreen () {
       this.windowWidth = window.innerWidth
-      if (this.windowWidth <= 850) {
+      if (this.windowWidth <= 840) {
         this.mobile = true
         return
       }

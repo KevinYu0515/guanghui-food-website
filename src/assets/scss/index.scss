@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
+$max: 10000;
+
 //  break point
 $screen-xs: 480px;
-$screen-sm: 800px;
+$screen-sm: 840px;
 $screen-md: 992px;
 $screen-lg: 1200px;
 
@@ -20,12 +22,12 @@ $--yellow-200: #f0f19c;
 $--red-200: red;
 
 // 特殊樣式參考色表
-$--merchandise-animation-100: #fedb8e;
+$--merchandise-animation-100: #fac960;
 $--merchandise-animation-200: rgba(245,160,42,.5);
 $--gallery-popup-bg: rgba(222,184,135,.5);
 $--icon-hover: pink;
 $--card-shadow-100: 0px 8px 38px rgba(0, 0, 0, 0.1);
-$--card-shadow-200: 0px 18px 68px rgba(0, 0, 0, 0.2);
+$--card-shadow-200: 0px 18px 38px rgba(0, 0, 0, 0.2);
 $--card-shadow-300: 0px 7px 10px rgba(0, 0, 0, 0.5);
 $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8);
 
@@ -34,9 +36,10 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
 * {
   font-family: "Noto Sans TC", 'Secular One', Arial, sans-serif;
   box-sizing: border-box;
-  height: auto;
   max-width: 100%;
+  height: auto;
   margin:0;
+  padding: 0;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -47,6 +50,9 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   -webkit-text-size-adjust: none;
   background-color: $--yellow-50;
   overflow-x: hidden;
+  @media screen and (max-width: $screen-xs){
+    font-size: 16px;
+  }
 }
 
 @mixin senction-settings($my: 100px, $mx: 100px, $py: 100px, $px: 100px) {
@@ -67,17 +73,21 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   }
 }
 
-.home {
-  margin: 0;
-  background: $--yellow-50;
-  width: 100%;
-  height: 100%;
-  white-space: pre-wrap;
+@mixin decoration-strips($wt, $ht, $my, $mx, $color){
+  width: $wt;
+  height: $ht;
+  margin: $my $mx;
+  background-color: $color;
 }
 
-.home_picture {
-  height: 100%;
-  width: 100%;
+.strips-red {
+  @include decoration-strips(15vw, 10px, 0, 10px, $--red-200);
+}
+
+.strips-orange {
+  @include decoration-strips(50vw, 10px, 10px, 0, $--orange-100);
+  max-width: 300px;
+  margin-top: 0px;
 }
 
 .content-titleWrapper {
@@ -87,12 +97,6 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   align-items: baseline;
   margin-bottom: 60px;
 
-  .decoration {
-    height: 10px;
-    width: 15vw;
-    background-color: $--red-200;
-    margin: 0px 10px;
-  }
   .content-title {
     font-weight: bolder;
     font-size: 2rem;
@@ -109,14 +113,15 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
 }
 
 .socialMedia {
-  margin-top: -60px;
-  float: right;
-  position: relative;
   cursor: pointer;
-  opacity: 1;
-  z-index: 50;
+  position: relative;
   width: 60px;
   height: 60px;
+  float: right;
+  margin-top: -60px;
+  opacity: 1;
+  z-index: 50;
+  
 }
 
 .calling {
@@ -143,24 +148,31 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   }
 }
 
-.btn{
-  position: relative;
-  padding: 10px 15px;
-  margin-top: 15px;
-  cursor: pointer;
-  margin: 0 5px;
-  background: $--orange-50;
-  display: inline-block;
-  text-transform: uppercase;
-  color: $--brown-100;
-  font-weight: bolder;
-  letter-spacing: 2px;
-  font-size: 14px;
-  border: 3px solid $--brown-100;
-}
+.btnGroup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-.btn-active{
-  @extend .btn;
-  color: $--black;
-  background: rgba($--orange-50, .3);
+  .btn{
+    position: relative;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    margin: 0 5px;
+    background: $--orange-50;
+    display: inline-block;
+    text-transform: uppercase;
+    color: $--brown-100;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 14px;
+    border: 3px solid $--brown-100;
+  }
+  
+  .btn-active{
+    @extend .btn;
+    color: $--black;
+    background: rgba($--orange-50, .3);
+  }
 }

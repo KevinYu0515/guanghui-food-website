@@ -1,14 +1,12 @@
 @import "./index.scss";
 
 .footer {
+  @include senction-settings(100px, 0, 0, 0);
+  @include background-settings($--brown-100, false);
   height: auto;
   max-width: 100%;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 0px;
   justify-content: flex-start;
-  background: $--brown-100;
 
   .decoration {
     width: 0;
@@ -18,20 +16,39 @@
   }
 
   #contact {
-    height: auto;
     max-width: 100%;
+    height: auto;
     display: flex;
     margin: 60px 60px;
+    @media screen and (max-width: 1120px) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: $screen-sm) {
+      margin: 0;
+    }
     .logo {
       width: 20vw;
       height: auto;
       margin-right: 50px;
+      @media screen and (max-width: 1120px){
+        width: 50vw;
+        margin-bottom: 50px;
+        margin-right: 0;
+      }
+      @media screen and (max-width: $screen-xs) {
+        width: 80vw;
+      }
     }
     .mapBox {
       position: relative;
       width: 25vw;
       height: 50vh;
       background: $--white;
+      @media  screen and (max-width: 1120px) {
+        width: 60vw;
+        height: auto;
+        margin-bottom: 50px;
+      }
       iframe {
         width: 100%;
         height: 100%;
@@ -43,12 +60,6 @@
       display: inline-flex;
       align-items: flex-start;
       flex-direction: column;
-      .decoration2 {
-        width: 20vw;
-        height: 10px;
-        margin-bottom: 10px;
-        background-color: $--white;
-      }
       h1 {
         font-weight: bolder;
         margin-bottom: 20px;
@@ -72,33 +83,5 @@
         }
       }
     }
-  }
-}
-
-@media screen and (max-width: 1120px) {
-  .footer {
-    #contact {
-      flex-direction: column;
-      .logo {
-        width: 50vw;
-        margin-bottom: 50px;
-        margin-right: 0;
-      }
-      .mapBox {
-        width: 60vw;
-        height: auto;
-        margin-bottom: 50px;
-      }
-    }
-  }
-}
-@media screen and (max-width: 480px) {
-  .footer #contact{
-    .logo {
-      width: 80%;
-    }
-    .contact-box .contact span{
-      font-size: 0.5rem;
-    } 
   }
 }

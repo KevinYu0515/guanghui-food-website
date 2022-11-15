@@ -2,11 +2,11 @@
   <section id="comment" data-aos="fade-up">
     <!-- 主標 -->
     <div class="content-titleWrapper">
-      <i class="decoration"></i>
+      <i class="strips-red"></i>
       <p class="content-title">
         <slot name="sectionTitle"></slot>
       </p>
-      <i class="decoration"></i>
+      <i class="strips-red"></i>
     </div>
     <p class="content-description">
       <slot name="sectionTitleContent"></slot>
@@ -14,8 +14,8 @@
     <!-- swiper -->
     <div class="swiper-area" v-show="!mobile">
       <swiper
-        :slidesPerView="2"
-        :spaceBetween="30"
+        :slidesPerView="!mobile ? 2 : 0"
+        :spaceBetween="10"
         :pagination="{ clickable: true, dynamicBullets: false }"
         :navigation="true"
         :loop="true"
@@ -54,9 +54,11 @@
         <div class="name">{{ comment.name }}</div>
       </div>
     </div>
-    <i v-show="isMore" class="fi fi-br-angle-double-small-up icon"></i>
-    <div :class="{'btn-active' : isMore , 'btn': !isMore}" @click="readmore">{{ buttonContent }}</div>
-    <i v-show="!isMore" class="fi fi-br-angle-double-small-down icon"></i>
+    <div class="btnGroup" v-show="mobile">
+      <i v-show="isMore" class="fi fi-br-angle-double-small-up icon"></i>
+      <div :class="{'btn-active' : isMore , 'btn': !isMore}" @click="readmore">{{ buttonContent }}</div>
+      <i v-show="!isMore" class="fi fi-br-angle-double-small-down icon"></i>
+    </div>
   </section>
 </template>
 

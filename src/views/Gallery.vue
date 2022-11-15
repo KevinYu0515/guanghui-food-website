@@ -2,11 +2,11 @@
   <section id="photos" data-aos="fade-up">
     <!-- 主標 -->
     <div class="content-titleWrapper">
-      <i class="decoration"></i>
+      <i class="strips-red"></i>
       <p class="content-title">
         <slot name="sectionTitle"></slot>
       </p>
-      <i class="decoration"></i>
+      <i class="strips-red"></i>
     </div>
     <p class="content-description">
       <slot name="sectionTitleContent"></slot>
@@ -15,9 +15,9 @@
     <div class="wrapper" v-show="!mobile">
       <div class="gallery">
         <div class="image" v-for="(img, index) in images" :key="index">
-          <span @click="imgClick(index)"
-            ><img class="initial_img" :src="img.src" alt="picture"
-          /></span>
+          <span @click="imgClick(index)">
+            <img class="initial_img" :src="img.src" alt="picture"/>
+          </span>
         </div>
         <teleport to="body">
           <Popup :open="isOpen" @close="isOpen = !isOpen">
@@ -36,8 +36,8 @@
         :spaceBetween="30"
         :centered-slides="true"
         :pagination="{ clickable: true, dynamicBullets: false }"
-        :navigation="false"
-        :loop="false"
+        :loop="true"
+        :autoplay="{ delay: 1000, disableOnInteraction: false}"
       >
         <swiper-slide v-for="(img, index) in images" :key="index">
           <img :src="img.src" />
@@ -100,11 +100,11 @@ export default {
         },
         {
           src: require("@/assets/picture/004.jpg"),
-          name: "水煎包下鍋瞜~"
+          name: "水煎包下鍋嘍~"
         },
         {
           src: require("@/assets/picture/005.jpg"),
-          name: "水煎包快起鍋瞜~"
+          name: "水煎包快起鍋嘍~"
         },
         {
           src: require("@/assets/picture/006.jpg"),

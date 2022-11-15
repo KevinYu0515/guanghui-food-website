@@ -3,7 +3,6 @@
 #time {
   @include senction-settings(0, 0, 0, 0);
   @include background-settings((linear-gradient($--time-background), url("../assets/picture/store.jpg")), true);
-  z-index: max;
 
   .store-name {
     font-weight: bolder;
@@ -48,9 +47,6 @@
         font-size: 1.2rem;
         margin-bottom: 5px;
         color: $--white;
-        @media screen and (max-width: $screen-sm) {
-          font-size: 1rem;
-        }
         p {
           font-family: "Secular One";
           color: $--white;

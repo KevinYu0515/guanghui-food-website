@@ -4,51 +4,53 @@
   @include senction-settings(60px, 0, 0, 0);
 
   :deep(.swiper-area) {
-    width: 100%;
-    .swiper-wrapper {
-      display: flex;
-      justify-content: flex-start;
-    }
-    .swiper-slide {
-      display: flex;
-      align-items: center;
-      .comment-card {
-        display: grid;
-        grid-template-columns: repeat(7, 30px);
-        grid-template-rows: 30px 100px 30px;
-        grid-gap: 25px 25px;
-        padding: 50px;
-        margin: 20px 0;
-        margin-bottom: 80px;
-        color: $--black;
-        background-color: $--white;
-        border-radius: 30px;
-        box-shadow: $--card-shadow-100;
-      
-        &:hover {
-          box-shadow: $--card-shadow-200;
-          transform: translateY(-5px);
-        }
-        .vue-star-rating{
-          transform: scale(2.5) translateY(-5px) translateX(8px)
-        }
-        .comment-content {
-          cursor: pointer;
-          grid-area: 2/1/2/7;
-          overflow: hidden;
-        }
-        .headIcon {
-          grid-area: 3/1/3/1;
-          .icon {
-          font-size: 2rem;
-          color: $--brown-100;
+    max-width: 100%;
+    .swiper-container{
+      .swiper-wrapper {
+        display: flex;
+        justify-content: flex-start;
+      }
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        .comment-card {
+          display: grid;
+          grid-template-columns: repeat(7, 30px);
+          grid-template-rows: 30px 100px 30px;
+          grid-gap: 25px 25px;
+          padding: 50px;
+          margin: 20px 0;
+          margin-bottom: 80px;
+          color: $--black;
+          background-color: $--white;
+          border-radius: 30px;
+          box-shadow: $--card-shadow-100;
+        
+          &:hover {
+            box-shadow: $--card-shadow-200;
+            transform: translateY(-5px);
           }
-        }
-        .name {
-          grid-area: 3/2/3/7;
-          color: $--orange-100;
-          font-weight: bold;
-          font-size: large;
+          .vue-star-rating{
+            transform: scale(2.5) translateY(-5px) translateX(8px)
+          }
+          .comment-content {
+            cursor: pointer;
+            grid-area: 2/1/2/7;
+            overflow: hidden;
+          }
+          .headIcon {
+            grid-area: 3/1/3/1;
+            .icon {
+            font-size: 2rem;
+            color: $--brown-100;
+            }
+          }
+          .name {
+            grid-area: 3/2/3/7;
+            color: $--orange-100;
+            font-weight: bold;
+            font-size: large;
+          }
         }
       }
     }
@@ -108,8 +110,8 @@
       background-color: $--white;
       border-radius: 30px;
       box-shadow: $--card-shadow-100;
-      @media screen and (max-width: $screen-sm) {
-        grid-template-columns: repeat(20, .4%);
+      @media screen and (max-width: $screen-sm ) {
+        grid-template-columns: repeat(15, .2%);
       }
       @media screen and (max-width: $screen-xs ) {
         grid-template-columns: repeat(15, .2%);
@@ -125,18 +127,14 @@
           grid-area: 1/1/1/8;
         }
         @media screen and (max-width: $screen-xs) {
-          grid-area: 1/2/1/8;
+          grid-area: 1/1/1/8;
         }
       }
       .comment-content {
         grid-area: 2/1/2/20;
         font-size: .8rem;
-        @media screen and (max-width: $screen-sm) {
-          font-size: .8rem;
-        }
         @media screen and (max-width: $screen-xs) {
-          grid-area: 2/2/2/15;
-          font-size: .3rem;
+          grid-area: 2/1/2/15;
         }
       }
       .headIcon {
@@ -145,8 +143,11 @@
             font-size: 2rem;
             color: $--brown-100;
           }
+          @media screen and (max-width: $screen-sm) {
+            grid-area: 3/1/3/4;
+          }
           @media screen and (max-width: $screen-xs) {
-            grid-area: 3/2/3/4;
+            grid-area: 3/1/3/4;
           }
       }
       .name {
@@ -154,9 +155,12 @@
           color: $--orange-100;
           font-weight: bold;
           font-size: large;
+          @media screen and (max-width: $screen-sm) {
+            grid-area: 3/4/3/15;
+          }
           @media screen and (max-width: $screen-xs) {
             grid-area: 3/4/3/15;
-            font-size: small;
+            // font-size: small;
           }
       }
     }

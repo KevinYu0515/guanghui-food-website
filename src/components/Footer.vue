@@ -12,7 +12,7 @@
         </iframe>
       </div>
       <div class="contact-box">
-        <div class="decoration2"></div>
+        <div class="strips-orange"></div>
         <h1>{{title}}</h1>
         <div v-for="(item, index) in contacts" :key="index" class="contact">
           <a :href="item.src">
