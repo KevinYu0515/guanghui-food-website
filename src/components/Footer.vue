@@ -16,12 +16,13 @@
         <h1>{{title}}</h1>
         <div v-for="(item, index) in contacts" :key="index" class="contact">
           <a :href="item.src">
-            <i class="icon" :class="item.icon"/>
+            <i class="icon-150" :class="item.icon"/>
           </a>
           <span>{{item.name}}</span>
         </div>
       </div>
     </section>
+    <p class="cpyr">Copyright © 2021-2022 Yu-Kai Lin. All rights reserved.</p>
   </div>
 </template>
 
@@ -37,11 +38,11 @@ export default {
         name: "facebook"
       }, {
         src: "",
-        icon: "fi fi-rs-marker",
+        icon: "fi fi-ss-phone-call",
         name: "0952404078 | 0935368684"
       }, {
         src: "https://reurl.cc/9Gzn6a",
-        icon: "fi fi-ss-phone-call",
+        icon: "fi fi-bs-marker",
         name: "臺中市梧棲區民和路一段37號"
       }],
       mapSrc: "https://reurl.cc/Lm1nnX",
@@ -69,10 +70,4 @@ export default {
 
 <style lang='scss'>
 @import "@/assets/scss/footer.scss";
-</style>
-
-<style lang="scss" scoped>
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 </style>

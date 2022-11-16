@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 @import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
@@ -31,7 +31,7 @@ $--yellow-200: #f0f19c;
 $--red-200: red;
 
 // 特殊樣式參考色表
-$--merchandise-animation-100: #fac960;
+$--merchandise-animation-100: #e6b345;
 $--merchandise-animation-200: rgba(245,160,42,.5);
 $--gallery-popup-bg: rgba(222,184,135,.5);
 $--icon-hover: #ffc0cb;
@@ -89,6 +89,30 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   background-color: $color;
 }
 
+@mixin icon-settings($color: $--white, $size: 1rem){
+  cursor: pointer;
+  color: $color;
+  font-size: $size; 
+}
+
+.icon-500{
+  @include icon-settings($--white, 3.5rem);
+  &:hover {
+    color: $--icon-hover;
+    transition: 0.5s all;
+  }
+}
+
+.icon-150{
+  @include icon-settings($--yellow-50, 2rem);
+  margin-bottom: 10px;
+}
+
+.icon-100{
+  @include icon-settings($--brown-100, 1rem);
+}
+
+
 .strips-red {
   @include decoration-strips(15vw, 10px, 0, 10px, $--red-200);
 }
@@ -145,15 +169,6 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
 .facebook {
   @extend .socialMedia;
   right: 80px;
-}
-
-.icon {
-  color: $--white;
-  font-size: 3.5rem;
-  &:hover {
-    color: $--icon-hover;
-    transition: 0.5s all;
-  }
 }
 
 .btnGroup{

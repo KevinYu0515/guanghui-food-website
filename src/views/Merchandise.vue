@@ -17,11 +17,11 @@
       <div class="card" v-for="(item, index) in cardItems" :key="index">
         <img :src="item.src" />
         <div class="info">
-          <h1>
+          <h2>
             {{ item.name }}<br />
             <span>{{ item.name2 }}</span>
             <p>{{ cardContent }}</p>
-          </h1>
+          </h2>
         </div>
       </div>
     </div>
@@ -53,17 +53,17 @@ const cardItems = ref([
   {
     src: require("@/assets/picture/001.jpg"),
     name: "高麗菜水煎包",
-    name2: "Fried bun stuffed with cabbage"
+    name2: "Fried bun (cabbage)"
   },
   {
     src: require("@/assets/picture/002.jpg"),
     name: "竹筍水煎包",
-    name2: "Fried bun stuffed with bamboo shoots"
+    name2: "Fried bun (bamboo shoots)"
   },
   {
     src: require("@/assets/picture/003.jpg"),
     name: "冬粉水煎包",
-    name2: "Fried bun stuffed with bean thread"
+    name2: "Fried bun (bean thread)"
   }])
 const cardContent = ref("一個18元")
 

@@ -44,6 +44,9 @@ onMounted(() => {
   .loading{
     width: 10vw;
     height: auto;
+    @media screen and (max-width: 840px) {
+      width: 30vw;
+    }
   }
 }
 </style>

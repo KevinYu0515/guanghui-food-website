@@ -22,16 +22,16 @@
     </section>
     <div class="facebook" v-show="!mobileIcon" data-aos="fade-up">
       <a :href="facebookSrc">
-        <i class="icon fi fi-brands-facebook"/>
+        <i class="icon-500 fi fi-brands-facebook"/>
       </a>
     </div>
     <div class="map" v-show="!mobileIcon" data-aos="fade-up">
       <a :href="mapSrc">
-        <i class="icon fi fi-rs-marker"/>
+        <i class="icon-500 fi fi-bs-marker"/>
       </a>
     </div>
     <div class="calling" v-show="!mobileIcon" data-aos="fade-up">
-      <i class="icon fi fi-ss-phone-call"/>
+      <i class="icon-500 fi fi-ss-phone-call"/>
     </div>
     <!-- 新公告說明版面 -->
     <section id="news" v-show="true" data-aos="fade-up">

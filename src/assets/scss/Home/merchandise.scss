@@ -2,23 +2,38 @@
 
 #merchandise {
   @include senction-settings(100px, 0, 0, 0);
+  @media screen and (max-width: $screen-md) {
+    overflow: hidden;
+  }
 
   .cardWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: $screen-md) {
+      display: block;
+    }
 
     .card {
+      width: calc(100vw/3);
+      height: 25vw;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: auto 50px;
-      padding: 4rem 4rem;
+      padding: 1rem;
       background: $--yellow-200;
       box-shadow: $--card-shadow-300;
       transform: 0.5s ease-in-out;
       border-radius: 20px;
+
+      @media screen and (max-width: $screen-md) {
+        width: 100px;
+        height: 50px;
+        padding: 0;
+        margin-bottom: 50px;
+      }
 
       &:hover {
         transform: translateY(20px);
@@ -28,9 +43,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        display: block;
         width: 100%;
         height: 100%;
+        display: block;
         background: linear-gradient(
           to bottom,
           $--merchandise-animation-200,
@@ -59,19 +74,19 @@
         z-index: 3;
         color: $--white;
         opacity: 0;
+        line-height: 30px;
         transform: translateY(30px);
         transition: 0.5s all;
-        h1 {
-          margin: 0;
-
+        h2 {
           span {
-            font-size: 1vmax;
-            font-weight: bolder;
+            font-size: .5rem;
+            font-weight: bold;
+            line-height: 10px;
           }
         }
         p {
           letter-spacing: 1px;
-          font-size: 15px;
+          font-size: 1rem;
           margin-top: 8px;
           margin-bottom: 20px;
         }
@@ -119,28 +134,3 @@
   }
 }
 
-@media screen and (max-width: $screen-md) {
-  #merchandise {
-    overflow-x: hidden;
-    overflow-y: hidden;
-    .cardWrapper {
-      display: block;
-      .card {
-        width: 100px;
-        height: 50px;
-        padding: 0;
-        margin-bottom: 50px;
-        .info h1 {
-          width: 150px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: $screen-xs) {
-  #merchandise {
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-}

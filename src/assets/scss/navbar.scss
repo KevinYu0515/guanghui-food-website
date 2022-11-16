@@ -70,27 +70,15 @@ header {
           line-height: 0;
           background: transparent;
         }
-        .iconText {
-          font-size: 0.5rem;
-          line-height: 20px;
-          color: $--white;
-          margin: 0px;
-        }
         &:hover{
           background-color: transparent;
           i{
-            color: $--orange-100;
-          }
-          .iconText {
             color: $--orange-100;
           }
         }
       }
       a.router-link-exact-active{
         i{
-          color: $--orange-100;
-        }
-        .iconText {
           color: $--orange-100;
         }
         background-color: transparent;

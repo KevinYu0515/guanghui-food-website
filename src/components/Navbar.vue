@@ -16,13 +16,11 @@
       <li v-for="(tab, index) in tabs.slice(0,4)" :key="index">
         <router-link :to="`/${tab.name}`">
           <i :class="`${tab.icon}`"></i>
-          <p class="iconText">{{ tab.show }}</p>
         </router-link>
       </li>
       <li>
         <router-link to="/contact">
           <i class="fi fi-sr-call-incoming"></i>
-          <p class="iconText">{{ tabs[4].show }}</p>
         </router-link>
       </li>
     </ul>
@@ -41,7 +39,7 @@ export default {
       {
         name: "merchandise",
         show: "水煎包",
-        icon: "fi fi-rr-restaurant"
+        icon: "fi fi-sr-hat-chef"
       },
       {
         name: "photos",
@@ -101,10 +99,4 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/scss/navbar.scss";
-@import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
 </style>
