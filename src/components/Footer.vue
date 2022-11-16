@@ -16,7 +16,7 @@
         <h1>{{title}}</h1>
         <div v-for="(item, index) in contacts" :key="index" class="contact">
           <a :href="item.src">
-            <img :src="item.icon" class="icon">
+            <i class="icon" :class="item.icon"/>
           </a>
           <span>{{item.name}}</span>
         </div>
@@ -33,15 +33,15 @@ export default {
       logo: require("@/assets/logo.jpg"),
       contacts: [{
         src: "https://reurl.cc/g2vY6V",
-        icon: require("@/assets/icon/facebook.png"),
+        icon: "fi fi-brands-facebook",
         name: "facebook"
       }, {
         src: "",
-        icon: require("@/assets/icon/calling.png"),
+        icon: "fi fi-rs-marker",
         name: "0952404078 | 0935368684"
       }, {
         src: "https://reurl.cc/9Gzn6a",
-        icon: require("@/assets/icon/mapMark.png"),
+        icon: "fi fi-ss-phone-call",
         name: "臺中市梧棲區民和路一段37號"
       }],
       mapSrc: "https://reurl.cc/Lm1nnX",

@@ -12,7 +12,7 @@
       <slot name="sectionTitleContent"></slot>
     </p>
     <!-- swiper -->
-    <div class="swiper-area" v-show="!mobile">
+    <div class="swiper-area" v-if="!mobile">
       <swiper
         :slidesPerView="!mobile ? 2 : 0"
         :spaceBetween="10"
@@ -41,7 +41,7 @@
         </swiper-slide>
       </swiper>
     </div>
-    <div class="commentList" :class="{'active': isMore}" v-show="mobile">
+    <div class="commentList" :class="{'active': isMore}" v-if="mobile">
       <div class="comment-card" v-for="(comment, index) in comments" :key="index">
         <StarRating
           :rating="toNumber(comment.star)"
@@ -54,7 +54,7 @@
         <div class="name">{{ comment.name }}</div>
       </div>
     </div>
-    <div class="btnGroup" v-show="mobile">
+    <div class="btnGroup" v-if="mobile">
       <i v-show="isMore" class="fi fi-br-angle-double-small-up icon"></i>
       <div :class="{'btn-active' : isMore , 'btn': !isMore}" @click="readmore">{{ buttonContent }}</div>
       <i v-show="!isMore" class="fi fi-br-angle-double-small-down icon"></i>
@@ -68,7 +68,6 @@ import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
 import { ref, onMounted, onUpdated } from "vue"
 
-// import axios from "axios"
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
 SwiperCore.use([Pagination, Navigation])
@@ -89,21 +88,13 @@ const isMore = ref(false)
 const buttonContent = ref("Read More")
 
 onMounted(() => {
+  checkScreen()
   const json = require("../../comment.json")
   comments.value = json
-  // axios.get("../../comment.json")
-  //   .then((res) => {
-  //     console.log(res)
-  //     comments.value = res.data
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
 })
 
 onUpdated(() => {
   window.addEventListener("resize", checkScreen)
-  checkScreen()
 })
 
 const checkScreen = () => {
@@ -135,7 +126,4 @@ const readmore = () => {
 <style lang="scss" scoped>
 @import "@/assets/scss/Home/comment.scss";
 @import "../assets/scss/index.scss";
-@import url("https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
 </style>

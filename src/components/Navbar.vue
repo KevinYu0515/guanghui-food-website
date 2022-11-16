@@ -56,7 +56,7 @@ export default {
       {
         name: "contact",
         show: "聯絡我們",
-        icon: "fi fi-sr-call-incoming"
+        icon: "fi fi-ss-phone-call"
       }
     ],
     iconImg: require("@/assets/picture/guanghui.png"),

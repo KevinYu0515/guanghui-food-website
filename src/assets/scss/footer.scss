@@ -67,10 +67,11 @@
       }
       .contact{
         text-decoration: none;
-        display:flex;
+        display: flex;
+        align-items: baseline;
         .icon {
-          filter: invert(80%) sepia(27%) saturate(327%) hue-rotate(1deg) brightness(109%) contrast(94%);
-          width: 30px;
+          color: $--yellow-50;
+          font-size: 2rem;
           margin-bottom: 10px;
         }
         span {
