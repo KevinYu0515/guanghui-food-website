@@ -32,14 +32,14 @@
             <div class="headIcon"><img :src="comment.icon" /></div>
             <div class="name">{{ comment.name }}</div>
           </div>
-          <teleport to="body">
-            <Popup :open="isOpen" @close="isOpen = !isOpen">
-              <template #imageName><img :src="comments[commentIndex].icon" />{{ comments[commentIndex].name }}</template>
-              <template #img><p style="padding: 50px; white-space: pre-wrap; word-wrap: break-word;">{{ comments[commentIndex].content }}</p></template>
-            </Popup>
-          </teleport>
         </swiper-slide>
       </swiper>
+      <teleport to="body">
+        <Popup :open="isOpen" @close="isOpen = !isOpen">
+          <template #imageName><img :src="comments[commentIndex].icon" />{{ comments[commentIndex].name }}</template>
+          <template #img><p style="padding: 50px; white-space: pre-wrap; word-wrap: break-word;">{{ comments[commentIndex].content }}</p></template>
+        </Popup>
+      </teleport>
     </div>
     <div class="commentList" :class="{'active': isMore}" v-if="mobile">
       <div class="comment-card" v-for="(comment, index) in comments" :key="index">
@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import json from "../../python/comment.json"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
@@ -73,13 +74,17 @@ import StarRating from "vue-star-rating"
 SwiperCore.use([Pagination, Navigation])
 
 export default {
-  components: { Swiper, SwiperSlide, Popup, StarRating }
+  components: { Swiper, SwiperSlide, Popup, StarRating },
+  data () {
+    return {
+      comments: json
+    }
+  }
 }
 
 </script>
 
 <script setup>
-const comments = ref([])
 const mobile = ref(null)
 const toNumber = star => parseInt(star)
 const isOpen = ref(false)
@@ -89,8 +94,6 @@ const buttonContent = ref("Read More")
 
 onMounted(() => {
   checkScreen()
-  const json = require("../../comment.json")
-  comments.value = json
 })
 
 onUpdated(() => {
