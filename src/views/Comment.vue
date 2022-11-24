@@ -55,9 +55,9 @@
       </div>
     </div>
     <div class="btnGroup" v-if="mobile">
-      <i v-show="isMore" class="fi fi-br-angle-double-small-up icon"></i>
+      <i v-show="isMore" class="fi fi-br-angle-double-small-up icon-300" style="margin-bottom: 0"></i>
       <div :class="{'btn-active' : isMore , 'btn': !isMore}" @click="readmore">{{ buttonContent }}</div>
-      <i v-show="!isMore" class="fi fi-br-angle-double-small-down icon"></i>
+      <i v-show="!isMore" class="fi fi-br-angle-double-small-down icon-300" style="margin-bottom: 0"></i>
     </div>
   </section>
 </template>

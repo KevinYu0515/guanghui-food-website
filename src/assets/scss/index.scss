@@ -103,6 +103,11 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   }
 }
 
+.icon-300{
+  @include icon-settings($--orange-100, 2.5rem);
+  margin-bottom: 10px;
+}
+
 .icon-150{
   @include icon-settings($--yellow-50, 2rem);
   margin-bottom: 10px;
@@ -197,5 +202,28 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
     @extend .btn;
     color: $--black;
     background: rgba($--orange-50, .3);
+  }
+}
+
+:deep(.swiper-area) {
+  .swiper-button-prev {
+    --swiper-navigation-size: 30px;
+    color: $--brown-100;
+  }
+  .swiper-button-next {
+    --swiper-navigation-size: 30px;
+    color: $--brown-100;
+  }
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    background: $--black;
+    opacity: 0.6;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: $--orange-100;
   }
 }

@@ -26,46 +26,37 @@
       </div>
     </div>
     <!-- 窄版架構 -->
-    <div
-      class="card_mobile"
-      v-show="mobile"
-      v-for="(item, index) in cardItems"
-      :key="index"
-      data-aos="fade-left"
-    >
-      <img :src="item.src" />
-      <div class="description">
-        <p class="item-content">
-          <span>{{ item.name }}</span
-          ><br />
-          {{ item.name2 }}<br />
-          {{ cardContent }}
-        </p>
-      </div>
+    <div class="swiper-area">
+      <swiper
+        v-show="mobile"
+        :slidesPerView="1"
+        :spaceBetween="30"
+        :centered-slides="true"
+        :loop="true"
+      >
+        <swiper-slide v-for="(item, index) in cardItems" :key="index">
+          <img :src="item.src" />
+          <div class="description">
+            <p class="item-content">
+              <span>{{ item.name }}</span
+              ><br />
+              {{ item.name2 }}<br />
+              {{ cardContent }}
+            </p>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue"
+import { Swiper, SwiperSlide } from "vue-awesome-swiper"
+// import SwiperCore, { Navigation, Pagination } from "swiper"
+import "swiper/swiper-bundle.css"
 
-const cardItems = ref([
-  {
-    src: require("@/assets/picture/001.jpg"),
-    name: "高麗菜水煎包",
-    name2: "Fried bun (cabbage)"
-  },
-  {
-    src: require("@/assets/picture/002.jpg"),
-    name: "竹筍水煎包",
-    name2: "Fried bun (bamboo shoots)"
-  },
-  {
-    src: require("@/assets/picture/003.jpg"),
-    name: "冬粉水煎包",
-    name2: "Fried bun (bean thread)"
-  }])
-const cardContent = ref("一個18元")
+// SwiperCore.use([Pagination, Navigation])
 
 const mobile = ref(null)
 onMounted(() => {
@@ -83,7 +74,34 @@ const checkScreen = () => {
 }
 </script>
 
+<script>
+export default {
+  components: { Swiper, SwiperSlide },
+  data () {
+    return {
+      cardItems: [
+        {
+          src: require("@/assets/picture/001.jpg"),
+          name: "高麗菜水煎包",
+          name2: "Fried bun (cabbage)"
+        },
+        {
+          src: require("@/assets/picture/002.jpg"),
+          name: "竹筍水煎包",
+          name2: "Fried bun (bamboo shoots)"
+        },
+        {
+          src: require("@/assets/picture/003.jpg"),
+          name: "冬粉水煎包",
+          name2: "Fried bun (bean thread)"
+        }
+      ],
+      cardContent: "一個 18 元"
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 @import "@/assets/scss/Home/merchandise.scss";
 </style>
->

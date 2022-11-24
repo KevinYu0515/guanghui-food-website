@@ -70,24 +70,4 @@
       }
     }
   }
-  .swiper-button-prev {
-    --swiper-navigation-size: 30px;
-    color: $--brown-100;
-  }
-  .swiper-button-next {
-    --swiper-navigation-size: 30px;
-    color: $--brown-100;
-  }
-  .swiper-pagination-bullet {
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    border-radius: 50%;
-    background: $--black;
-    opacity: 0.6;
-  }
-  .swiper-pagination-bullet-active {
-    opacity: 1;
-    background: $--orange-100;
-  }
 }
