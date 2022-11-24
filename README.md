@@ -8,4 +8,4 @@
     ~~3. 刷新頁面導致 name 抓取問題~~   
     ~~4. mobile version 的 icon 顯示問題~~  
     5. github.io SPA 重新整理問題  
-    6. 其他裝置上 icon 顯示錯誤
+    ~~6. 其他裝置上 icon 顯示錯誤~~
