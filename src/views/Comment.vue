@@ -37,7 +37,7 @@
       <teleport to="body">
         <Popup :open="isOpen" @close="isOpen = !isOpen">
           <template #imageName><img :src="comments[commentIndex].icon" />{{ comments[commentIndex].name }}</template>
-          <template #img><p style="padding: 50px; white-space: pre-wrap; word-wrap: break-word;">{{ comments[commentIndex].content }}</p></template>
+          <template #img><p style="font-size: .8rem; padding: 50px; white-space: pre-wrap; word-wrap: break-word;">{{ comments[commentIndex].content }}</p></template>
         </Popup>
       </teleport>
     </div>
@@ -49,7 +49,7 @@
           :increment="0.5"
           :show-rating="false"
         ></StarRating>
-        <div class="comment-content">{{ comment.content }}</div>
+        <div class="comment-content" @click="commentClick(index)" style="white-space: pre-wrap; word-wrap: break-word;">{{ commentFilter2(comment.content, index) }}</div>
         <div class="headIcon"><img :src="comment.icon" /></div>
         <div class="name">{{ comment.name }}</div>
       </div>
@@ -91,6 +91,7 @@ const isOpen = ref(false)
 const commentIndex = ref(0)
 const isMore = ref(false)
 const buttonContent = ref("Read More")
+const op = ref([true])
 
 onMounted(() => {
   checkScreen()
@@ -115,9 +116,19 @@ const commentFilter = content => {
   } else return content
 }
 
+const commentFilter2 = (content, index) => {
+  if (content.length > 40 && op.value[index] === undefined) {
+    return content.slice(0, 40) + "...閱讀更多"
+  } else return content
+}
+
 const popup = i => {
   isOpen.value = true
   commentIndex.value = i
+}
+
+const commentClick = index => {
+  op.value[index] = !op.value[index]
 }
 
 const readmore = () => {

@@ -16,13 +16,13 @@
       <div class="gallery">
         <div class="image" v-for="(img, index) in images" :key="index">
           <span @click="imgClick(index)">
-            <img class="initial_img" :src="img.src" alt="picture"/>
+            <img class="initial_img" :src="require('@/assets/picture/' + img.src + '.jpg')" alt="picture"/>
           </span>
         </div>
         <teleport to="body">
           <Popup :open="isOpen" @close="isOpen = !isOpen">
             <template #imageName>{{ images[imgIndex].name }}</template>
-            <template #img><img height="400" width="400" :src="images[imgIndex].src" /></template>
+            <template #img><img height="400" width="400" :src="require('@/assets/picture/' + images[imgIndex].src + '.jpg')" /></template>
           </Popup>
         </teleport>
       </div>
@@ -40,7 +40,7 @@
         :autoplay="{ delay: 1000, disableOnInteraction: false}"
       >
         <swiper-slide v-for="(img, index) in images" :key="index">
-          <img :src="img.src" />
+          <img :src="require('@/assets/picture/' + img.src + '.jpg')"  />
         </swiper-slide>
       </swiper>
     </div>
@@ -53,6 +53,7 @@ import { ref, onMounted } from "vue"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
+import json from "../../python/text.json"
 
 SwiperCore.use([Pagination, Navigation])
 
@@ -85,52 +86,7 @@ export default {
   components: { Swiper, SwiperSlide, Popup },
   data () {
     return {
-      images: [
-        {
-          src: require("@/assets/picture/001.jpg"),
-          name: "高麗菜水煎包"
-        },
-        {
-          src: require("@/assets/picture/002.jpg"),
-          name: "竹筍水煎包"
-        },
-        {
-          src: require("@/assets/picture/003.jpg"),
-          name: "冬粉水煎包"
-        },
-        {
-          src: require("@/assets/picture/004.jpg"),
-          name: "水煎包下鍋嘍~"
-        },
-        {
-          src: require("@/assets/picture/005.jpg"),
-          name: "水煎包快起鍋嘍~"
-        },
-        {
-          src: require("@/assets/picture/006.jpg"),
-          name: "店面右斜側拍"
-        },
-        {
-          src: require("@/assets/picture/007.jpg"),
-          name: "店面左斜側拍"
-        },
-        {
-          src: require("@/assets/picture/008.jpg"),
-          name: "在 Uber Eats 上的總覽圖"
-        },
-        {
-          src: require("@/assets/picture/009.jpg"),
-          name: "竹筍水煎包"
-        },
-        {
-          src: require("@/assets/picture/010.jpg"),
-          name: "高麗菜水煎包"
-        },
-        {
-          src: require("@/assets/picture/011.jpg"),
-          name: "好吃的水煎包"
-        }
-      ]
+      images: json[3].images
     }
   }
 }

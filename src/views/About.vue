@@ -5,11 +5,16 @@
   </section>
 </template>
 
-<script setup>
-import { ref } from "vue"
-
-const title = ref("關於")
-const content = ref("光慧水煎包梧棲分店開幕於2021年10月初，傳承自於50年的老店--草屯光慧水煎包，口味有竹筍、高麗菜、冬粉三種(素食可食)，每一顆都是新鮮出爐，給客人最溫暖的點心\n(梧棲小吃店，路邊取餐，可預約預定，不接受外送)")
+<script>
+import json from "../../python/text.json"
+export default {
+  data () {
+    return {
+      title: json[1].title,
+      content: json[1].content
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

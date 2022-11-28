@@ -15,7 +15,7 @@
     <!-- 寬版架構 -->
     <div class="cardWrapper" v-show="!mobile">
       <div class="card" v-for="(item, index) in cardItems" :key="index">
-        <img :src="item.src" />
+        <img :src="require('@/assets/picture/' + item.src + '.jpg')" />
         <div class="info">
           <h2>
             {{ item.name }}<br />
@@ -35,7 +35,7 @@
         :loop="true"
       >
         <swiper-slide v-for="(item, index) in cardItems" :key="index">
-          <img :src="item.src" />
+          <img :src="require('@/assets/picture/' + item.src + '.jpg')" />
           <div class="description">
             <p class="item-content">
               <span>{{ item.name }}</span
@@ -53,10 +53,8 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
-// import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
-
-// SwiperCore.use([Pagination, Navigation])
+import json from "../../python/text.json"
 
 const mobile = ref(null)
 onMounted(() => {
@@ -79,24 +77,8 @@ export default {
   components: { Swiper, SwiperSlide },
   data () {
     return {
-      cardItems: [
-        {
-          src: require("@/assets/picture/001.jpg"),
-          name: "高麗菜水煎包",
-          name2: "Fried bun (cabbage)"
-        },
-        {
-          src: require("@/assets/picture/002.jpg"),
-          name: "竹筍水煎包",
-          name2: "Fried bun (bamboo shoots)"
-        },
-        {
-          src: require("@/assets/picture/003.jpg"),
-          name: "冬粉水煎包",
-          name2: "Fried bun (bean thread)"
-        }
-      ],
-      cardContent: "一個 18 元"
+      cardItems: json[2].cardItems,
+      cardContent: json[2].cardContent
     }
   }
 }

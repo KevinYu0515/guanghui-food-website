@@ -75,29 +75,8 @@ import merchandise from "./Merchandise.vue"
 import gallery from "./Gallery.vue"
 import comment from "./Comment.vue"
 import { ref, onMounted } from "vue"
+import json from "../../python/text.json"
 
-const store = ref([{ name: "光慧水煎包", subName: "(梧棲店)" }])
-const timetableTitle = ref("正常營業時間")
-const newsTitle = ref("近期公告")
-const newsContents = ref(["暫無新公告"])
-const days = ref(["週一", "週二", "週三", "週四", "週五", "週六", "週日"])
-const times = ref(["06:00~09:00", "15:00~17:00", "公休"])
-const sections = ref([
-  {
-    title: "水煎包",
-    content:
-      "主要賣三種水煎包，內餡分別為高麗菜、竹筍、冬粉，每個售價18元\n飲料有 紅茶10元、奶茶15元"
-  },
-  {
-    title: "相片集",
-    content:
-      "由商家提供的照片，其中包含最新實體店面、三種水煎包、水煎包烹煮過程，拍攝技術拙劣還請見諒"
-  },
-  {
-    title: "評論區",
-    content: "評論皆於Google評論索取，五星好評謝謝大家的支持"
-  }
-])
 const index = ref(0)
 const mobile = ref(null)
 const mobileIcon = ref(null)
@@ -122,6 +101,13 @@ const checkScreen = () => {
 export default {
   data () {
     return {
+      store: json[0].store,
+      timetableTitle: json[0].timetableTitle,
+      newsTitle: json[0].newsTitle,
+      newsContents: json[0].newsContents,
+      days: json[0].days,
+      times: json[0].times,
+      sections: json[0].sections,
       facebookSrc: "https://reurl.cc/9pbQ2O",
       mapSrc: "https://reurl.cc/yMKlzD"
     }
