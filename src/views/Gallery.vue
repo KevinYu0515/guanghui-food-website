@@ -1,28 +1,23 @@
 <template>
   <section id="photos" data-aos="fade-up">
-    <!-- 主標 -->
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
-      <p class="content-title">
-        <slot name="sectionTitle"></slot>
-      </p>
+      <h2 class="content-title">{{ title }}</h2>
       <i class="strips-red"></i>
     </div>
-    <p class="content-description">
-      <slot name="sectionTitleContent"></slot>
-    </p>
+    <p class="content-description">{{ content }}</p>
     <!-- 寬版架構-相片藝廊 -->
     <div class="wrapper" v-show="!mobile">
       <div class="gallery">
         <div class="image" v-for="(img, index) in images" :key="index">
           <span @click="imgClick(index)">
-            <img class="initial_img" :src="require('@/assets/picture/' + img.src + '.jpg')" alt="picture"/>
+            <img class="initial_img" :src="img.picture" alt="picture"/>
           </span>
         </div>
         <teleport to="body">
           <Popup :open="isOpen" @close="isOpen = !isOpen">
             <template #imageName>{{ images[imgIndex].name }}</template>
-            <template #img><img height="400" width="400" :src="require('@/assets/picture/' + images[imgIndex].src + '.jpg')" /></template>
+            <template #img><img height="400" width="400" :src="images[imgIndex].picture" /></template>
           </Popup>
         </teleport>
       </div>
@@ -40,29 +35,52 @@
         :autoplay="{ delay: 1000, disableOnInteraction: false}"
       >
         <swiper-slide v-for="(img, index) in images" :key="index">
-          <img :src="require('@/assets/picture/' + img.src + '.jpg')"  />
+          <img :src="images[index].picture"  />
         </swiper-slide>
       </swiper>
     </div>
   </section>
 </template>
 
-<script setup>
+<script>
 import Popup from "../components/Popup.vue"
-import { ref, onMounted } from "vue"
+import { gallery } from "../firebase"
+import { getDoc } from "firebase/firestore"
+import { ref, onMounted, getCurrentInstance } from "vue"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
-import json from "../../python/text.json"
 
 SwiperCore.use([Pagination, Navigation])
+export default {
+  components: { Swiper, SwiperSlide, Popup },
+  data () {
+    return {
+      title: "",
+      content: "",
+      images: [{ name: "", picture: "" }]
+    }
+  }
+}
+</script>
 
+<script setup>
+const Instance = getCurrentInstance()
 const isOpen = ref(false)
 const imgIndex = ref(0)
 const imgClick = i => {
   isOpen.value = true
   imgIndex.value = i
 }
+
+onMounted(() => {
+  getDoc(gallery)
+    .then((response) => {
+      Instance.data.title = response.data().title
+      Instance.data.content = response.data().content.replace(" ", "\n")
+      Instance.data.images = response.data().types
+    })
+})
 
 const mobile = ref(null)
 onMounted(() => {
@@ -81,17 +99,7 @@ const checkScreen = () => {
 
 </script>
 
-<script>
-export default {
-  components: { Swiper, SwiperSlide, Popup },
-  data () {
-    return {
-      images: json[3].images
-    }
-  }
-}
-</script>
-
 <style lang="scss" scoped>
+@import "../assets/scss/index.scss";
 @import "@/assets/scss/Home/gallery.scss";
 </style>

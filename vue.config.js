@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/guanghui-food-website/" : "/",
+  publicPath: "./",
+  // publicPath: process.env.NODE_ENV === "production" ? "/guanghui-food-website/" : "/",
   productionSourceMap: false,
   outputDir: "dist",
   assetsDir: "assets",

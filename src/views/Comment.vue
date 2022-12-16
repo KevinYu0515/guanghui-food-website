@@ -3,14 +3,10 @@
     <!-- 主標 -->
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
-      <p class="content-title">
-        <slot name="sectionTitle"></slot>
-      </p>
+      <h2 class="content-title">{{ title }}</h2>
       <i class="strips-red"></i>
     </div>
-    <p class="content-description">
-      <slot name="sectionTitleContent"></slot>
-    </p>
+    <p class="content-description">{{ content }}</p>
     <!-- swiper -->
     <div class="swiper-area" v-if="!mobile">
       <swiper
@@ -63,11 +59,13 @@
 </template>
 
 <script>
+import { comment } from "../firebase"
+import { getDoc } from "firebase/firestore"
 import json from "../../python/comment.json"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
-import { ref, onMounted, onUpdated } from "vue"
+import { ref, onMounted, onUpdated, getCurrentInstance } from "vue"
 
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
@@ -77,6 +75,8 @@ export default {
   components: { Swiper, SwiperSlide, Popup, StarRating },
   data () {
     return {
+      title: "",
+      content: "",
       comments: json
     }
   }
@@ -85,6 +85,7 @@ export default {
 </script>
 
 <script setup>
+const Instance = getCurrentInstance()
 const mobile = ref(null)
 const toNumber = star => parseInt(star)
 const isOpen = ref(false)
@@ -95,6 +96,11 @@ const op = ref([true])
 
 onMounted(() => {
   checkScreen()
+  getDoc(comment)
+    .then((response) => {
+      Instance.data.title = response.data().title
+      Instance.data.content = response.data().content.replace(" ", "\n")
+    })
 })
 
 onUpdated(() => {
