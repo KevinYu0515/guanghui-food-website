@@ -86,7 +86,7 @@ export default {
 
 <script setup>
 const Instance = getCurrentInstance()
-const mobile = ref(false)
+const mobile = ref(null)
 const toNumber = star => parseInt(star)
 const isOpen = ref(false)
 const commentIndex = ref(0)

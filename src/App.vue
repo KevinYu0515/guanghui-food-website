@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div v-show="isLoading">
+    <div v-if="isLoading">
       <loading :active="isLoading" class="loading"><img :src="require('@/assets/loading.gif')"/></loading>
     </div>
-    <div v-show="!isLoading">
+    <div v-else>
       <Navbar></Navbar>
       <router-view/>
       <Footer></Footer>
