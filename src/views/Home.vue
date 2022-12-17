@@ -32,24 +32,19 @@
     <div class="calling" v-show="!mobileIcon" data-aos="fade-up">
       <i class="icon-500 fi fi-ss-phone-call"/>
     </div>
-    <!-- 新公告說明版面 -->
-    <section id="news" v-show="true" data-aos="fade-up">
-      <h1>{{ newsTitle }}</h1>
-      <p v-for="(content, i) in newsContents" :key="i">
-        {{ content }}
-      </p>
-    </section>
     <!-- 其他版面 -->
-    <about></about>
-    <merchandise></merchandise>
-    <gallery></gallery>
-    <comment></comment>
+    <news></news>
+    <about data-aos="fade-up"></about>
+    <merchandise data-aos="fade-up"></merchandise>
+    <gallery data-aos="fade-up"></gallery>
+    <comment data-aos="fade-up"></comment>
   </div>
 </template>
 
 <script>
-import { storeNames, timeTable, news } from "../firebase"
+import { storeNames, timeTable } from "../firebase"
 import { getDoc } from "firebase/firestore"
+import news from "./News.vue"
 import about from "./About.vue"
 import merchandise from "./Merchandise.vue"
 import gallery from "./Gallery.vue"
@@ -61,15 +56,13 @@ export default {
     return {
       storeName: "",
       storeSubName: "",
-      newsTitle: "",
-      newsContents: [],
       timeTableTitle: "",
       timeTableContent: { days: [], time: [] },
       facebookSrc: "https://reurl.cc/9pbQ2O",
       mapSrc: "https://reurl.cc/yMKlzD"
     }
   },
-  components: { about, merchandise, comment, gallery },
+  components: { news, about, merchandise, comment, gallery },
   methods: {
     toTop () {
       const timer = setInterval(function () {
@@ -93,39 +86,25 @@ const mobileIcon = ref(null)
 const scrollTop = ref(0)
 const scroll = ref(false)
 
-onMounted(() => {
-  window.addEventListener("resize", checkScreen)
-  window.addEventListener("scroll", showbtn, true)
-  checkScreen()
-  getTimeTableData()
-  getStoreNameData()
-  getNewsData()
-})
-
-const getStoreNameData = () => {
+;(function () {
   getDoc(storeNames)
     .then((response) => {
-      console.log(response.data())
       Instance.data.storeName = response.data().name
       Instance.data.storeSubName = response.data().subName
     })
-}
 
-const getTimeTableData = () => {
   getDoc(timeTable)
     .then((response) => {
       Instance.data.timeTableTitle = response.data().title
       Instance.data.timeTableContent = response.data().content
     })
-}
+})()
 
-const getNewsData = () => {
-  getDoc(news)
-    .then((response) => {
-      Instance.data.newsTitle = response.data().title
-      Instance.data.newsContents = response.data().content
-    })
-}
+onMounted(() => {
+  window.addEventListener("resize", checkScreen)
+  window.addEventListener("scroll", showbtn, true)
+  checkScreen()
+})
 
 const checkScreen = () => {
   const windowWidth = window.innerWidth
@@ -148,5 +127,4 @@ const showbtn = () => {
 <style lang="scss" scoped>
 @import "../assets/scss/index.scss";
 @import "@/assets/scss/Home/time.scss";
-@import "@/assets/scss/Home/news.scss";
 </style>

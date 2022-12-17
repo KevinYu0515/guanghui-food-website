@@ -1,5 +1,5 @@
 <template>
-  <section id="photos" data-aos="fade-up">
+  <section id="photos">
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
       <h2 class="content-title">{{ title }}</h2>
@@ -73,14 +73,14 @@ const imgClick = i => {
   imgIndex.value = i
 }
 
-onMounted(() => {
+;(function () {
   getDoc(gallery)
     .then((response) => {
       Instance.data.title = response.data().title
-      Instance.data.content = response.data().content.replace(" ", "\n")
+      Instance.data.content = response.data().content
       Instance.data.images = response.data().types
     })
-})
+})()
 
 const mobile = ref(null)
 onMounted(() => {

@@ -1,5 +1,5 @@
 <template>
-  <section id="merchandise" data-aos="fade-up">
+  <section id="merchandise">
     <!-- 主標 -->
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
@@ -67,16 +67,17 @@ export default {
 
 <script setup>
 const Instance = getCurrentInstance()
-onMounted(() => {
+const mobile = ref(null)
+
+;(function () {
   getDoc(merchandise)
     .then((response) => {
       Instance.data.title = response.data().title
       Instance.data.content = response.data().content.replace(" ", "\n")
       Instance.data.cardItems = response.data().cards
     })
-})
+})()
 
-const mobile = ref(null)
 onMounted(() => {
   window.addEventListener("resize", checkScreen)
   checkScreen()

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div v-if="isLoading">
+    <div v-show="isLoading">
       <loading :active="isLoading" class="loading"><img :src="require('@/assets/loading.gif')"/></loading>
     </div>
-    <div v-else>
+    <div v-show="!isLoading">
       <Navbar></Navbar>
       <router-view/>
       <Footer></Footer>
@@ -30,7 +30,7 @@ const isLoading = ref(true)
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false
-  }, 1000)
+  }, 3000)
 })
 </script>
 

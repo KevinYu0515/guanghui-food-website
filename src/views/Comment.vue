@@ -1,5 +1,5 @@
 <template>
-  <section id="comment" data-aos="fade-up">
+  <section id="comment">
     <!-- 主標 -->
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
@@ -65,7 +65,7 @@ import json from "../../python/comment.json"
 import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
 import "swiper/swiper-bundle.css"
-import { ref, onMounted, onUpdated, getCurrentInstance } from "vue"
+import { ref, onUpdated, getCurrentInstance, onMounted } from "vue"
 
 import Popup from "../components/Popup.vue"
 import StarRating from "vue-star-rating"
@@ -86,26 +86,13 @@ export default {
 
 <script setup>
 const Instance = getCurrentInstance()
-const mobile = ref(null)
+const mobile = ref(false)
 const toNumber = star => parseInt(star)
 const isOpen = ref(false)
 const commentIndex = ref(0)
 const isMore = ref(false)
 const buttonContent = ref("Read More")
 const op = ref([true])
-
-onMounted(() => {
-  checkScreen()
-  getDoc(comment)
-    .then((response) => {
-      Instance.data.title = response.data().title
-      Instance.data.content = response.data().content.replace(" ", "\n")
-    })
-})
-
-onUpdated(() => {
-  window.addEventListener("resize", checkScreen)
-})
 
 const checkScreen = () => {
   const windowWidth = window.innerWidth
@@ -141,6 +128,21 @@ const readmore = () => {
   isMore.value = !isMore.value
   buttonContent.value = isMore.value ? "Read Less" : "Read More"
 }
+
+;(function () {
+  getDoc(comment)
+    .then((response) => {
+      Instance.data.title = response.data().title
+      Instance.data.content = response.data().content.replace(" ", "\n")
+    })
+})()
+
+onMounted(() => {
+  checkScreen()
+})
+onUpdated(() => {
+  window.addEventListener("resize", checkScreen)
+})
 </script>
 
 <style lang="scss" scoped>

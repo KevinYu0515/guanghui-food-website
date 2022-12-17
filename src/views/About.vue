@@ -1,5 +1,5 @@
 <template>
-  <section id="about" data-aos="fade-up">
+  <section id="about">
     <h2 class="title">{{ title }}</h2>
     <p class="content" style="white-space:pre-wrap; word-break:break-all">{{ content }}</p>
   </section>
@@ -8,7 +8,7 @@
 <script>
 import { about } from "../firebase"
 import { getDoc } from "firebase/firestore"
-import { onMounted, getCurrentInstance } from "@vue/runtime-core"
+import { getCurrentInstance } from "@vue/runtime-core"
 export default {
   data () {
     return {
@@ -21,13 +21,14 @@ export default {
 
 <script setup>
 const Instance = getCurrentInstance()
-onMounted(() => {
+
+;(function () {
   getDoc(about)
     .then((response) => {
       Instance.data.title = response.data().title
       Instance.data.content = response.data().content.replace(" ", "\n")
     })
-})
+})()
 </script>
 
 <style lang="scss" scoped>
