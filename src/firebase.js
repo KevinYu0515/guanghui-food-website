@@ -15,11 +15,11 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 const db = getFirestore(firebaseApp)
 const storeNames = doc(db, "blocks", "storeName")
-const timeTable = doc(db, "blocks", "timeTable")
-const news = doc(db, "blocks", "news")
-const about = doc(db, "blocks", "about")
-const merchandise = doc(db, "blocks", "merchandise")
-const gallery = doc(db, "blocks", "pictures")
-const comment = doc(db, "blocks", "comments")
+const timeTableBlock = doc(db, "blocks", "timeTable")
+const newsBlock = doc(db, "blocks", "news")
+const aboutBlock = doc(db, "blocks", "about")
+const merchandiseBlock = doc(db, "blocks", "merchandise")
+const galleryBlock = doc(db, "blocks", "pictures")
+const commentBlock = doc(db, "blocks", "comments")
 
-export { storeNames, timeTable, news, about, merchandise, gallery, comment }
+export { storeNames, timeTableBlock, newsBlock, aboutBlock, merchandiseBlock, galleryBlock, commentBlock }

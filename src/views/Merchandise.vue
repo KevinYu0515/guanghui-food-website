@@ -3,10 +3,10 @@
     <!-- 主標 -->
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
-      <h2 class="content-title">{{ title }}</h2>
+      <h2 class="content-title">{{ merchandise.title }}</h2>
       <i class="strips-red"></i>
     </div>
-    <p class="content-description">{{ content }}</p>
+    <p class="content-description">{{ merchandise.content }}</p>
     <!-- 各產品卡片內容 -->
     <!-- 寬版架構 -->
     <div class="cardWrapper" v-show="!mobile">
@@ -46,42 +46,17 @@
   </section>
 </template>
 
-<script>
-import { merchandise } from "../firebase"
-import { getDoc } from "firebase/firestore"
-import { ref, onMounted, getCurrentInstance } from "vue"
-import { Swiper, SwiperSlide } from "vue-awesome-swiper"
-import "swiper/swiper-bundle.css"
-
-export default {
-  components: { Swiper, SwiperSlide },
-  data () {
-    return {
-      title: "",
-      content: "",
-      cardItems: []
-    }
-  }
-}
-</script>
-
 <script setup>
-const Instance = getCurrentInstance()
-const mobile = ref(null)
+import { merchandiseBlock } from "../firebase"
+import { getDoc } from "firebase/firestore"
+import { ref, onMounted, reactive } from "vue"
 
-;(function () {
-  getDoc(merchandise)
-    .then((response) => {
-      Instance.data.title = response.data().title
-      Instance.data.content = response.data().content.replace(" ", "\n")
-      Instance.data.cardItems = response.data().cards
-    })
-})()
-
-onMounted(() => {
-  window.addEventListener("resize", checkScreen)
-  checkScreen()
+const merchandise = reactive({
+  title: "",
+  content: ""
 })
+const cardItems = ref([])
+const mobile = ref(null)
 
 const checkScreen = () => {
   const windowWidth = window.innerWidth
@@ -91,6 +66,20 @@ const checkScreen = () => {
   }
   mobile.value = false
 }
+
+;(function () {
+  getDoc(merchandiseBlock)
+    .then((response) => {
+      merchandise.title = response.data().title
+      merchandise.content = response.data().content.replace(" ", "\n")
+      cardItems.value = response.data().cards
+    })
+})()
+
+onMounted(() => {
+  window.addEventListener("resize", checkScreen)
+  checkScreen()
+})
 </script>
 
 <style lang="scss" scoped>

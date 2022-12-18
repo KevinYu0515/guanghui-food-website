@@ -2,20 +2,20 @@
   <div class="home">
     <button class="btn-to-top" v-show="scroll" @click="toTop"> <i class="fi fi-br-angle-double-small-up icon-150" style="color: #ee7748"></i></button>
     <section id="time">
-      <p class="store-name">{{ storeName }}</p>
-      <p class="store-subName">{{ storeSubName }}</p>
+      <p class="store-name">{{ store.name }}</p>
+      <p class="store-subName">{{ store.subName }}</p>
       <div class="timetable">
-        <p class="timetable-title">{{ timeTableTitle }}</p>
+        <p class="timetable-title">{{ timeTable.title }}</p>
         <ul>
-          <li v-for="(day, index) in timeTableContent.days.slice(0, 5)" :key="index">
+          <li v-for="(day, index) in timeTable.content.days.slice(0, 5)" :key="index">
             {{ day }} &nbsp;&nbsp;
-            <p>{{ timeTableContent.time[0] }}、{{ timeTableContent.time[1] }} </p>
+            <p>{{ timeTable.content.time[0] }}、{{ timeTable.content.time[1] }} </p>
           </li>
           <li>
-            {{ timeTableContent.days[5] }} &nbsp;&nbsp;
-            <p>{{ timeTableContent.time[0] }}</p>
+            {{ timeTable.content.days[5] }} &nbsp;&nbsp;
+            <p>{{ timeTable.content.time[0] }}</p>
           </li>
-          <li>{{ timeTableContent.days[6] }} &nbsp; {{ timeTableContent.time[2] }}</li>
+          <li>{{ timeTable.content.days[6] }} &nbsp; {{ timeTable.content.time[2] }}</li>
         </ul>
       </div>
     </section>
@@ -41,70 +41,33 @@
   </div>
 </template>
 
-<script>
-import { storeNames, timeTable } from "../firebase"
+<script setup>
+import { storeNames, timeTableBlock } from "../firebase"
 import { getDoc } from "firebase/firestore"
+import { ref, reactive, onMounted } from "vue"
 import news from "./News.vue"
 import about from "./About.vue"
 import merchandise from "./Merchandise.vue"
 import gallery from "./Gallery.vue"
 import comment from "./Comment.vue"
-import { ref, onMounted, getCurrentInstance } from "vue"
 
-export default {
-  data () {
-    return {
-      storeName: "",
-      storeSubName: "",
-      timeTableTitle: "",
-      timeTableContent: { days: [], time: [] },
-      facebookSrc: "https://reurl.cc/9pbQ2O",
-      mapSrc: "https://reurl.cc/yMKlzD"
-    }
-  },
-  components: { news, about, merchandise, comment, gallery },
-  methods: {
-    toTop () {
-      const timer = setInterval(function () {
-        const osTop = document.documentElement.scrollTop || document.body.scrollTop
-        const ispeed = Math.floor(-osTop / 5)
-        document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed
-        this.isTop = true
-        if (osTop === 0) {
-          clearInterval(timer)
-        }
-      }, 30)
-    }
-  }
-}
-</script>
-
-<script setup>
-const Instance = getCurrentInstance()
 const mobile = ref(null)
 const mobileIcon = ref(null)
 const scrollTop = ref(0)
 const scroll = ref(false)
-
-;(function () {
-  getDoc(storeNames)
-    .then((response) => {
-      Instance.data.storeName = response.data().name
-      Instance.data.storeSubName = response.data().subName
-    })
-
-  getDoc(timeTable)
-    .then((response) => {
-      Instance.data.timeTableTitle = response.data().title
-      Instance.data.timeTableContent = response.data().content
-    })
-})()
-
-onMounted(() => {
-  window.addEventListener("resize", checkScreen)
-  window.addEventListener("scroll", showbtn, true)
-  checkScreen()
+const store = reactive({
+  name: "",
+  subName: ""
 })
+const timeTable = reactive({
+  title: "",
+  content: {
+    days: [],
+    time: []
+  }
+})
+const facebookSrc = "https://reurl.cc/9pbQ2O"
+const mapSrc = "https://reurl.cc/yMKlzD"
 
 const checkScreen = () => {
   const windowWidth = window.innerWidth
@@ -116,12 +79,45 @@ const checkScreen = () => {
   mobileIcon.value = false
   mobile.value = false
 }
+
 const showbtn = () => {
   scrollTop.value = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
   if (scrollTop.value !== 0) {
     scroll.value = true
   } else scroll.value = false
 }
+
+const toTop = () => {
+  const timer = setInterval(function () {
+    const osTop = document.documentElement.scrollTop || document.body.scrollTop
+    const ispeed = Math.floor(-osTop / 5)
+    document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed
+    this.isTop = true
+    if (osTop === 0) {
+      clearInterval(timer)
+    }
+  }, 30)
+}
+
+;(function () {
+  getDoc(storeNames)
+    .then((response) => {
+      store.name = response.data().name
+      store.subName = response.data().subName
+    })
+
+  getDoc(timeTableBlock)
+    .then((response) => {
+      timeTable.title = response.data().title
+      timeTable.content = response.data().content
+    })
+})()
+
+onMounted(() => {
+  window.addEventListener("resize", checkScreen)
+  window.addEventListener("scroll", showbtn, true)
+  checkScreen()
+})
 </script>
 
 <style lang="scss" scoped>

@@ -3,10 +3,10 @@
     <!-- 主標 -->
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
-      <h2 class="content-title">{{ title }}</h2>
+      <h2 class="content-title">{{ comment.title }}</h2>
       <i class="strips-red"></i>
     </div>
-    <p class="content-description">{{ content }}</p>
+    <p class="content-description">{{ comment.content }}</p>
     <!-- swiper -->
     <div class="swiper-area" v-if="!mobile">
       <swiper
@@ -58,34 +58,15 @@
   </section>
 </template>
 
-<script>
-import { comment } from "../firebase"
+<script setup>
+import { commentBlock } from "../firebase"
 import { getDoc } from "firebase/firestore"
 import json from "../../python/comment.json"
-import { Swiper, SwiperSlide } from "vue-awesome-swiper"
 import SwiperCore, { Navigation, Pagination } from "swiper"
-import "swiper/swiper-bundle.css"
-import { ref, onUpdated, getCurrentInstance, onMounted } from "vue"
-
+import { ref, onUpdated, reactive, onMounted } from "vue"
 import Popup from "../components/Popup.vue"
-import StarRating from "vue-star-rating"
 SwiperCore.use([Pagination, Navigation])
 
-export default {
-  components: { Swiper, SwiperSlide, Popup, StarRating },
-  data () {
-    return {
-      title: "",
-      content: "",
-      comments: json
-    }
-  }
-}
-
-</script>
-
-<script setup>
-const Instance = getCurrentInstance()
 const mobile = ref(null)
 const toNumber = star => parseInt(star)
 const isOpen = ref(false)
@@ -93,6 +74,11 @@ const commentIndex = ref(0)
 const isMore = ref(false)
 const buttonContent = ref("Read More")
 const op = ref([true])
+const comment = reactive({
+  title: "",
+  content: ""
+})
+const comments = json
 
 const checkScreen = () => {
   const windowWidth = window.innerWidth
@@ -130,10 +116,10 @@ const readmore = () => {
 }
 
 ;(function () {
-  getDoc(comment)
+  getDoc(commentBlock)
     .then((response) => {
-      Instance.data.title = response.data().title
-      Instance.data.content = response.data().content.replace(" ", "\n")
+      comment.title = response.data().title
+      comment.content = response.data().content.replace(" ", "\n")
     })
 })()
 

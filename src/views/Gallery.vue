@@ -2,10 +2,10 @@
   <section id="photos">
     <div class="content-titleWrapper">
       <i class="strips-red"></i>
-      <h2 class="content-title">{{ title }}</h2>
+      <h2 class="content-title">{{ gallery.title }}</h2>
       <i class="strips-red"></i>
     </div>
-    <p class="content-description">{{ content }}</p>
+    <p class="content-description">{{ gallery.content }}</p>
     <!-- 寬版架構-相片藝廊 -->
     <div class="wrapper" v-show="!mobile">
       <div class="gallery">
@@ -42,45 +42,27 @@
   </section>
 </template>
 
-<script>
-import Popup from "../components/Popup.vue"
-import { gallery } from "../firebase"
-import { getDoc } from "firebase/firestore"
-import { ref, onMounted, getCurrentInstance } from "vue"
-import { Swiper, SwiperSlide } from "vue-awesome-swiper"
+<script setup>
 import SwiperCore, { Navigation, Pagination } from "swiper"
-import "swiper/swiper-bundle.css"
+import { galleryBlock } from "../firebase"
+import { getDoc } from "firebase/firestore"
+import { ref, onMounted, reactive } from "vue"
+import Popup from "../components/Popup.vue"
 
 SwiperCore.use([Pagination, Navigation])
-export default {
-  components: { Swiper, SwiperSlide, Popup },
-  data () {
-    return {
-      title: "",
-      content: "",
-      images: [{ name: "", picture: "" }]
-    }
-  }
-}
-</script>
 
-<script setup>
-const Instance = getCurrentInstance()
 const isOpen = ref(false)
 const imgIndex = ref(0)
+const gallery = reactive({
+  title: "",
+  content: ""
+})
+const images = ref([{ name: "", picture: "" }])
+
 const imgClick = i => {
   isOpen.value = true
   imgIndex.value = i
 }
-
-;(function () {
-  getDoc(gallery)
-    .then((response) => {
-      Instance.data.title = response.data().title
-      Instance.data.content = response.data().content
-      Instance.data.images = response.data().types
-    })
-})()
 
 const mobile = ref(null)
 onMounted(() => {
@@ -96,6 +78,15 @@ const checkScreen = () => {
   }
   mobile.value = false
 }
+
+;(function () {
+  getDoc(galleryBlock)
+    .then((response) => {
+      gallery.title = response.data().title
+      gallery.content = response.data().content
+      images.value = response.data().types
+    })
+})()
 
 </script>
 

@@ -1,36 +1,29 @@
 <template>
   <section id="news" v-show="true">
-      <h1>{{ title }}</h1>
-      <p v-for="(content, index) in contents" :key="index">
+      <h1>{{ news.title }}</h1>
+      <p v-for="(content, index) in news.contents" :key="index">
         {{ content }}
       </p>
     </section>
 </template>
 
-<script>
-import { news } from "../firebase"
+<script setup>
+import { newsBlock } from "../firebase"
 import { getDoc } from "firebase/firestore"
 import newsJson from "../../python/news.json"
-import { getCurrentInstance } from "vue"
-export default {
-  data () {
-    return {
-      title: "",
-      contents: ""
-    }
-  }
-}
-</script>
+import { reactive } from "vue"
+const news = reactive({
+  title: "",
+  contents: []
+})
 
-<script setup>
-const Instance = getCurrentInstance()
 ;(function () {
-  getDoc(news)
+  getDoc(newsBlock)
     .then((response) => {
-      Instance.data.title = response.data().title
+      news.title = response.data().title
       if (newsJson.length) {
-        Instance.data.contents[0] = newsJson[0].content
-      } else Instance.data.contents = response.data().content
+        news.contents[0] = newsJson[0].content
+      } else news.contents = response.data().content
     })
 })()
 </script>
