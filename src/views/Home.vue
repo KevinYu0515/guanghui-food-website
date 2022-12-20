@@ -32,25 +32,25 @@
     <div class="calling" v-show="!mobileIcon" data-aos="fade-up">
       <i class="icon-500 fi fi-ss-phone-call"/>
     </div>
-    <!-- 其他版面 -->
     <news></news>
-    <about data-aos="fade-up"></about>
-    <merchandise data-aos="fade-up"></merchandise>
-    <gallery data-aos="fade-up"></gallery>
-    <comment data-aos="fade-up"></comment>
+    <about data-aos-anchor-placement="center-bottom" data-aos="fade-up"></about>
+    <merchandise data-aos-anchor-placement="center-bottom" data-aos="fade-up"></merchandise>
+    <gallery data-aos-anchor-placement="center-bottom" data-aos="fade-up"></gallery>
+    <comment data-aos-anchor-placement="center-bottom" data-aos="fade-up"></comment>
   </div>
 </template>
 
 <script setup>
 import { storeNames, timeTableBlock } from "../firebase"
 import { getDoc } from "firebase/firestore"
-import { ref, reactive, onMounted } from "vue"
+import { ref, reactive, onMounted, onBeforeMount, defineExpose } from "vue"
 import news from "./News.vue"
 import about from "./About.vue"
 import merchandise from "./Merchandise.vue"
 import gallery from "./Gallery.vue"
 import comment from "./Comment.vue"
 
+const loading = ref(true)
 const mobile = ref(null)
 const mobileIcon = ref(null)
 const scrollTop = ref(0)
@@ -99,25 +99,31 @@ const toTop = () => {
   }, 30)
 }
 
-;(function () {
+onBeforeMount(() => {
+  checkScreen()
+  console.log("beforeMount")
   getDoc(storeNames)
-    .then((response) => {
+    .then(response => {
       store.name = response.data().name
       store.subName = response.data().subName
     })
-
   getDoc(timeTableBlock)
-    .then((response) => {
+    .then(response => {
       timeTable.title = response.data().title
       timeTable.content = response.data().content
+      console.log("getData")
+      loading.value = false
     })
-})()
+})
 
 onMounted(() => {
+  console.log("onMounted")
   window.addEventListener("resize", checkScreen)
   window.addEventListener("scroll", showbtn, true)
   checkScreen()
 })
+
+defineExpose({ loading })
 </script>
 
 <style lang="scss" scoped>

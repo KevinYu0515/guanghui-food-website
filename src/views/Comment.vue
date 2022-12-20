@@ -10,6 +10,8 @@
     <!-- swiper -->
     <div class="swiper-area" v-if="!mobile">
       <swiper
+        :observer="true"
+        :observeParents="true"
         :slidesPerView="!mobile ? 2 : 0"
         :spaceBetween="10"
         :pagination="{ clickable: true, dynamicBullets: false }"

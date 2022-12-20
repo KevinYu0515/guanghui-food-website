@@ -25,6 +25,8 @@
     <div class="swiper-area">
       <swiper
         v-show="mobile"
+        :observer="true"
+        :observeParents="true"
         :slidesPerView="1"
         :spaceBetween="30"
         :centered-slides="true"

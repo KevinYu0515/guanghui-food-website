@@ -14,8 +14,9 @@ import "primevue/resources/primevue.min.css"
 import "primeicons/primeicons.css"
 
 AOS.init({
-  offset: 300,
+  offset: 10,
   duration: 1000,
+  delay: 2,
   once: true
 })
 AOS.refreshHard()

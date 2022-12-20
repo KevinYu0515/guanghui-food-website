@@ -1,35 +1,33 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Home from "../views/Home.vue"
-
 const routes = [
   {
     path: "/",
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
     path: "/time",
     name: "time",
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
     path: "/merchandise",
     name: "merchandise",
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
     path: "/photos",
     name: "photos",
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
     path: "/comment",
     name: "comment",
-    component: Home
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
     path: "/contact",
     name: "contact",
-    component: Home,
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
     meta: { scrollToBottom: true }
   }
 ]
