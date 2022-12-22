@@ -24,15 +24,21 @@ def getDay(str):
     today = {
         "year": int(datetime.today().strftime('%Y')),
         "month": int(datetime.today().strftime('%m')),
-        "day": int(datetime.today().strftime('%d'))
+        "day": int(datetime.today().strftime('%d')),
     } 
     timeTag = ["年", "月", "日"] 
     pos = [-1, -1, -1]
-    for index in range(0, 3):
+    month = 0
+    day = 0
+    distance = 0
+    for index in range(0, 5):
         if timeTag[index] in str: pos[index] = str.index(timeTag[index])
-    month = int((str[:pos[1]])[pos[0] + 1:])
-    day = int((str[pos[1] : pos[2]])[1:])
-    distance = (today["month"] * 30 + today["day"]) - (month * 30 + day)
+    if pos[1] != -1:
+        month = int((str[:pos[1]])[pos[0] + 1:])
+    if pos[2] != -1:
+        day = int((str[:pos[2]])[pos[1] + 1:])
+    if month != 0 or day != 0:
+        distance = (today["month"] * 30 + today["day"]) - (month * 30 + day)
     return distance
 
 if __name__ == '__main__':

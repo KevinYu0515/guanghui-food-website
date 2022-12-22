@@ -8,10 +8,23 @@
     font-size: 3rem;
     color: $--white;
   }
-  p {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    text-align: center;
-    color: $--white;
+  .news_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    @media screen and (max-width: $screen-sm) {
+      flex-direction: column;
+    }
+    img{
+      border: 10px solid $--yellow-50;
+    }
+    p {
+      padding: 50px;
+      font-size: 1.5rem;
+      margin-top: 20px;
+      text-align: center;
+      color: $--white;
+    }
   }
 }

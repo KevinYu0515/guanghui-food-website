@@ -1,9 +1,10 @@
 <template>
   <section id="news" v-show="true">
       <h1>{{ news.title }}</h1>
-      <p v-for="(content, index) in news.contents" :key="index">
-        {{ content }}
-      </p>
+      <div class="news_content" v-for="(item, index) in news.contents" :key="index">
+        <img v-show="item.picture.length" width="300" height="300" :src="item.picture"/>
+        <p>{{ item.content }}</p>
+      </div>
     </section>
 </template>
 
@@ -14,7 +15,7 @@ import newsJson from "../../python/news.json"
 import { reactive } from "vue"
 const news = reactive({
   title: "",
-  contents: []
+  contents: [{ content: "", picture: "" }]
 })
 
 ;(function () {
@@ -22,7 +23,8 @@ const news = reactive({
     .then((response) => {
       news.title = response.data().title
       if (newsJson.length) {
-        news.contents[0] = newsJson[0].content
+        news.contents[0].content = newsJson[0].content
+        news.contents[0].picture = newsJson[0].picture
       } else news.contents = response.data().content
     })
 })()
