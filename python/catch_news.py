@@ -7,8 +7,8 @@ from datetime import datetime
 from selenium import webdriver
 from bs4 import BeautifulSoup as Soup
 
-timeStandard = 20
-scrollTimes = 7
+timeStandard = 7
+scrollTimes = 1
 
 def packing(datas):
     select_df = pd.DataFrame(datas, columns = ['content', 'picture'])
@@ -31,7 +31,7 @@ def getDay(str):
     month = 0
     day = 0
     distance = 0
-    for index in range(0, 5):
+    for index in range(0, 3):
         if timeTag[index] in str: pos[index] = str.index(timeTag[index])
     if pos[1] != -1:
         month = int((str[:pos[1]])[pos[0] + 1:])

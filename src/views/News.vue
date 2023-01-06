@@ -2,7 +2,7 @@
   <section id="news" v-show="true">
       <h1>{{ news.title }}</h1>
       <div class="news_content" v-for="(item, index) in news.contents" :key="index">
-        <img v-show="item.picture.length" width="300" height="300" :src="item.picture"/>
+        <img v-if="item.picture.length" width="300" height="300" :src="item.picture"/>
         <p>{{ item.content }}</p>
       </div>
     </section>
@@ -23,9 +23,11 @@ const news = reactive({
     .then((response) => {
       news.title = response.data().title
       if (newsJson.length) {
-        news.contents[0].content = newsJson[0].content
-        news.contents[0].picture = newsJson[0].picture
-      } else news.contents = response.data().content
+        newsJson.forEach((item, index) => {
+          news.contents[index].content = item.content
+          news.contents[index].picture = item.picture
+        })
+      } else news.contents[0].content = response.data().content
     })
 })()
 </script>
