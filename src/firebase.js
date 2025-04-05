@@ -2,7 +2,7 @@ import firebase from "firebase/compat/app"
 import { getFirestore, doc } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBu-_rk8pJRRR6PvyfGyU95fOxhbgwOXKs",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "guanghui-food-website.firebaseapp.com",
   databaseURL: "https://guanghui-food-website-default-rtdb.firebaseio.com",
   projectId: "guanghui-food-website",
