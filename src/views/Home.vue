@@ -1,13 +1,17 @@
 <template>
   <div class="home">
-    <button class="btn-to-top" v-show="scroll" @click="toTop"> <i class="fi fi-br-angle-double-small-up icon-150" style="color: #ee7748"></i></button>
+    <button class="btn-to-top" v-show="scroll" @click="toTop"> <i class="fi fi-br-angle-double-small-up" style="color: #ee7748"></i></button>
     <section id="time">
       <p class="store-name">{{ store.name }}</p>
       <p class="store-subName">{{ store.subName }}</p>
       <div class="timetable">
         <p class="timetable-title">{{ timeTable.title }}</p>
         <ul>
-          <li v-for="(day, index) in timeTable.content.days.slice(0, 5)" :key="index">
+           <li v-for="(day, index) in timeTable.content.days.slice(0, 2)" :key="index">
+            {{ day }} &nbsp;&nbsp;
+            <p>{{ timeTable.content.time[0] }} </p>
+          </li>
+          <li v-for="(day, index) in timeTable.content.days.slice(2, 5)" :key="index">
             {{ day }} &nbsp;&nbsp;
             <p>{{ timeTable.content.time[0] }}、{{ timeTable.content.time[1] }} </p>
           </li>

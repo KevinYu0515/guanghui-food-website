@@ -215,8 +215,29 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   background-color: $--yellow-100;
   width: 50px;
   height: 50px;
-  border: 5px solid $--orange-100;
-  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-to-top i{
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+.btn-to-top:hover {
+  background-color: $--orange-50;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-to-top:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
 }
 
 :deep(.swiper-area) {

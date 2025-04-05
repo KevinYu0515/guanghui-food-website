@@ -4,27 +4,76 @@
   @include senction-settings(0px, 0px, 100px, 0px);
   @include background-settings($--brown-50, false);
 
+  position: relative;
+  .cloud-left{
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    transform: rotateY(180deg);
+  }
+
+  .cloud-right {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+  }
+
+  .news-title{
+    display: flex;
+  }
   h1 {
+    margin: 0 30px;
     font-size: 3rem;
     color: $--white;
   }
+  a{
+    text-decoration: none;
+    text-align: center;
+    color: $--white;
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    h1{
+      font-size: 2rem;
+    }
+    .cloud-title{
+      width: 80px;
+    }
+    .cloud-left {
+      width: 200px;
+    }
+
+    .cloud-right {
+      width: 200px;
+    }
+  }
+
   .news_content{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
     @media screen and (max-width: $screen-sm) {
       flex-direction: column;
     }
+
     img{
       border: 10px solid $--yellow-50;
     }
-    p {
-      padding: 50px;
-      font-size: 1.5rem;
-      margin-top: 20px;
+    .date {
+      font-size: 1rem;
       text-align: center;
       color: $--white;
+    }
+    .content {
+      font-size: 1.8rem;
+      margin: 20px 0;
+      text-align: center;
+      color: $--white;
+      @media screen and (max-width: $screen-sm) {
+        font-size: 1.3rem;
+      }
     }
   }
 }
