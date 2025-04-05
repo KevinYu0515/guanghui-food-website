@@ -178,41 +178,12 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   right: 80px;
 }
 
-.btnGroup{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  .btn{
-    position: relative;
-    padding: 10px 15px;
-    margin-top: 15px;
-    cursor: pointer;
-    margin: 0 5px;
-    background: $--orange-50;
-    display: inline-block;
-    text-transform: uppercase;
-    color: $--brown-100;
-    font-weight: bolder;
-    letter-spacing: 2px;
-    font-size: 14px;
-    border: 3px solid $--brown-100;
-  }
-  
-  .btn-active{
-    @extend .btn;
-    color: $--black;
-    background: rgba($--orange-50, .3);
-  }
-}
-
 .btn-to-top{
   position: fixed;
   z-index: $max + 10;
   right: 50px;
   bottom: 50px;
-  background-color: $--yellow-100;
+  background-color: $--orange-100;
   width: 50px;
   height: 50px;
   border: none;
@@ -223,21 +194,13 @@ $--time-background: rgba(0, 0, 0, 0.7), rgba(79, 76, 76, 0.5), rgba(5, 5, 5, 0.8
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-
-.btn-to-top i{
-  font-size: 2rem;
-  vertical-align: middle;
+  transition: all 0.3s ease-in-out;
+  box-shadow: none;
 }
 
 .btn-to-top:hover {
-  background-color: $--orange-50;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn-to-top:active {
   transform: scale(0.9);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0 4px 8px rgba(236, 41, 41, 0.785);
 }
 
 :deep(.swiper-area) {

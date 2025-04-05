@@ -11,7 +11,7 @@
       <p class="date">{{ item.date }}</p>
       <p class="content">❝ {{ item.content }} ❞</p>
     </div>
-    <a href="">詳細資訊</a>
+    <a href="https://www.facebook.com/profile.php?id=100075103166257">詳細資訊</a>
   </section>
 </template>
 

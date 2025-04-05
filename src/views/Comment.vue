@@ -53,9 +53,9 @@
       </div>
     </div>
     <div class="btnGroup" v-if="mobile">
-      <i v-show="isMore" class="fi fi-br-angle-double-small-up icon-300" style="margin-bottom: 0"></i>
-      <div :class="{'btn-active' : isMore , 'btn': !isMore}" @click="readmore">{{ buttonContent }}</div>
-      <i v-show="!isMore" class="fi fi-br-angle-double-small-down icon-300" style="margin-bottom: 0"></i>
+      <button :class="{'btn-active' : isMore , 'btn': !isMore}" class="more-btn" @click="readmore">
+        <span>{{ buttonContent }}</span>
+      </button>
     </div>
   </section>
 </template>
@@ -74,7 +74,7 @@ const toNumber = star => parseInt(star)
 const isOpen = ref(false)
 const commentIndex = ref(0)
 const isMore = ref(false)
-const buttonContent = ref("Read More")
+const buttonContent = ref("更多評論")
 const op = ref([true])
 const comment = reactive({
   title: "",
@@ -114,7 +114,7 @@ const commentClick = index => {
 
 const readmore = () => {
   isMore.value = !isMore.value
-  buttonContent.value = isMore.value ? "Read Less" : "Read More"
+  buttonContent.value = isMore.value ? "收起評論" : "更多評論"
 }
 
 ;(function () {

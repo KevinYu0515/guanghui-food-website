@@ -25,6 +25,7 @@
           background-color: $--white;
           border-radius: 30px;
           box-shadow: $--card-shadow-100;
+          transition: all 0.3s ease-in-out;
         
           &:hover {
             box-shadow: $--card-shadow-200;
@@ -88,6 +89,8 @@
       background-color: $--white;
       border-radius: 30px;
       box-shadow: $--card-shadow-100;
+      transition: all 0.3s ease-in-out;
+      
       @media screen and (max-width: $screen-sm ) {
         grid-template-columns: repeat(15, .2%);
       }
@@ -150,4 +153,30 @@
       display: none;
     }
   }
+}
+
+.more-btn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: $--orange-100;
+  border: none;
+  color: $--white;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.more-btn:hover {
+  transform: scale(1.1);
+}
+
+.more-btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }

@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <button class="btn-to-top" v-show="scroll" @click="toTop"> <i class="fi fi-br-angle-double-small-up" style="color: #ee7748"></i></button>
+    <button class="btn-to-top" v-show="scroll" @click="toTop">
+      <img :src="require('@/assets/up-arrow.png')" width="50" height="50" alt="toTop"/>
+    </button>
     <section id="time">
       <p class="store-name">{{ store.name }}</p>
       <p class="store-subName">{{ store.subName }}</p>
@@ -70,7 +72,7 @@ const timeTable = reactive({
     time: []
   }
 })
-const facebookSrc = "https://reurl.cc/9pbQ2O"
+const facebookSrc = "https://www.facebook.com/profile.php?id=100075103166257"
 const mapSrc = "https://reurl.cc/yMKlzD"
 
 const checkScreen = () => {

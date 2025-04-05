@@ -6,6 +6,21 @@
     overflow: hidden;
   }
 
+  .content-description{
+    width: 50%;
+    @media screen and (max-width: $screen-md) {
+      width: 100%;
+    }
+  }
+
+  .content-description p{
+    display: flex;
+    justify-content: space-between;
+    &:hover{
+      border-bottom: 1px solid $--black;
+    }
+  }
+
   .cardWrapper {
     display: flex;
     justify-content: center;
@@ -25,7 +40,7 @@
       padding: 1rem;
       background: $--yellow-200;
       box-shadow: $--card-shadow-300;
-      transform: 0.5s ease-in-out;
+      transition: 0.5s ease-in-out;
       border-radius: 20px;
 
       @media screen and (max-width: $screen-md) {
@@ -79,7 +94,7 @@
         transition: 0.5s all;
         h2 {
           span {
-            font-size: .5rem;
+            font-size: 1rem;
             font-weight: bold;
             line-height: 10px;
           }

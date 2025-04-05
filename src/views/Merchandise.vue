@@ -6,7 +6,12 @@
       <h2 class="content-title">{{ merchandise.title }}</h2>
       <i class="strips-red"></i>
     </div>
-    <p class="content-description">{{ merchandise.content }}</p>
+    <div class="content-description">
+      <p class="item" v-for="(item, index) in merchandise.content" :key="index">
+        <span>{{ item.name }}</span>
+        <span class="cost">{{ item.cost }} 元</span>
+      </p>
+    </div>
     <!-- 各產品卡片內容 -->
     <!-- 寬版架構 -->
     <div class="cardWrapper" v-show="!mobile">
@@ -73,7 +78,12 @@ const checkScreen = () => {
   getDoc(merchandiseBlock)
     .then((response) => {
       merchandise.title = response.data().title
-      merchandise.content = response.data().content.replace(" ", "\n")
+      merchandise.content = response.data().content.map((item) => {
+        return {
+          name: item.name,
+          cost: item.cost
+        }
+      })
       cardItems.value = response.data().cards
     })
 })()
