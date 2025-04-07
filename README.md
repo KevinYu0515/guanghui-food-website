@@ -1,14 +1,34 @@
 ![example workflow](https://github.com/Kevin051596/guanghui-food-website/actions/workflows/main.yml/badge.svg)
 
-### 快速啟動
+## 快速啟動
 
-到 `package.json` 目錄，使用以下指令，即可快速看見在開發環境的網頁，預設 port 8090
+### 網站主體
+1. 複製 `.example.env` 一份 `.env`，並設定環境變數
+2. 到 `package.json` 目錄，使用以下指令，即可快速看見在開發環境的網頁，預設 port 8090
 ```
 npm install --legacy-peer-deps
 npm run serve
 ```
 
-### 注意事項
+### 使用 scraper
+- 方法一：直接使用 local 環境
+1. 要從 firebase 拿一份 secert 並將檔案命名為 `serviceAcountKey.json`，放至 python 目錄底下
+2. 安裝符合瀏覽器版本的 `chromedriver.exe`
+3. 在 python 目錄下使用指令
+```
+pip install -r requirements.txt
+python catch_news.py
+```
+
+- 方法二：Docker（在 linux 環境或 wsl 執行）
+1. 要從 firebase 拿一份 secert 並將檔案命名為 `serviceAcountKey.json`，放至 /home/[username]/service/guanghui/ 底下
+2. 在 python 目錄下新增 `.env`，並配置 `HOME=/home/[username]`
+3. 切到 python 目錄下使用指令
+```
+docker compose up -d
+```
+
+## 注意事項
 由於目前版本仍使用 vue-cli 打包，所以會有套件相依性問題，如下
 ```
 Conflicting peer dependency: swiper@8.4.7
@@ -19,13 +39,13 @@ npm error     vue-awesome-swiper@"^5.0.0" from the root project
 ```
 因此目前將 swiper 套件使用 6.8.4，vue-awesome-swiper 套件使用 5.0.0 解決目前問題。但此方法較不妥善，所以之後得將整份專案改以 vite 打包，並使用 swiper/vue(適用於 vue3） 的輪播工具解決此問題，而目前整份網頁專案採用 vue3 方式，雖然運行起來沒問題，但還是得換掉打包工具實驗能否解決套件衝突
 
-### ToDo
+## ToDo
 - [ ] 更換打包工具（vite）
 - [ ] 配置 dockerfile 給網頁主體
 - [ ] 測試爬蟲排程
 - [ ] 測試更新 image CICD
 
-### 相關技術介紹
+## 相關技術介紹
 <div>
 <img src="https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg" width="40" height="40"/>
 <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-original.svg" title="Firebase" alt="Firebase" width="40" height="40"/>
