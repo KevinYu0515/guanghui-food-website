@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { merchandiseBlock } from "../firebase"
+import { merchandiseBlock } from "@/firebase"
 import { getDoc } from "firebase/firestore"
 import { ref, onMounted, reactive } from "vue"
 

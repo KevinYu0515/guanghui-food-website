@@ -1,5 +1,5 @@
 <template>
-  <section id="news" v-show="true">
+  <section id="news" v-show="showNews">
     <img class="cloud-left" width="400" :src="require('@/assets/cloud2.png')"/>
     <img class="cloud-right" width="400" :src="require('@/assets/cloud2.png')"/>
     <div class="news-title">
@@ -16,26 +16,22 @@
 </template>
 
 <script setup>
-import { newsBlock } from "../firebase"
+import { newsBlock } from "@/firebase"
 import { getDoc } from "firebase/firestore"
-import newsJson from "../../python/news.json"
-import { reactive } from "vue"
+import { reactive, ref } from "vue"
 const news = reactive({
   title: "",
-  contents: [{ content: "", picture: "" }]
+  contents: []
 })
+const showNews = ref(false)
 
 ;(function () {
   getDoc(newsBlock)
     .then((response) => {
       news.title = response.data().title
-      if (newsJson.length) {
-        console.log(newsJson)
-        newsJson.forEach((item, index) => {
-          news.contents[index].date = item.date
-          news.contents[index].content = item.content
-        })
-      } else news.contents[0].content = response.data().content
+      news.contents = response.data().data
+      if (response.data().count === 0) showNews.value = false
+      else showNews.value = true
     })
 })()
 </script>
