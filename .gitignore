@@ -31,3 +31,5 @@ python/*.html
 database.rules.json
 .env
 package-lock.json
+scraper/*.json
+scraper/*.html

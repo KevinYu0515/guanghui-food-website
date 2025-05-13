@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  selenium-chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: selenium-chrome
+    shm_size: 1gb
+    ports:
+      - "4444:4444"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  python-app:
+    build: .
+    container_name: scraper
+    volumes:
+      - ./debug.html:/app/debug.html
+      - ${HOME}/service/guanghui/serviceAccountKey.json:/app/serviceAccountKey.json
+    environment:
+      - TZ=Asia/Taipei
+      - DEBUG=1
+      - LIMIT=7
+      - PYTHONUNBUFFERED=1
+      - SELENIUM_REMOTE_URL=http://selenium-chrome:4444/wd/hub
+    depends_on:
+      selenium-chrome:
+        condition: service_healthy
